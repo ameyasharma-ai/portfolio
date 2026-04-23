@@ -18,7 +18,7 @@ export function ParticleSphere() {
   function onLoad(spline: Application) {
     console.log('Spline loaded, trying setZoom...')
     setSplineApp(spline)
-    
+
     // Set initial zoom based on current screen size
     const zoomLevel = getZoomLevel()
     spline.setZoom(zoomLevel)
@@ -37,14 +37,14 @@ export function ParticleSphere() {
     }
 
     window.addEventListener('resize', handleResize)
-    
+
     return () => {
       window.removeEventListener('resize', handleResize)
     }
   }, [splineApp])
 
   return (
-    <Spline 
+    <Spline
       scene="/scene-f0f0f0.splinecode"
       onLoad={onLoad}
       style={{ width: '100%', height: '100%' }}

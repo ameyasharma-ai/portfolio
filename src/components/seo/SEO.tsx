@@ -24,10 +24,10 @@ interface SEOProps {
 }
 
 export const SEO: FC<SEOProps> = ({
-  title = "Stavros Symeonidis - Patent-Winning Full-Stack Developer",
+  title = "Ameya Sharma - Patent-Winning Full-Stack Developer",
   description = "Patent-winning full-stack developer specializing in AI automation, enterprise solutions, and production-ready systems. Building streamlined operations with React, TypeScript, Python, and cutting-edge AI technologies.",
-  keywords = "Stavros Symeonidis, Full-Stack Developer, AI Developer, React Developer, TypeScript, Python, Machine Learning, Patent Winner, CTO, AI Automation, Enterprise Solutions",
-  author = "Stavros Symeonidis",
+  keywords = "Ameya Sharma, Full-Stack Developer, AI Developer, React Developer, TypeScript, Python, Machine Learning, Patent Winner, CTO, AI Automation, Enterprise Solutions",
+  author = "Ameya Sharma",
   image = "https://www.stavrossymeonidis.dev/og-image.jpg",
   url = "https://www.stavrossymeonidis.dev",
   type = "website",
@@ -36,9 +36,9 @@ export const SEO: FC<SEOProps> = ({
   children
 }) => {
   // Construct the full title with branding
-  const fullTitle = title === "Stavros Symeonidis - Patent-Winning Full-Stack Developer" 
+  const fullTitle = title === "Ameya Sharma - Patent-Winning Full-Stack Developer" 
     ? title 
-    : `${title} | Stavros Symeonidis`;
+    : `${title} | Ameya Sharma`;
 
   return (
     <>
@@ -54,7 +54,7 @@ export const SEO: FC<SEOProps> = ({
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={image} />
-      <meta property="og:site_name" content="Stavros Symeonidis Portfolio" />
+      <meta property="og:site_name" content="Ameya Sharma Portfolio" />
       
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />

@@ -1,0 +1,83 @@
+# Portfolio Codebase Breakdown & Guide
+
+This document provides a detailed overview of your React/Vite portfolio codebase, explaining the role of each major directory and file, and providing a guide on how to edit the frontend information.
+
+## 1. High-Level Architecture
+This is a modern React application built with:
+- **Vite**: For fast development and building (\`vite.config.ts\`).
+- **TypeScript**: For strong typing (\`tsconfig.json\`).
+- **Tailwind CSS**: For styling (\`src/index.css\`, \`components.json\`).
+- **React Router**: For client-side routing (\`src/App.tsx\`).
+
+## 2. Directory & File Breakdown
+
+### \`src/\`
+The main source code directory.
+
+- **\`main.tsx\`**: The standard React entry point. It mounts the \`App\` component into the \`index.html\` DOM.
+- **\`App.tsx\`**: The core application shell. It sets up global providers (Theme, Smooth Scroll, SpeedInsights) and defines the routing structure. It smartly renders different applications (\`<DesktopApp />\` vs \`<MobileApp />\`) based on the user's device.
+- **\`index.css\`**: Contains global Tailwind CSS imports and custom global styling/CSS variables.
+
+### \`src/pages/\`
+Contains the top-level route components. These are essentially "container" components that assemble different sections together.
+- \`HomePage.tsx\` & \`MobileHomePage.tsx\`: Assemble the main landing page for desktop and mobile respectively.
+- \`CaseStudyDetailPage.tsx\`: Renders individual case studies dynamically.
+- \`PrivacyPolicyPage.tsx\`: Displays the privacy policy.
+
+### \`src/sections/\`
+The core of your site's content. The app is highly modularized, with each logical part of the page having its own folder (and often a separate folder for its mobile version).
+- **Examples**: \`about-me\`, \`case-studies\`, \`footer\`, \`home\`, \`how-i-work\`, \`skills\`.
+- **Structure**: Inside each section folder (e.g., \`src/sections/about-me/\`), you'll find an \`index.tsx\` file which is the main component for that section, and several sub-components (e.g., \`feature-card\`, \`achievement-card\`) that make up the section's layout.
+- **Content Sub-directories**: Some sections, like \`case-studies\`, have a \`content/\` subdirectory where they store specific data objects or video components to keep the main layout file clean.
+
+### \`src/components/\`
+Reusable UI components that are shared across different pages and sections.
+- **\`ui/\`**: Basic building blocks (buttons, inputs, etc., likely from shadcn/ui or similar).
+- **\`navigation/\`**: Navbar and menu components.
+- **\`providers/\`**: Context providers like \`theme-provider.tsx\` and \`smooth-scroll-provider.tsx\`.
+- **\`icons/\`**: Reusable SVG icon components.
+- **\`drawer/\`**: Global drawer/modal components.
+
+### \`src/constants/\` & \`src/content/\`
+- **\`constants/index.ts\`**: Stores global static configuration, such as \`navigationItems\` (which controls the navbar links).
+- **\`content/privacy-policy.ts\`**: Stores large blocks of text (like the entire Privacy Policy) to prevent component files from becoming too large and unreadable.
+
+### Other Utilities
+- **\`src/hooks/\`**: Custom React hooks (e.g., \`useBreakpoint\` to detect mobile vs. desktop).
+- **\`src/stores/\`**: Global state management (e.g., using Zustand or similar).
+- **\`src/utils/\`**: Helper functions and utility scripts.
+
+---
+
+## 3. How to Edit Information in the Frontend
+
+To update the text, images, or data on your website, you'll generally need to modify the files where the data is defined. The codebase uses a mix of hardcoded component text and centralized data files.
+
+### Global Navigation Links
+To change the links in your navbar or drawer:
+- Open \`src/constants/index.ts\`.
+- Modify the \`navigationItems\` array to update names, section links (\`#link\`), or mobile links.
+
+### Main Page Sections (Home, About Me, Skills, etc.)
+Most of the text on your site is written directly into the React components for each section.
+1. Identify the section you want to edit (e.g., the "About Me" section).
+2. Navigate to \`src/sections/about-me/index.tsx\`.
+3. Look for the text inside the JSX return statement. You will see components like:
+   \`<AchievementCard title={<>AI Forge<br />Cohort 5<br />Alumnus</>} description="12 out of 500+" />\`
+4. Simply change the string or text inside the tags (e.g., change "12 out of 500+" to "10 out of 500+").
+5. Note: If a section has a mobile counterpart (like \`about-me-mobile\`), make sure to update the text in \`src/sections/about-me-mobile/index.tsx\` as well so the experience is consistent across devices.
+
+### Case Studies
+Case study data is more structured and abstracted away from the layout code.
+- Navigate to \`src/sections/case-studies/content/\`.
+- You will find files like \`design-platform-data.tsx\` and \`advertising-platform-data.tsx\`.
+- Open these files to edit the specific details, tech stacks, bullet points, and descriptions for your portfolio projects.
+
+### Privacy Policy
+Because the Privacy Policy is a massive wall of text, it has been moved to its own file.
+- Open \`src/content/privacy-policy.ts\`.
+- Edit the strings inside the \`privacyPolicyContent\` and \`personalInfoCategories\` objects to update your legal text.
+
+### Images and Icons
+- **SVG Icons**: Usually stored as React components in \`src/components/icons/\` or directly imported from an \`assets\` folder.
+- **Images/Videos**: Stored in \`src/assets/\` or \`public/\`. If you add a new image to \`src/assets/\`, you can import it at the top of your component file: \`import myImage from '../../assets/myImage.png';\` and use it in an \`<img>\` tag.

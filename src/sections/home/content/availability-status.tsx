@@ -7,21 +7,21 @@ export function AvailabilityStatus() {
   useEffect(() => {
     const updateTime = () => {
       const now = new Date();
-      const ukTime = new Intl.DateTimeFormat('en-GB', {
-        timeZone: 'Europe/London',
+      const inTime = new Intl.DateTimeFormat('en-IN', {
+        timeZone: 'Asia/Kolkata',
         hour: '2-digit',
         minute: '2-digit',
         hour12: false
       }).format(now);
-      setCurrentTime(ukTime);
+      setCurrentTime(inTime);
     };
 
     // Update immediately
     updateTime();
-    
+
     // Update every minute
     const interval = setInterval(updateTime, 60000);
-    
+
     return () => clearInterval(interval);
   }, []);
 
@@ -55,10 +55,10 @@ export function AvailabilityStatus() {
           }}
         />
       </div>
-      
+
       {/* Mobile version (< 768px) */}
       <div className="flex items-center gap-2 md:hidden text-xs font-light">
-        <span>UK Based</span>
+        <span>India Based</span>
         <span>•</span>
         <span>Available everywhere</span>
         <span>•</span>
@@ -69,7 +69,7 @@ export function AvailabilityStatus() {
       <div className="hidden md:flex items-center gap-2">
         <span>Available now</span>
         <span>•</span>
-        <span>UK</span>
+        <span>IN</span>
         <span>•</span>
         <span>{currentTime}</span>
         <span>•</span>

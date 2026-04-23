@@ -6,7 +6,7 @@ export function FooterBottom() {
     <div className="flex flex-col md:flex-row items-center justify-between gap-6 pt-8 border-t border-border">
       {/* Left - Copyright */}
       <button className="font-body text-sm text-muted-foreground">
-        Copyright © 2025 Stavros Symeonidis
+        Copyright © 2026 Ameya Sharma
       </button>
 
       {/* Center - Social Links */}

@@ -1,15 +1,15 @@
 export const privacyPolicyContent = {
-    title: "PRIVACY POLICY",
-    lastUpdated: "Last updated September 24, 2025",
-    content: `This Privacy Notice for ______ ('we', 'us', or 'our'), describes how and why we might access, collect, store, use, and/or share (process) your personal information when you use our services ('Services'), including when you:
+  title: "PRIVACY POLICY",
+  lastUpdated: "Last updated April 23, 2026",
+  content: `This Privacy Notice for ______ ('we', 'us', or 'our'), describes how and why we might access, collect, store, use, and/or share (process) your personal information when you use our services ('Services'), including when you:
   
-  • Visit our website at http://www.stavrossymeonidis.dev or any website of ours that links to this Privacy Notice
+  • Visit our website at https://www.kolzo.in or any website of ours that links to this Privacy Notice
   
   • Use Full Stack Developer. Professional web development and design services, including full-stack development, UI/UX design, and technical consulting. We help businesses turn their vision into reality through custom digital solutions.
   
   • Engage with us in other related ways, including any sales, marketing, or events
   
-  **Questions or concerns?** Reading this Privacy Notice will help you understand your privacy rights and choices. We are responsible for making decisions about how your personal information is processed. If you do not agree with our policies and practices, please do not use our Services. If you still have any questions or concerns, please contact us at info@stavrossymeonidis.dev.
+  **Questions or concerns?** Reading this Privacy Notice will help you understand your privacy rights and choices. We are responsible for making decisions about how your personal information is processed. If you do not agree with our policies and practices, please do not use our Services. If you still have any questions or concerns, please contact us at sharmaameya999@gmail.com.
   
   ## SUMMARY OF KEY POINTS
   
@@ -183,7 +183,7 @@ export const privacyPolicyContent = {
   
   We do not knowingly collect, solicit data from, or market to children under 18 years of age or the equivalent age as specified by law in your jurisdiction, nor do we knowingly sell such personal information.
   
-  By using the Services, you represent that you are at least 18 or the equivalent age as specified by law in your jurisdiction or that you are the parent or guardian of such a minor and consent to such minor dependent's use of the Services. If we learn that personal information from users less than 18 years of age or the equivalent age as specified by law in your jurisdiction has been collected, we will deactivate the account and take reasonable measures to promptly delete such data from our records. If you become aware of any data we may have collected from children under age 18 or the equivalent age as specified by law in your jurisdiction, please contact us at info@stavrossymeonidis.dev.
+  By using the Services, you represent that you are at least 18 or the equivalent age as specified by law in your jurisdiction or that you are the parent or guardian of such a minor and consent to such minor dependent's use of the Services. If we learn that personal information from users less than 18 years of age or the equivalent age as specified by law in your jurisdiction has been collected, we will deactivate the account and take reasonable measures to promptly delete such data from our records. If you become aware of any data we may have collected from children under age 18 or the equivalent age as specified by law in your jurisdiction, please contact us at sharmaameya999@gmail.com.
   
   ## 9. WHAT ARE YOUR PRIVACY RIGHTS?
   
@@ -207,7 +207,7 @@ export const privacyPolicyContent = {
   
   Information sharing to subcontractors in support services, such as customer service, is permitted. All other use case categories exclude text messaging originator opt-in data and consent; this information will not be shared with third parties.
   
-  If you have questions or comments about your privacy rights, you may email us at info@stavrossymeonidis.dev.
+  If you have questions or comments about your privacy rights, you may email us at sharmaameya999@gmail.com.
   
   ## 10. CONTROLS FOR DO-NOT-TRACK FEATURES
   
@@ -272,7 +272,7 @@ export const privacyPolicyContent = {
   
   **How to Exercise Your Rights**
   
-  To exercise these rights, you can contact us by submitting a data subject access request, by emailing us at info@stavrossymeonidis.dev, or by referring to the contact details at the bottom of this document.
+  To exercise these rights, you can contact us by submitting a data subject access request, by emailing us at sharmaameya999@gmail.com, or by referring to the contact details at the bottom of this document.
   
   Under certain US state data protection laws, you can designate an authorised agent to make a request on your behalf. We may deny a request from an authorised agent that does not submit proof that they have been validly authorised to act on your behalf in accordance with applicable laws.
   
@@ -284,7 +284,7 @@ export const privacyPolicyContent = {
   
   **Appeals**
   
-  Under certain US state data protection laws, if we decline to take action regarding your request, you may appeal our decision by emailing us at info@stavrossymeonidis.dev. We will inform you in writing of any action taken or not taken in response to the appeal, including a written explanation of the reasons for the decisions. If your appeal is denied, you may submit a complaint to your state attorney general.
+  Under certain US state data protection laws, if we decline to take action regarding your request, you may appeal our decision by emailing us at sharmaameya999@gmail.com. We will inform you in writing of any action taken or not taken in response to the appeal, including a written explanation of the reasons for the decisions. If your appeal is denied, you may submit a complaint to your state attorney general.
   
   **California 'Shine The Light' Law**
   
@@ -327,12 +327,12 @@ export const privacyPolicyContent = {
   
   ## 14. HOW CAN YOU CONTACT US ABOUT THIS NOTICE?
   
-  If you have questions or comments about this notice, you may email us at info@stavrossymeonidis.dev or contact us by post at:
+  If you have questions or comments about this notice, you may email us at sharmaameya999@gmail.com or contact us by post at:
   
   ## 15. HOW CAN YOU REVIEW, UPDATE, OR DELETE THE DATA WE COLLECT FROM YOU?
   
   Based on the applicable laws of your country or state of residence in the US, you may have the right to request access to the personal information we collect from you, details about how we have processed it, correct inaccuracies, or delete your personal information. You may also have the right to withdraw your consent to our processing of your personal information. These rights may be limited in some circumstances by applicable law. To request to review, update, or delete your personal information, please fill out and submit a data subject access request.`
-  };
+};
 
 export const personalInfoCategories = [
   {

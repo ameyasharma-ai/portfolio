@@ -9,7 +9,7 @@ export function ProfileSection() {
       <CometCard className="w-64 flex-shrink-0 [@media(min-width:685px)]:ml-4">
         <img 
           src="/profile-dev.jpg" 
-          alt="Stavros Symeonidis" 
+          alt="Ameya Sharma" 
           className="w-full h-full object-cover rounded-2xl"
         />
       </CometCard>
@@ -23,7 +23,7 @@ export function ProfileSection() {
             duration={1.5}
             spread={5}
           >
-            Stavros Symeonidis
+            Ameya Sharma
           </TextShimmer>
         </h3>
         <p className="font-body text-sm font-light text-muted-foreground mb-4">

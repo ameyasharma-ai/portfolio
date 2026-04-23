@@ -21,7 +21,7 @@ export function DesignPlatformDetail() {
   };
 
   const handleGithubClick = () => {
-    window.open("https://github.com/techaras/lasi-ai-app", '_blank', 'noopener,noreferrer');
+    window.open("https://github.com/ameyasharma-ai/lasi-ai-app", '_blank', 'noopener,noreferrer');
   };
 
   const handleGetInTouchClick = () => {
@@ -50,14 +50,14 @@ export function DesignPlatformDetail() {
     <div className="max-w-5xl mx-auto py-12 px-6">
       {/* Back Button and GitHub Button */}
       <div className="flex items-center justify-between mb-8">
-        <button 
+        <button
           onClick={handleBackClick}
           className="inline-flex items-center gap-2 text-primary hover:underline cursor-pointer"
         >
           <ArrowLeft className="w-4 h-4" />
           Back
         </button>
-        
+
         <button
           onClick={handleGithubClick}
           className="inline-flex items-center gap-2 px-4 py-2 border border-border rounded-lg hover:border-ring transition-colors cursor-pointer"
@@ -98,7 +98,7 @@ export function DesignPlatformDetail() {
               <h2 className="font-heading text-2xl text-foreground mb-6">
                 {section.title}
               </h2>
-              
+
               {section.customComponent ? (
                 renderCustomComponent(section)
               ) : (
@@ -119,7 +119,7 @@ export function DesignPlatformDetail() {
                           <div className="font-body text-sm text-muted-foreground leading-relaxed">
                             {subsection.content.split('\n').map((line, lineIndex) => (
                               <p key={lineIndex} className="mb-1">
-                                {line.split('**').map((part, partIndex) => 
+                                {line.split('**').map((part, partIndex) =>
                                   partIndex % 2 === 1 ? <strong key={partIndex}>{part}</strong> : part
                                 )}
                               </p>
@@ -139,9 +139,9 @@ export function DesignPlatformDetail() {
         <div className="hidden md:block col-span-2 col-start-6">
           <nav className="sticky top-8 space-y-3">
             {designPlatformContent.sections.map((section) => (
-              <a 
+              <a
                 key={section.id}
-                href={`#${section.id}`} 
+                href={`#${section.id}`}
                 className="block font-body text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
                 {section.title}

@@ -7,7 +7,7 @@ import emailIcon from '../../../assets/email-icon.svg';
 export function ContactMethods() {
   const [copied, setCopied] = useState(false);
 
-  const email = "info@stavrossymeonidis.dev";
+  const email = "sharmaameya999@gmail.com";
 
   const handleCopyEmail = async () => {
     try {
@@ -20,11 +20,11 @@ export function ContactMethods() {
   };
 
   const handleLinkedInClick = () => {
-    window.open('https://www.linkedin.com/in/stav-symeonidis/', '_blank', 'noopener,noreferrer');
+    window.open('https://www.linkedin.com/in/ameyasharma999/', '_blank', 'noopener,noreferrer');
   };
 
   const handleGithubClick = () => {
-    window.open('https://github.com/techaras', '_blank', 'noopener,noreferrer');
+    window.open('https://github.com/ameyasharma-ai', '_blank', 'noopener,noreferrer');
   };
 
   return (
@@ -56,7 +56,7 @@ export function ContactMethods() {
           <LinkedinIcon className="w-6 h-6 text-background" />
         </div>
         <span className="font-body text-foreground flex-1 text-left">
-          stav-symeonidis
+          ameyasharma999
         </span>
         <button
           onClick={handleLinkedInClick}
@@ -73,7 +73,7 @@ export function ContactMethods() {
           <GithubIcon className="w-6 h-6 text-background" />
         </div>
         <span className="font-body text-foreground flex-1 text-left">
-          @techaras
+          @ameyasharma-ai
         </span>
         <button
           onClick={handleGithubClick}

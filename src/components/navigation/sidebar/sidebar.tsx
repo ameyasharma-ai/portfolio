@@ -24,7 +24,7 @@ export function Sidebar() {
       <div className="fixed top-7 left-6 z-50 md:hidden">
         <img 
           src={DevLogo} 
-          alt="Stavros Symeonidis Logo" 
+          alt="Ameya Sharma Logo" 
           className="w-12 h-12" 
         />
       </div>

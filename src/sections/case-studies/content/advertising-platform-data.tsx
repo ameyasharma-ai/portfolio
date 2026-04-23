@@ -36,7 +36,7 @@ export const advertisingPlatformData: CaseStudyData = {
       }
     ],
     buttons: {
-      githubUrl: "https://github.com/techaras/form-automation-dev/",
+      githubUrl: "https://github.com/ameyasharma-ai/form-automation-dev/",
       detailPath: "/case-studies/advertising-platform"
     }
   },

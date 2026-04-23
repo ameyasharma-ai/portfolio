@@ -4,7 +4,7 @@
  * @author: @dorian_baffier
  * @description: Smooth Drawer
  * @version: 1.0.0
- * @date: 2025-06-26
+ * @date: 2026-06-26
  * @license: MIT
  * @website: https://kokonutui.com
  * @github: https://github.com/kokonut-labs/kokonutui

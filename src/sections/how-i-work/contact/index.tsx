@@ -5,8 +5,8 @@ export function Contact() {
   const [copied, setCopied] = useState(false);
 
   // Original email for copy functionality
-  const originalEmail = "info@stavrossymeonidis.dev";
-  
+  const originalEmail = "sharmaameya999@gmail.com";
+
   // Email with invisible characters to prevent mobile auto-detection
   const emailDisplay = "info" + String.fromCharCode(8203) + "@" + String.fromCharCode(8203) + "stavrossymeonidis.dev";
 
@@ -23,11 +23,11 @@ export function Contact() {
   return (
     <div className="w-full h-full flex flex-col items-center justify-center text-center gap-4">
       <h3 className="font-heading text-lg [@media(min-width:414px)]:text-2xl mb-3 text-[#f2f2f2]">Let's work together</h3>
-      
+
       <div className="text-[#f2f2f2] text-xl font-light">
         EMAIL
       </div>
-      
+
       <div className="flex items-center gap-2">
         <button
           onClick={handleCopy}
