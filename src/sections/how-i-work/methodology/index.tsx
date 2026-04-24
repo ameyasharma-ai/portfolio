@@ -16,11 +16,12 @@ export function Methodology() {
 
   return (
     <div className="w-full h-full text-[#f2f2f2] flex flex-col">
-      <h3 className="font-heading text-xl mb-2">Methodology</h3>
+      <h3 className="font-heading text-xl mb-2">BUILD & SHIP FAST</h3>
       <p className="font-body text-sm text-[#b3b3b3] mb-7">
-        I use lightweight Agile delivery designed for SMEs and I'm available in
+        I work in fast iterations—design, build, ship, and refine.
+        No bloated processes, just clean execution and real results.
       </p>
-      
+
       {/* 2x3 Grid for < 353px, 3x2 Grid for >= 353px */}
       <div className="grid grid-cols-2 [@media(min-width:353px)]:grid-cols-3 gap-4 mb-4 flex-1 content-center">
         {/* First Row */}
@@ -36,7 +37,7 @@ export function Methodology() {
           <TeamsIcon className="w-9 h-9" />
           <span className="font-body text-sm text-[#b3b3b3] font-light">Teams</span>
         </div>
-        
+
         {/* Second Row */}
         <div className="flex flex-col items-center justify-center gap-2 w-full h-22 border border-[#353739] rounded-2xl hover:border-[#555759] transition-colors duration-300">
           <SlackIcon className="w-9 h-9" />
@@ -51,14 +52,14 @@ export function Methodology() {
           <span className="font-body text-sm text-[#b3b3b3] font-light">Trello</span>
         </div>
       </div>
-      
+
       {/* Request Channel Button */}
       <div className="mt-4">
-        <button 
+        <button
           onClick={handleRequestChannelClick}
           className="w-full px-6 py-2 border border-[#353739] rounded-full font-heading text-sm text-[#f2f2f2] hover:border-[#555759] transition-colors duration-300 cursor-pointer hover:opacity-80"
         >
-          Request Channel
+          START A PROJECT
         </button>
       </div>
     </div>

@@ -4,38 +4,65 @@ import { FastIcon } from "@/components/icons/focus/fast-icon";
 
 export function Focus() {
   return (
-    <div className="w-full h-full flex flex-col gap-4">
-      {/* First Row - Single wide box with two centered columns */}
-      <div className="bg-black border border-[#353739] rounded-3xl p-4 flex-[1] grid grid-cols-2 transition-all duration-300 hover:border-[#555759] hover:transform hover:-translate-y-1">
-        {/* Left Column - Icon centered */}
-        <div className="flex items-center justify-center mr-6">
-          <ResultsIcon className="w-26 h-26" />
+    <div className="w-full flex flex-col gap-4">
+
+      {/* RESULTS */}
+      <div className="bg-black border border-[#353739] rounded-3xl p-6 
+        flex flex-col md:flex-row items-center md:items-center gap-6
+        transition-all duration-300 hover:border-[#555759] hover:-translate-y-1">
+
+        {/* Icon */}
+        <div className="flex-shrink-0 flex items-center justify-center">
+          <ResultsIcon className="w-20 h-20 md:w-24 md:h-24" />
         </div>
-        
-        {/* Right Column - Text centered */}
-        <div className="flex items-center justify-center">
-          <div className="flex flex-col text-left mr-7">
-            <h4 className="font-heading text-[#f2f2f2] text-xl mb-2">Results</h4>
-            <p className="text-[#b3b3b3] font-light text-sm whitespace-nowrap">Enterprise solutions that<br />drive measurable results</p>
-          </div>
+
+        {/* Text */}
+        <div className="text-center md:text-left max-w-xl">
+          <h4 className="font-heading text-[#f2f2f2] text-lg md:text-xl mb-2">
+            RESULTS THAT MATTER
+          </h4>
+
+          <p className="text-[#b3b3b3] font-light text-sm md:text-base leading-relaxed">
+            I build high-performance applications that scale, convert, and actually get used.
+          </p>
         </div>
       </div>
-      
-      {/* Second Row - Two horizontal boxes */}
-      <div className="flex flex-row gap-4 flex-[2]">
-        {/* Left box - Secure */}
-        <div className="bg-black border border-[#353739] rounded-3xl p-4 flex-1 flex flex-col items-center justify-center text-center transition-all duration-300 hover:border-[#555759] hover:transform hover:-translate-y-1">
-          <SecureIcon className="w-14 h-14 mb-6" />
-          <h4 className="font-heading text-[#f2f2f2] text-lg mb-2">Secure</h4>
-          <p className="text-[#b3b3b3] font-light text-sm">Enterprise-grade<br />authentication in<br />every integration</p>
+
+      {/* SECOND ROW */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+        {/* SECURE */}
+        <div className="bg-black border border-[#353739] rounded-3xl p-6 
+          flex flex-col items-center text-center
+          transition-all duration-300 hover:border-[#555759] hover:-translate-y-1">
+
+          <SecureIcon className="w-12 h-12 md:w-14 md:h-14 mb-4" />
+
+          <h4 className="font-heading text-[#f2f2f2] text-lg mb-2">
+            BUILT SECURE
+          </h4>
+
+          <p className="text-[#b3b3b3] font-light text-sm md:text-base leading-relaxed max-w-xs">
+            Authentication, API protection, and production-grade best practices built in.
+          </p>
         </div>
-        
-        {/* Right box - Fast */}
-        <div className="bg-black border border-[#353739] rounded-3xl p-4 flex-1 flex flex-col items-center justify-center text-center transition-all duration-300 hover:border-[#555759] hover:transform hover:-translate-y-1">
-          <FastIcon className="w-14 h-14 mb-6" />
-          <h4 className="font-heading text-[#f2f2f2] text-lg mb-2">Fast</h4>
-          <p className="text-[#b3b3b3] font-light text-sm">6 to 12 week turn<br />around that ship<br />quality solutions</p>
+
+        {/* FAST */}
+        <div className="bg-black border border-[#353739] rounded-3xl p-6 
+          flex flex-col items-center text-center
+          transition-all duration-300 hover:border-[#555759] hover:-translate-y-1">
+
+          <FastIcon className="w-12 h-12 md:w-14 md:h-14 mb-4" />
+
+          <h4 className="font-heading text-[#f2f2f2] text-lg mb-2">
+            SHIP FAST
+          </h4>
+
+          <p className="text-[#b3b3b3] font-light text-sm md:text-base leading-relaxed max-w-xs">
+            From idea to production in weeks, with clean and scalable architecture.
+          </p>
         </div>
+
       </div>
     </div>
   );
