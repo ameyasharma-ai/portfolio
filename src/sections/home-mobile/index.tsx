@@ -35,7 +35,7 @@ export function MobileHome() {
             duration={1.5}
             spread={5}
           >
-            STREAMLINED OPERATIONS
+            Production Ready Systems
           </TextShimmer>
         </h1>
 

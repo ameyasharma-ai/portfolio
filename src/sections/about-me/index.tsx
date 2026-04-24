@@ -8,7 +8,7 @@ import { ProfileSection } from './profile-section';
 import { FeatureCard } from './feature-card';
 import { AvailabilityCard } from './availability-card';
 
-// Import SVG assets
+// Icons
 import zapIcon from '../../assets/zapIcon.svg';
 import rocketIcon from '../../assets/rocketIcon.svg';
 
@@ -20,167 +20,148 @@ export function AboutMe() {
       setIsLargeScreen(window.innerWidth >= 1381);
     };
 
-    // Check initial size
     checkScreenSize();
-
-    // Add resize listener
     window.addEventListener('resize', checkScreenSize);
-    
+
     return () => window.removeEventListener('resize', checkScreenSize);
   }, []);
 
   if (isLargeScreen) {
-    // Original 5x6 bento grid layout for screens >= 1381px
     return (
-      <section 
-        id="about-me" 
-        className="py-20 px-6 md:px-12 lg:px-16"
-      >
+      <section id="about-me" className="py-20 px-6 md:px-12 lg:px-16">
         <div className="w-full max-w-7xl mx-auto">
-          {/* 5x6 Bento Grid */}
           <div className="grid grid-cols-5 gap-4">
 
-            {/* Column 1, Row 1 - Streamline Processes */}
-            <SimpleTextCard text="Streamline Processes" />
+            {/* STRONGER TOP LEFT */}
+            <SimpleTextCard text="AUTOMATE WITH AI" />
 
-            {/* Column 2, Rows 1-2 - AI Forge */}
-            <AchievementCard 
-              title={<>AI Forge<br />Cohort 5<br />Alumnus</>}
-              description="12 out of 500+"
+            {/* ACHIEVEMENTS (sharper positioning) */}
+            <AchievementCard
+              title={<>TOP 2%<br />AI FORGE<br />COHORT 5</>}
+              description="Selected from 500+ applicants"
               className="row-span-2"
             />
 
-            {/* Column 3, Rows 1-2 - AI Patent */}
-            <AchievementCard 
-              title={<>AI Patent<br />Winner<br />2023</>}
-              description="IP Hatch Winner 2023"
+            <AchievementCard
+              title={<>PATENT<br />WINNER<br />2023</>}
+              description="IP Hatch Global Winner"
               className="row-span-2"
             />
 
-            {/* Column 4, Rows 1-2 - Sky Labs */}
-            <AchievementCard 
-              title={<>Sky Labs<br />Finalist<br />2022</>}
-              description="18 out of 250+"
+            <AchievementCard
+              title={<>TOP 7%<br />SKY LABS<br />FINALIST</>}
+              description="Out of 250+ teams"
               className="row-span-2"
             />
 
-            {/* Column 5, Rows 1-3 - Business-First Tech Leader */}
+            {/* QUOTE (already upgraded earlier) */}
             <QuoteCard />
 
-            {/* Column 1, Row 2 - Trusted by AccuraCast */}
+            {/* TRUST */}
             <TrustIndicator />
 
-            {/* Column 1, Rows 3-6 - Experience */}
+            {/* EXPERIENCE */}
             <ExperienceSection />
 
-            {/* Columns 2-4, Rows 3-5 - Image and Bio */}
+            {/* PROFILE (centerpiece) */}
             <ProfileSection />
 
-            {/* Column 5, Row 4 - Scalable solutions */}
-            <FeatureCard 
-              icon={zapIcon} 
-              text={<>Scalable<br/>Solutions</>}
-              altText="Scalable solutions"
+            {/* FEATURE CARDS (cleaner, sharper) */}
+            <FeatureCard
+              icon={zapIcon}
+              text={<>SCALABLE<br />SYSTEMS</>}
+              altText="Scalable systems"
               variant="text-left-icon-right"
             />
 
-            {/* Column 5, Row 5 - Prototype to Production */}
-            <FeatureCard 
-              icon={rocketIcon} 
-              text={<>Prototype<br/>to Production</>}
-              altText="Prototype to Production"
+            <FeatureCard
+              icon={rocketIcon}
+              text={<>IDEA →<br />PRODUCTION</>}
+              altText="Idea to production"
               variant="text-right-icon-left"
             />
 
-            {/* Columns 2-4, Row 6 - Accepting 2 new clients */}
+            {/* AVAILABILITY */}
             <AvailabilityCard />
 
-            {/* Column 5, Row 6 - Enterprise Compliance Standards */}
-            <SimpleTextCard text="Enterprise Compliance Standards" />
-            
+            {/* BOTTOM RIGHT */}
+            <SimpleTextCard text="PRODUCTION-READY ARCHITECTURE" />
+
           </div>
         </div>
       </section>
     );
   }
 
-  // Compact layout for screens < 1381px
+  // 🔽 MOBILE / TABLET VERSION
   return (
-    <section 
-      id="about-me" 
-      className="py-20 px-6 md:px-12 lg:px-16"
-    >
+    <section id="about-me" className="py-20 px-6 md:px-12 lg:px-16">
       <div className="w-full max-w-7xl mx-auto">
         <div className="flex flex-col gap-4">
-          
-          {/* Row 1: 3 AchievementCards */}
+
+          {/* ACHIEVEMENTS */}
           <div className="grid grid-cols-3 gap-4">
-            <AchievementCard 
-              title={<>AI Forge<br />Cohort 5<br />Alumnus</>}
-              description="12 out of 500+"
+            <AchievementCard
+              title={<>TOP 2%<br />AI FORGE</>}
+              description="500+ applicants"
             />
-            <AchievementCard 
-              title={<>AI Patent<br />Winner<br />2023</>}
-              description="IP Hatch Winner 2023"
+            <AchievementCard
+              title={<>PATENT<br />WINNER</>}
+              description="IP Hatch 2023"
             />
-            <AchievementCard 
-              title={<>Sky Labs<br />Finalist<br />2022</>}
-              description="18 out of 250+"
+            <AchievementCard
+              title={<>TOP 7%<br />SKY LABS</>}
+              description="250+ teams"
             />
           </div>
 
-          {/* Row 2: ProfileSection */}
+          {/* PROFILE */}
           <div className="w-full">
             <ProfileSection />
           </div>
 
-          {/* Row 3: 2 FeatureCards + 1 SimpleTextCard */}
+          {/* FEATURES */}
           <div className="flex flex-col gap-4">
-            {/* FeatureCards row */}
             <div className="grid grid-cols-2 [@media(min-width:1175px)]:grid-cols-3 gap-4">
-              <FeatureCard 
-                icon={rocketIcon} 
-                text={<>Prototype to<br/>Production</>}
-                altText="Prototype to Production"
+              <FeatureCard
+                icon={rocketIcon}
+                text={<>IDEA →<br />PRODUCTION</>}
+                altText="Idea to production"
                 variant="text-right-icon-left"
               />
-              <FeatureCard 
-                icon={zapIcon} 
-                text={<>Scalable<br/>Solutions</>}
-                altText="Scalable solutions"
+              <FeatureCard
+                icon={zapIcon}
+                text={<>SCALABLE<br />SYSTEMS</>}
+                altText="Scalable systems"
                 variant="text-left-icon-right"
               />
-              {/* SimpleTextCard only shows in this row on screens >= 1175px */}
+
               <div className="hidden [@media(min-width:1175px)]:block">
-                <SimpleTextCard text="Enterprise Compliance Standards" />
+                <SimpleTextCard text="PRODUCTION-READY ARCHITECTURE" />
               </div>
             </div>
-            
-            {/* SimpleTextCard on its own row for screens < 1175px */}
+
             <div className="[@media(min-width:1175px)]:hidden">
-              <SimpleTextCard text="Enterprise Compliance Standards" />
+              <SimpleTextCard text="PRODUCTION-READY ARCHITECTURE" />
             </div>
           </div>
 
-          {/* Row 4: Complex 2x3 grid */}
+          {/* QUOTE + TRUST */}
           <div className="grid grid-cols-3 grid-rows-2 gap-4">
-            {/* Column 1, Row 1 */}
             <div className="col-start-1 row-start-1">
-              <SimpleTextCard text="Streamline Processes" />
+              <SimpleTextCard text="AUTOMATE WITH AI" />
             </div>
-            
-            {/* Column 1, Row 2 */}
+
             <div className="col-start-1 row-start-2">
               <TrustIndicator />
             </div>
-            
-            {/* Columns 2-3, Rows 1-2 */}
+
             <div className="col-start-2 col-span-2 row-start-1 row-span-2">
               <QuoteCard />
             </div>
           </div>
 
-          {/* Row 5: ExperienceSection */}
+          {/* EXPERIENCE */}
           <div className="w-full">
             <ExperienceSection />
           </div>

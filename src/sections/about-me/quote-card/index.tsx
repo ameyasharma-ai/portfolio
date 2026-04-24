@@ -1,11 +1,12 @@
 export function QuoteCard() {
   return (
-    <div className="bento-no-min row-span-3 flex flex-col h-full">
+    <div className="bento-no-min row-span-3 flex flex-col h-full justify-center">
       <h3 className="font-heading text-md [@media(min-width:414px)]:text-lg text-foreground mb-4">
-        Business-First Tech Leader
+        BUSINESS-FIRST BUILDER
       </h3>
+
       <p className="font-body text-sm text-muted-foreground font-light leading-relaxed">
-        "From ML research to Co-Founder & CTO, I have learned that brilliant tech means nothing without business impact. Every system I build starts with one question: How will this move the business forward?"
+        I don’t build tech for the sake of it. I build systems that drive revenue, reduce cost, or unlock scale. Every solution starts with one question: <span className="text-foreground">“What business outcome does this create?”</span>
       </p>
     </div>
   );

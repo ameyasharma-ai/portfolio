@@ -66,7 +66,6 @@ export function GlobalDrawer() {
   const { isOpen, close } = useDrawerStore();
   const { isSubmitting, isSuccess, message, isSubmitSuccessful, onSubmit, reset } = useContactForm();
 
-  // Fireworks confetti effect
   useEffect(() => {
     if (isSubmitSuccessful && isSuccess) {
       const duration = 5 * 1000;
@@ -96,7 +95,6 @@ export function GlobalDrawer() {
         });
       }, 250);
 
-      // Cleanup function to clear interval if component unmounts
       return () => clearInterval(interval);
     }
   }, [isSubmitSuccessful, isSuccess]);
@@ -108,31 +106,31 @@ export function GlobalDrawer() {
   return (
     <Drawer open={isOpen} onOpenChange={(open) => !open && close()} repositionInputs={false}>
       <DrawerContent className="mx-2.5 max-w-none sm:max-w-fit sm:mx-auto p-4 sm:p-6 rounded-2xl shadow-xl">
-          <motion.div
-            variants={drawerVariants}
-            initial="hidden"
-            animate="visible"
-            className="mx-auto w-full max-w-[480px] space-y-4 sm:space-y-6"
-          >
+        <motion.div
+          variants={drawerVariants}
+          initial="hidden"
+          animate="visible"
+          className="mx-auto w-full max-w-[480px] space-y-4 sm:space-y-6"
+        >
           {/* Header */}
           <motion.div variants={itemVariants}>
             <DrawerHeader className="px-0 space-y-2.5 relative">
               <DrawerClose asChild>
-                <button 
+                <button
                   className="absolute -top-2 -right-2 p-2 hover:bg-accent rounded-full transition-colors"
                   aria-label="Close"
                 >
                   <X className="w-4 h-4" />
                 </button>
               </DrawerClose>
-              
+
               <DrawerTitle className="text-2xl font-heading tracking-tight mt-6">
-                {isSubmitSuccessful ? (isSuccess ? "Message sent!" : "Oops!") : "Let's work together"}
+                {isSubmitSuccessful ? (isSuccess ? "Message received" : "Something went wrong") : "Start a project"}
               </DrawerTitle>
-              
+
               {!isSubmitSuccessful && (
                 <p className="text-sm leading-relaxed text-muted-foreground font-body">
-                  Turn your vision into reality with a partner who truly understands what your business needs.
+                  If you're building something meaningful, let's talk. I focus on systems that actually ship and create real business impact.
                 </p>
               )}
             </DrawerHeader>
@@ -181,7 +179,7 @@ export function GlobalDrawer() {
                   <input
                     type="text"
                     name="name"
-                    placeholder="John Doe"
+                    placeholder="Your name"
                     required
                     className="w-full px-4 py-3 bg-background border border-border rounded-lg font-body text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-ring transition-colors"
                   />
@@ -195,7 +193,7 @@ export function GlobalDrawer() {
                   <input
                     type="email"
                     name="email"
-                    placeholder="john@example.com"
+                    placeholder="you@company.com"
                     required
                     className="w-full px-4 py-3 bg-background border border-border rounded-lg font-body text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-ring transition-colors"
                   />
@@ -204,27 +202,27 @@ export function GlobalDrawer() {
                 {/* Message Text Area */}
                 <motion.div variants={itemVariants}>
                   <label className="block font-body text-sm font-medium text-foreground mb-2">
-                    Message
+                    Project details
                   </label>
                   <textarea
                     name="message"
-                    placeholder="Tell me about your project..."
+                    placeholder="What are you building? What problem are you trying to solve?"
                     required
                     className="w-full px-4 py-3 bg-background border border-border rounded-lg font-body text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-ring transition-colors resize-none h-28 sm:h-36"
                   />
                 </motion.div>
 
-                {/* Send Button with DrawerFooter */}
+                {/* Send Button */}
                 <DrawerFooter className="flex flex-col gap-3 px-0">
                   <motion.div variants={itemVariants}>
-                    <RainbowButton 
+                    <RainbowButton
                       type="submit"
-                      size="lg" 
+                      size="lg"
                       className="w-full font-heading pt-0.5"
                       variant="outline"
                       disabled={isSubmitting}
                     >
-                      {isSubmitting ? "Sending..." : "Send a message"}
+                      {isSubmitting ? "Sending..." : "Start the conversation"}
                     </RainbowButton>
                   </motion.div>
                 </DrawerFooter>

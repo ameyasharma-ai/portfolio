@@ -6,7 +6,6 @@ import { useContactForm } from '@/hooks/useContactForm';
 export function ContactForm() {
   const { isSubmitting, isSuccess, message, isSubmitSuccessful, onSubmit } = useContactForm();
 
-  // Fireworks confetti effect
   useEffect(() => {
     if (isSubmitSuccessful && isSuccess) {
       const duration = 5 * 1000;
@@ -36,7 +35,6 @@ export function ContactForm() {
         });
       }, 250);
 
-      // Cleanup function to clear interval if component unmounts
       return () => clearInterval(interval);
     }
   }, [isSubmitSuccessful, isSuccess]);
@@ -51,7 +49,7 @@ export function ContactForm() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>
             </div>
-            <h3 className="font-heading text-xl text-foreground mb-2">Message sent!</h3>
+            <h3 className="font-heading text-xl text-foreground mb-2">You're in</h3>
             <p className="font-body text-muted-foreground mb-6">{message}</p>
           </>
         ) : (
@@ -61,7 +59,7 @@ export function ContactForm() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
             </div>
-            <h3 className="font-heading text-xl text-foreground mb-2">Something went wrong</h3>
+            <h3 className="font-heading text-xl text-foreground mb-2">Submission failed</h3>
             <p className="font-body text-muted-foreground mb-6">{message}</p>
           </>
         )}
@@ -79,7 +77,7 @@ export function ContactForm() {
         <input
           type="text"
           name="name"
-          placeholder="John Doe"
+          placeholder="Your name"
           required
           className="w-full px-4 py-3 bg-background border border-border rounded-lg font-body text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-ring transition-colors"
         />
@@ -93,7 +91,7 @@ export function ContactForm() {
         <input
           type="email"
           name="email"
-          placeholder="john@example.com"
+          placeholder="you@company.com"
           required
           className="w-full px-4 py-3 bg-background border border-border rounded-lg font-body text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-ring transition-colors"
         />
@@ -102,11 +100,11 @@ export function ContactForm() {
       {/* Message Text Area */}
       <div>
         <label className="block font-body text-sm font-medium text-foreground mb-2">
-          Message
+          Project details
         </label>
         <textarea
           name="message"
-          placeholder="Tell me about your project..."
+          placeholder="What are you building? What problem are you solving? What does success look like?"
           rows={8}
           required
           className="w-full px-4 py-3 bg-background border border-border rounded-lg font-body text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-ring transition-colors resize-none"
@@ -114,14 +112,14 @@ export function ContactForm() {
       </div>
 
       {/* Send Button */}
-      <RainbowButton 
+      <RainbowButton
         type="submit"
-        size="lg" 
+        size="lg"
         className="w-full font-heading pt-0.5"
         variant="outline"
         disabled={isSubmitting}
       >
-        {isSubmitting ? "Sending..." : "Send a message"}
+        {isSubmitting ? "Sending..." : "Start the conversation"}
       </RainbowButton>
     </form>
   );

@@ -7,17 +7,17 @@ export function ProfileSection() {
     <div className="bento-no-min col-span-3 row-span-3 flex flex-col items-center gap-8 [@media(min-width:685px)]:flex-row [@media(min-width:685px)]:items-center">
       {/* Profile Image with CometCard - top row on mobile, left side on desktop */}
       <CometCard className="w-64 flex-shrink-0 [@media(min-width:685px)]:ml-4">
-        <img 
-          src="/profile-dev.jpg" 
-          alt="Ameya Sharma" 
+        <img
+          src="/profile-dev.jpg"
+          alt="Ameya Sharma"
           className="w-full h-full object-cover rounded-2xl"
         />
       </CometCard>
-      
+
       {/* Text - bottom row on mobile, right side on desktop */}
       <div className="flex flex-col text-center [@media(min-width:685px)]:text-left [@media(min-width:685px)]:ml-4">
         <h3 className="font-heading text-2xl text-foreground mb-2">
-          <TextShimmer 
+          <TextShimmer
             as="span"
             className="dark:[--base-color:#f2f2f2] dark:[--base-gradient-color:#B2B2B2]"
             duration={1.5}
@@ -27,7 +27,7 @@ export function ProfileSection() {
           </TextShimmer>
         </h3>
         <p className="font-body text-sm font-light text-muted-foreground mb-4">
-          Patent-Winning AI Developer & CTO
+          AI SYSTEMS ENGINEER
         </p>
         <div className="flex justify-center [@media(min-width:685px)]:justify-start">
           <SocialLinks />
