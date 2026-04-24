@@ -2,8 +2,16 @@ import { useState, useEffect } from 'react';
 
 type Breakpoint = 'mobile' | 'tablet' | 'desktop';
 
+const getInitialBreakpoint = (): Breakpoint => {
+  if (typeof window === 'undefined') return 'desktop';
+  const width = window.innerWidth;
+  if (width < 768) return 'mobile';
+  if (width < 1024) return 'tablet';
+  return 'desktop';
+};
+
 export function useBreakpoint() {
-  const [breakpoint, setBreakpoint] = useState<Breakpoint>('desktop');
+  const [breakpoint, setBreakpoint] = useState<Breakpoint>(getInitialBreakpoint);
 
   useEffect(() => {
     const updateBreakpoint = () => {

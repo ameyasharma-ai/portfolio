@@ -7,25 +7,27 @@ export function Home() {
   return (
     <section 
       id="home" 
-      className="relative h-screen w-full overflow-hidden"
+      className="relative w-full min-h-[100svh] overflow-hidden flex flex-col bg-background"
     >
-      <div className="absolute inset-0 bg-background">
+      <div className="absolute inset-0 bg-background pointer-events-none">
         <ParticleSphere />
       </div>
 
-      {/* Desktop Layout */}
-      <div className="absolute inset-0 z-10 flex flex-col">
-        <div className="flex-1 flex items-center">
-          <HomeTitle />
+      {/* Main Layout Container */}
+      <div className="relative z-10 flex-1 flex flex-col w-full pb-6 md:pb-10 pt-24 md:pt-32 px-6 md:px-16 pointer-events-none">
+        
+        {/* Title Section (Flex grow, centers content, prevents overlap) */}
+        <div className="flex-1 flex flex-col justify-center w-full min-h-0 py-8">
+           <HomeTitle />
         </div>
-        <div className="flex-1 flex items-center mt-16">
-          <div className="w-full">
-            <HomeInfoGrid />
-          </div>
+
+        {/* Bottom Section (Fixed at bottom) */}
+        <div className="w-full flex-shrink-0 mt-auto">
+           <HomeInfoGrid>
+             <AvailabilityStatus />
+           </HomeInfoGrid>
         </div>
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
-          <AvailabilityStatus />
-        </div>
+
       </div>
     </section>
   )

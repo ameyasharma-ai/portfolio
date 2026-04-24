@@ -26,7 +26,7 @@ export function AvailabilityStatus() {
   }, []);
 
   return (
-    <div className="flex items-center justify-center gap-2 text-sm font-body text-[#b3b3b3] whitespace-nowrap">
+    <div className="flex items-center justify-center gap-1.5 xl:gap-2 text-xs lg:text-[11px] xl:text-sm font-body text-[#b3b3b3] whitespace-nowrap">
       {/* Animated green dot */}
       <div className="relative">
         <motion.div
@@ -57,7 +57,7 @@ export function AvailabilityStatus() {
       </div>
 
       {/* Mobile version (< 768px) */}
-      <div className="flex items-center gap-2 md:hidden text-xs font-light">
+      <div className="flex items-center gap-1.5 md:hidden text-xs font-light">
         <span>India Based</span>
         <span>•</span>
         <span>Available everywhere</span>
@@ -66,7 +66,7 @@ export function AvailabilityStatus() {
       </div>
 
       {/* Desktop version (>= 768px) */}
-      <div className="hidden md:flex items-center gap-2">
+      <div className="hidden md:flex items-center gap-1.5 xl:gap-2">
         <span>Available now</span>
         <span>•</span>
         <span>IN</span>
