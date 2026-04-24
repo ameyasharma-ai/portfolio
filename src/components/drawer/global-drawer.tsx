@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import confetti from 'canvas-confetti';
 import {
   Drawer,
@@ -11,7 +11,6 @@ import {
 import { motion, type Variants } from "framer-motion";
 import { X } from "lucide-react";
 import { useDrawerStore } from "@/stores/drawerStore";
-import { useContactForm } from "@/hooks/useContactForm";
 import RainbowButton from '@/components/magicui/rainbow-button';
 
 const drawerVariants: Variants = {
@@ -19,11 +18,7 @@ const drawerVariants: Variants = {
     y: "100%",
     opacity: 0,
     rotateX: 5,
-    transition: {
-      type: "spring",
-      stiffness: 300,
-      damping: 30,
-    },
+    transition: { type: "spring", stiffness: 300, damping: 30 },
   },
   visible: {
     y: 0,
@@ -44,28 +39,24 @@ const itemVariants: Variants = {
   hidden: {
     y: 20,
     opacity: 0,
-    transition: {
-      type: "spring",
-      stiffness: 300,
-      damping: 30,
-    },
+    transition: { type: "spring", stiffness: 300, damping: 30 },
   },
   visible: {
     y: 0,
     opacity: 1,
-    transition: {
-      type: "spring",
-      stiffness: 300,
-      damping: 30,
-      mass: 0.8,
-    },
+    transition: { type: "spring", stiffness: 300, damping: 30, mass: 0.8 },
   },
 };
 
 export function GlobalDrawer() {
   const { isOpen, close } = useDrawerStore();
-  const { isSubmitting, isSuccess, message, isSubmitSuccessful, onSubmit, reset } = useContactForm();
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitSuccessful, setIsSubmitSuccessful] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [message, setMessage] = useState("");
+
+  // Confetti
   useEffect(() => {
     if (isSubmitSuccessful && isSuccess) {
       const duration = 5 * 1000;
@@ -77,17 +68,16 @@ export function GlobalDrawer() {
 
       const interval = window.setInterval(() => {
         const timeLeft = animationEnd - Date.now();
-
-        if (timeLeft <= 0) {
-          return clearInterval(interval);
-        }
+        if (timeLeft <= 0) return clearInterval(interval);
 
         const particleCount = 50 * (timeLeft / duration);
+
         confetti({
           ...defaults,
           particleCount,
           origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 },
         });
+
         confetti({
           ...defaults,
           particleCount,
@@ -99,8 +89,41 @@ export function GlobalDrawer() {
     }
   }, [isSubmitSuccessful, isSuccess]);
 
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    const formData = new FormData(e.currentTarget);
+
+    try {
+      const res = await fetch("https://formspree.io/f/mnjllele", {
+        method: "POST",
+        body: formData,
+        headers: { Accept: "application/json" },
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        setIsSuccess(true);
+        setMessage("Thanks — I’ll get back to you shortly.");
+      } else {
+        setIsSuccess(false);
+        setMessage(data?.errors?.[0]?.message || "Something went wrong.");
+      }
+    } catch {
+      setIsSuccess(false);
+      setMessage("Network error. Please try again.");
+    }
+
+    setIsSubmitting(false);
+    setIsSubmitSuccessful(true);
+  };
+
   const handleReset = () => {
-    reset();
+    setIsSubmitSuccessful(false);
+    setIsSuccess(false);
+    setMessage("");
   };
 
   return (
@@ -125,7 +148,11 @@ export function GlobalDrawer() {
               </DrawerClose>
 
               <DrawerTitle className="text-2xl font-heading tracking-tight mt-6">
-                {isSubmitSuccessful ? (isSuccess ? "Message received" : "Something went wrong") : "Start a project"}
+                {isSubmitSuccessful
+                  ? isSuccess
+                    ? "Message received"
+                    : "Something went wrong"
+                  : "Start a project"}
               </DrawerTitle>
 
               {!isSubmitSuccessful && (
@@ -136,7 +163,7 @@ export function GlobalDrawer() {
             </DrawerHeader>
           </motion.div>
 
-          {/* Success/Error State */}
+          {/* Success / Error */}
           {isSubmitSuccessful && (
             <motion.div variants={itemVariants} className="flex flex-col items-center text-center">
               {isSuccess ? (
@@ -167,11 +194,14 @@ export function GlobalDrawer() {
             </motion.div>
           )}
 
-          {/* Contact Form */}
+          {/* Form */}
           {!isSubmitSuccessful && (
             <motion.div variants={itemVariants}>
-              <form onSubmit={onSubmit} className="flex flex-col gap-3 sm:gap-6">
-                {/* Name Field */}
+              <form onSubmit={handleSubmit} className="flex flex-col gap-3 sm:gap-6">
+
+                {/* Honeypot (anti-spam) */}
+                <input type="text" name="_gotcha" className="hidden" />
+
                 <motion.div variants={itemVariants}>
                   <label className="block font-body text-sm font-medium text-foreground mb-2">
                     Name
@@ -181,11 +211,10 @@ export function GlobalDrawer() {
                     name="name"
                     placeholder="Your name"
                     required
-                    className="w-full px-4 py-3 bg-background border border-border rounded-lg font-body text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-ring transition-colors"
+                    className="w-full px-4 py-3 bg-background border border-border rounded-lg"
                   />
                 </motion.div>
 
-                {/* Email Field */}
                 <motion.div variants={itemVariants}>
                   <label className="block font-body text-sm font-medium text-foreground mb-2">
                     Email
@@ -195,11 +224,10 @@ export function GlobalDrawer() {
                     name="email"
                     placeholder="you@company.com"
                     required
-                    className="w-full px-4 py-3 bg-background border border-border rounded-lg font-body text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-ring transition-colors"
+                    className="w-full px-4 py-3 bg-background border border-border rounded-lg"
                   />
                 </motion.div>
 
-                {/* Message Text Area */}
                 <motion.div variants={itemVariants}>
                   <label className="block font-body text-sm font-medium text-foreground mb-2">
                     Project details
@@ -208,11 +236,10 @@ export function GlobalDrawer() {
                     name="message"
                     placeholder="What are you building? What problem are you trying to solve?"
                     required
-                    className="w-full px-4 py-3 bg-background border border-border rounded-lg font-body text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-ring transition-colors resize-none h-28 sm:h-36"
+                    className="w-full px-4 py-3 bg-background border border-border rounded-lg resize-none h-28 sm:h-36"
                   />
                 </motion.div>
 
-                {/* Send Button */}
                 <DrawerFooter className="flex flex-col gap-3 px-0">
                   <motion.div variants={itemVariants}>
                     <RainbowButton

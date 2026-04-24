@@ -1,10 +1,12 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import confetti from 'canvas-confetti';
 import RainbowButton from '@/components/magicui/rainbow-button';
-import { useContactForm } from '@/hooks/useContactForm';
 
 export function ContactForm() {
-  const { isSubmitting, isSuccess, message, isSubmitSuccessful, onSubmit } = useContactForm();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitSuccessful, setIsSubmitSuccessful] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [message, setMessage] = useState("");
 
   useEffect(() => {
     if (isSubmitSuccessful && isSuccess) {
@@ -17,17 +19,16 @@ export function ContactForm() {
 
       const interval = window.setInterval(() => {
         const timeLeft = animationEnd - Date.now();
-
-        if (timeLeft <= 0) {
-          return clearInterval(interval);
-        }
+        if (timeLeft <= 0) return clearInterval(interval);
 
         const particleCount = 50 * (timeLeft / duration);
+
         confetti({
           ...defaults,
           particleCount,
           origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 },
         });
+
         confetti({
           ...defaults,
           particleCount,
@@ -38,6 +39,37 @@ export function ContactForm() {
       return () => clearInterval(interval);
     }
   }, [isSubmitSuccessful, isSuccess]);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    const formData = new FormData(e.currentTarget);
+
+    try {
+      const res = await fetch("https://formspree.io/f/mnjllele", {
+        method: "POST",
+        body: formData,
+        headers: { Accept: "application/json" },
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        setIsSuccess(true);
+        setMessage("You're in — I’ll get back to you shortly.");
+      } else {
+        setIsSuccess(false);
+        setMessage(data?.errors?.[0]?.message || "Something went wrong.");
+      }
+    } catch {
+      setIsSuccess(false);
+      setMessage("Network error. Please try again.");
+    }
+
+    setIsSubmitting(false);
+    setIsSubmitSuccessful(true);
+  };
 
   if (isSubmitSuccessful) {
     return (
@@ -68,7 +100,11 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} className="flex flex-col gap-6">
+    <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+
+      {/* Honeypot anti-spam */}
+      <input type="text" name="_gotcha" className="hidden" />
+
       {/* Name Field */}
       <div>
         <label className="block font-body text-sm font-medium text-foreground mb-2">
@@ -97,7 +133,7 @@ export function ContactForm() {
         />
       </div>
 
-      {/* Message Text Area */}
+      {/* Message */}
       <div>
         <label className="block font-body text-sm font-medium text-foreground mb-2">
           Project details
@@ -111,7 +147,7 @@ export function ContactForm() {
         />
       </div>
 
-      {/* Send Button */}
+      {/* Button */}
       <RainbowButton
         type="submit"
         size="lg"
