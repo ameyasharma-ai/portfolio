@@ -63,25 +63,16 @@ export function MobileNav({ onNavigationClick }: MobileNavProps) {
     }
   };
 
+  const openResume = () => {
+    window.open("/resume.pdf", "_blank");
+    onNavigationClick();
+  };
+
   return (
     <nav className="flex flex-col gap-2 flex-1 p-4">
       {navigationItems.map((item) => {
-        // Special handling for Contact item
-        if (item.name === "Contact") {
-          return (
-            <RainbowButton
-              key={item.name}
-              onClick={() => handleNavClick(item)}
-              size="lg"
-              className="w-full font-heading pt-0.5 text-md mt-4"
-              variant="outline"
-            >
-              {item.name}
-            </RainbowButton>
-          );
-        }
+        if (item.name === "Contact") return null;
 
-        // Regular navigation items
         return (
           <button
             key={item.name}
@@ -92,6 +83,28 @@ export function MobileNav({ onNavigationClick }: MobileNavProps) {
           </button>
         );
       })}
+
+      <button
+        onClick={openResume}
+        className="flex items-center gap-3 py-3 text-xl font-heading text-foreground rounded-lg transition-all hover:bg-accent/50 hover:text-accent-foreground focus:bg-accent/50 focus:text-accent-foreground focus:outline-none border-b rounded-s-none rounded-e-none text-left cursor-pointer text-primary"
+      >
+        <span>My Resume</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-external-link"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+      </button>
+
+      {navigationItems
+        .filter((item) => item.name === "Contact")
+        .map((item) => (
+          <RainbowButton
+            key={item.name}
+            onClick={() => handleNavClick(item)}
+            size="lg"
+            className="w-full font-heading pt-0.5 text-md mt-4"
+            variant="outline"
+          >
+            {item.name}
+          </RainbowButton>
+        ))}
     </nav>
   );
 }

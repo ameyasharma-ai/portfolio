@@ -1,12 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import confetti from 'canvas-confetti';
 import RainbowButton from '@/components/magicui/rainbow-button';
+import { useSubmitForm } from '@/hooks/useSubmitForm';
 
 export function ContactForm() {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitSuccessful, setIsSubmitSuccessful] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
-  const [message, setMessage] = useState("");
+  const { isSubmitting, isSubmitSuccessful, isSuccess, message, handleSubmit } = useSubmitForm();
 
   useEffect(() => {
     if (isSubmitSuccessful && isSuccess) {
@@ -39,37 +37,6 @@ export function ContactForm() {
       return () => clearInterval(interval);
     }
   }, [isSubmitSuccessful, isSuccess]);
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    const formData = new FormData(e.currentTarget);
-
-    try {
-      const res = await fetch("https://formspree.io/f/mnjllele", {
-        method: "POST",
-        body: formData,
-        headers: { Accept: "application/json" },
-      });
-
-      const data = await res.json();
-
-      if (res.ok) {
-        setIsSuccess(true);
-        setMessage("You're in — I’ll get back to you shortly.");
-      } else {
-        setIsSuccess(false);
-        setMessage(data?.errors?.[0]?.message || "Something went wrong.");
-      }
-    } catch {
-      setIsSuccess(false);
-      setMessage("Network error. Please try again.");
-    }
-
-    setIsSubmitting(false);
-    setIsSubmitSuccessful(true);
-  };
 
   if (isSubmitSuccessful) {
     return (

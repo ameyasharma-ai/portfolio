@@ -8,7 +8,9 @@ export function ParticleSphere() {
   // Function to get appropriate zoom level based on screen size
   const getZoomLevel = () => {
     const width = window.innerWidth
-    if (width < 1024) { // Tablet (md to lg breakpoint)
+    if (width < 768) { // Mobile
+      return 0.8
+    } else if (width < 1024) { // Tablet (md to lg breakpoint)
       return 1.2
     } else { // Desktop
       return 1.6

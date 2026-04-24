@@ -11,6 +11,7 @@ import {
 import { motion, type Variants } from "framer-motion";
 import { X } from "lucide-react";
 import { useDrawerStore } from "@/stores/drawerStore";
+import { useSubmitForm } from "@/hooks/useSubmitForm";
 import RainbowButton from '@/components/magicui/rainbow-button';
 
 const drawerVariants: Variants = {
@@ -50,11 +51,7 @@ const itemVariants: Variants = {
 
 export function GlobalDrawer() {
   const { isOpen, close } = useDrawerStore();
-
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitSuccessful, setIsSubmitSuccessful] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
-  const [message, setMessage] = useState("");
+  const { isSubmitting, isSubmitSuccessful, isSuccess, message, handleSubmit, resetFormState } = useSubmitForm();
 
   // Confetti
   useEffect(() => {
@@ -88,43 +85,6 @@ export function GlobalDrawer() {
       return () => clearInterval(interval);
     }
   }, [isSubmitSuccessful, isSuccess]);
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    const formData = new FormData(e.currentTarget);
-
-    try {
-      const res = await fetch("https://formspree.io/f/mnjllele", {
-        method: "POST",
-        body: formData,
-        headers: { Accept: "application/json" },
-      });
-
-      const data = await res.json();
-
-      if (res.ok) {
-        setIsSuccess(true);
-        setMessage("Thanks — I’ll get back to you shortly.");
-      } else {
-        setIsSuccess(false);
-        setMessage(data?.errors?.[0]?.message || "Something went wrong.");
-      }
-    } catch {
-      setIsSuccess(false);
-      setMessage("Network error. Please try again.");
-    }
-
-    setIsSubmitting(false);
-    setIsSubmitSuccessful(true);
-  };
-
-  const handleReset = () => {
-    setIsSubmitSuccessful(false);
-    setIsSuccess(false);
-    setMessage("");
-  };
 
   return (
     <Drawer open={isOpen} onOpenChange={(open) => !open && close()} repositionInputs={false}>
@@ -184,7 +144,7 @@ export function GlobalDrawer() {
                   </div>
                   <p className="font-body text-muted-foreground mb-6">{message}</p>
                   <button
-                    onClick={handleReset}
+                    onClick={resetFormState}
                     className="font-body text-primary hover:text-primary/80 transition-colors"
                   >
                     Try again

@@ -1,38 +1,76 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/dev-favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-    <!-- Additional SEO Meta Tags -->
-    <meta name="theme-color" content="#000000" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-REL506SVBT"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/dev-favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-      gtag('config', 'G-REL506SVBT');
+  <!-- Additional SEO Meta Tags -->
+  <meta name="theme-color" content="#000000" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-REL506SVBT"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-REL506SVBT');
+  </script>
+
+  <!-- Preconnect to external domains -->
+  <link rel="preconnect" href="https://www.googletagmanager.com" />
+  <link rel="preconnect" href="https://fonts.cdnfonts.com" />
+  <link rel="dns-prefetch" href="https://fonts.cdnfonts.com" />
+
+  <!-- Font imports -->
+  <link href="https://fonts.cdnfonts.com/css/inter" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/azonix" rel="stylesheet">
+
+  <title>Ameya Sharma — AI Systems Engineer & Business-First Builder</title>
+  <meta name="description"
+    content="I design and build AI-powered systems that move your business forward — from first idea to production-ready reality. Specializing in Next.js, Node.js, and AI integrations." />
+
+  <!-- OpenGraph Meta Tags for Social Media / Slack / Discord Preview -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Ameya Sharma — AI Systems Engineer & Business-First Builder" />
+  <meta property="og:description"
+    content="I design and build AI-powered systems that move your business forward — from first idea to production-ready reality." />
+  <meta property="og:url" content="https://www.kolzo.in" />
+  <meta property="og:site_name" content="Ameya Sharma Portfolio" />
+  <!-- Ensure you upload a 1200x630 image to public/og-image.jpg or change this URL -->
+  <meta property="og:image" content="https://www.kolzo.in/profile-dev.jpg" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Ameya Sharma — AI Systems Engineer" />
+  <meta name="twitter:description" content="I design and build AI-powered systems that move your business forward." />
+  <meta name="twitter:image" content="https://www.kolzo.in/profile-dev.jpg" />
+
+  <!-- JSON-LD Structured Data for Google -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Ameya Sharma",
+      "jobTitle": "AI Systems Engineer",
+      "url": "https://www.kolzo.in/",
+      "image": "https://www.kolzo.in/profile-dev.jpg",
+      "sameAs": [
+        "https://www.linkedin.com/in/ameya-sharma/",
+        "https://github.com/sharmaameya999"
+      ],
+      "description": "I design and build AI-powered systems that move your business forward — from first idea to production-ready reality."
+    }
     </script>
+</head>
 
-    <!-- Preconnect to external domains -->
-    <link rel="preconnect" href="https://www.googletagmanager.com" />
-    <link rel="preconnect" href="https://fonts.cdnfonts.com" />
-    <link rel="dns-prefetch" href="https://fonts.cdnfonts.com" />
-    
-    <!-- Font imports -->
-    <link href="https://fonts.cdnfonts.com/css/inter" rel="stylesheet">
-    <link href="https://fonts.cdnfonts.com/css/azonix" rel="stylesheet">
-    
-    <title>Ameya Sharma</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+
 </html>

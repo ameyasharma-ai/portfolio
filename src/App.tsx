@@ -32,6 +32,8 @@ function MobileApp() {
   );
 }
 
+import { WhatsAppButton } from "@/components/ui/whatsapp-button";
+
 function App() {
   const { isMobile } = useBreakpoint();
 
@@ -40,6 +42,7 @@ function App() {
       <SvgFilters />
       {isMobile ? <MobileApp /> : <DesktopApp />}
       <GlobalDrawer />
+      <WhatsAppButton />
       <SpeedInsights />
     </ThemeProvider>
   );

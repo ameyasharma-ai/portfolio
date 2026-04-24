@@ -6,7 +6,7 @@ export function Footer() {
   return (
     <section 
       id="footer" 
-      className="pt-20 pb-8 px-6 md:px-12 lg:px-16"
+      className="pt-20 pb-28 px-6 md:px-12 lg:px-16"
     >
       <div className="w-full max-w-7xl mx-auto">
         {/* Main Content Grid */}
