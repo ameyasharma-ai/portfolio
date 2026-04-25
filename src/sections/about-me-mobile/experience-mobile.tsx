@@ -48,7 +48,7 @@ export function ExperienceMobile() {
           {firstRow.map((skill, index) => (
             <div 
               key={index}
-              className="relative min-h-52 min-w-60 border border-[#353739] rounded-[2rem] font-body text-sm text-muted-foreground text-center flex items-center justify-center flex-shrink-0 flex-col gap-3 pb-6"
+              className="relative min-h-52 min-w-60 border border-border rounded-[2rem] font-body text-sm text-muted-foreground text-center flex items-center justify-center flex-shrink-0 flex-col gap-3 pb-6"
             >
               {/* Bottom stripe with horizontal text */}
               <div className="absolute -left-px -right-px -bottom-px h-8 bg-[#353739] rounded-b-[2rem] flex items-center justify-center">
@@ -76,7 +76,7 @@ export function ExperienceMobile() {
           {secondRow.map((skill, index) => (
             <div 
               key={index + 5}
-              className="relative min-h-52 min-w-60 border border-[#353739] rounded-[2rem] font-body text-sm text-muted-foreground text-center flex items-center justify-center flex-shrink-0 flex-col gap-3 pb-6"
+              className="relative min-h-52 min-w-60 border border-border rounded-[2rem] font-body text-sm text-muted-foreground text-center flex items-center justify-center flex-shrink-0 flex-col gap-3 pb-6"
             >
               {/* Bottom stripe with horizontal text */}
               <div className="absolute -left-px -right-px -bottom-px h-8 bg-[#353739] rounded-b-[2rem] flex items-center justify-center">

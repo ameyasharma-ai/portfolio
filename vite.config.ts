@@ -52,7 +52,9 @@ export default defineConfig({
         manualChunks: {
           'react-vendor': ['react', 'react-dom', 'react-router'],
           'animation-vendor': ['framer-motion', 'gsap'],
-          'three-vendor': ['three', '@react-three/fiber', '@react-three/drei']
+          'three-vendor': ['three', '@react-three/fiber', '@react-three/drei'],
+          'physics-vendor': ['@react-three/rapier', 'matter-js'],
+          'spline-vendor': ['@splinetool/react-spline', '@splinetool/runtime']
         }
       }
     }

@@ -59,7 +59,7 @@ export function Sidebar() {
               {/* Close Button */}
               <button
                 onClick={() => setIsOpen(false)}
-                className="flex items-center gap-3 px-3 py-1.5 bg-black border border-border rounded-md hover:bg-gray-900 transition-colors"
+                className="flex items-center gap-3 px-3 py-1.5 bg-card border border-border rounded-md hover:bg-gray-900 transition-colors"
                 aria-label="Close menu"
               >
                 <X className="w-4 h-4" style={{ color: '#b3b3b3' }} />

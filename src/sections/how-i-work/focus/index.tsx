@@ -7,9 +7,9 @@ export function Focus() {
     <div className="w-full flex flex-col gap-4">
 
       {/* RESULTS */}
-      <div className="bg-black border border-[#353739] rounded-3xl p-6 
+      <div className="bg-card border border-border rounded-3xl p-6 
         flex flex-col md:flex-row items-center md:items-center gap-6
-        transition-all duration-300 hover:border-[#555759] hover:-translate-y-1">
+        transition-all duration-300 hover:border-ring hover:-translate-y-1">
 
         {/* Icon */}
         <div className="flex-shrink-0 flex items-center justify-center">
@@ -32,9 +32,9 @@ export function Focus() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
 
         {/* SECURE */}
-        <div className="bg-black border border-[#353739] rounded-3xl p-6 
+        <div className="bg-card border border-border rounded-3xl p-6 
           flex flex-col items-center text-center
-          transition-all duration-300 hover:border-[#555759] hover:-translate-y-1">
+          transition-all duration-300 hover:border-ring hover:-translate-y-1">
 
           <SecureIcon className="w-12 h-12 md:w-14 md:h-14 mb-4" />
 
@@ -48,9 +48,9 @@ export function Focus() {
         </div>
 
         {/* FAST */}
-        <div className="bg-black border border-[#353739] rounded-3xl p-6 
+        <div className="bg-card border border-border rounded-3xl p-6 
           flex flex-col items-center text-center
-          transition-all duration-300 hover:border-[#555759] hover:-translate-y-1">
+          transition-all duration-300 hover:border-ring hover:-translate-y-1">
 
           <FastIcon className="w-12 h-12 md:w-14 md:h-14 mb-4" />
 

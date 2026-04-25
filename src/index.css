@@ -93,24 +93,24 @@
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
+  --background: oklch(0.99 0.005 260);
+  --foreground: oklch(0.15 0.02 260);
+  --card: oklch(0.99 0.005 260);
+  --card-foreground: oklch(0.15 0.02 260);
+  --popover: oklch(0.99 0.005 260);
+  --popover-foreground: oklch(0.15 0.02 260);
+  --primary: oklch(0.15 0.02 260);
+  --primary-foreground: oklch(0.98 0 0);
+  --secondary: oklch(0.95 0.01 260);
+  --secondary-foreground: oklch(0.25 0.03 260);
+  --muted: oklch(0.95 0.01 260);
+  --muted-foreground: oklch(0.45 0.02 260);
+  --accent: oklch(0.95 0.01 260);
+  --accent-foreground: oklch(0.25 0.03 260);
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
+  --border: oklch(0.90 0.01 260);
+  --input: oklch(0.90 0.01 260);
+  --ring: oklch(0.15 0.02 260);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -132,24 +132,24 @@
 }
 
 .dark {
-  --background: oklch(0 0 0);
+  --background: oklch(0 0 0); /* Pure Black */
   --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
+  --card: oklch(0 0 0);
   --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
+  --popover: oklch(0 0 0);
   --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
+  --primary: oklch(0.985 0 0); /* Pure White Accent */
+  --primary-foreground: oklch(0 0 0);
+  --secondary: oklch(0.15 0 0);
   --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.7668 0 0);
-  --accent: oklch(0.269 0 0);
+  --muted: oklch(0.15 0 0);
+  --muted-foreground: oklch(0.65 0 0);
+  --accent: oklch(0.15 0 0);
   --accent-foreground: oklch(0.985 0 0);
   --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(0.3356 0.0045 247.96);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
+  --border: oklch(0.18 0 0);
+  --input: oklch(0.18 0 0);
+  --ring: oklch(0.985 0 0);
   --chart-1: oklch(0.488 0.243 264.376);
   --chart-2: oklch(0.696 0.17 162.48);
   --chart-3: oklch(0.769 0.188 70.08);
@@ -233,31 +233,39 @@
 
 /* Bento Grid Square Styling */
 .bento-square {
-  background-color: #000000;
-  border: 1px solid #353739;
+  background-color: var(--color-card);
+  border: 1px solid var(--color-border);
   border-radius: 2rem;
   padding: 2rem;
   min-height: 200px;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .bento-square:hover {
-  border-color: #555759;
-  transform: translateY(-2px);
+  border-color: oklch(0.3 0 0);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(255, 255, 255, 0.03);
 }
 
 /* Bento Grid Square Styling without minimum height */
 .bento-no-min {
-  background-color: #000000;
-  border: 1px solid #353739;
+  background-color: var(--color-card);
+  border: 1px solid var(--color-border);
   border-radius: 2rem;
   padding: 2rem;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .bento-no-min:hover {
-  border-color: #555759;
-  transform: translateY(-2px);
+  border-color: oklch(0.3 0 0);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(255, 255, 255, 0.03);
 }
 
 /* Remove focus rings on dialog triggers and close buttons */
@@ -286,12 +294,12 @@
   content: '';
   position: absolute;
   inset: 0;
-  border: 1px solid #353739;
+  border: 1px solid var(--color-border);
   border-radius: 2rem;
-  background-color: #000000;
+  background-color: var(--color-card);
   background-image: 
-    linear-gradient(rgba(53, 55, 57) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(53, 55, 57) 1px, transparent 1px);
+    linear-gradient(var(--color-border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-border) 1px, transparent 1px);
   background-size: 60px 60px;
   background-position: -20px 30px;
   -webkit-mask-image: radial-gradient(ellipse 85% 85% at 50% 100%, #000 60%, transparent 100%);

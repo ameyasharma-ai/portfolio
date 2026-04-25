@@ -48,7 +48,7 @@ export function Skills() {
           </p>
           <button 
             onClick={handleLetsTalkClick}
-            className="px-6 pt-2 pb-1 border border-[#353739] rounded-full font-heading text-sm text-foreground hover:border-[#555759] transition-colors duration-300 cursor-pointer hover:opacity-80"
+            className="px-6 pt-2 pb-1 border border-border rounded-full font-heading text-sm text-foreground hover:border-ring transition-colors duration-300 cursor-pointer hover:opacity-80"
           >
             LET'S TALK
           </button>

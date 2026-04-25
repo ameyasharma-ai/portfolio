@@ -11,7 +11,7 @@ export function PrivacyPolicyPage() {
   }, []);
 
   return (
-    <div className="min-h-screen w-full bg-black relative">
+    <div className="min-h-screen w-full bg-card relative">
       {/* Vercel Grid */}
       <div
         className="fixed inset-0 opacity-30"

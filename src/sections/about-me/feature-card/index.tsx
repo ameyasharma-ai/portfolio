@@ -38,7 +38,7 @@ export function FeatureCard({
   if (isLargeScreen) {
     // Original layout for screens >= 1381px
     return (
-      <div className={`bg-black border border-[#353739] rounded-[2rem] h-36 transition-all duration-300 p-4 overflow-hidden relative hover:border-[#555759] hover:-translate-y-0.5 ${className}`}>
+      <div className={`bg-card border border-border rounded-[2rem] h-36 transition-all duration-300 p-4 overflow-hidden relative hover:border-ring hover:-translate-y-0.5 ${className}`}>
         <div className="w-full h-full flex flex-col justify-between relative z-10">
           {/* Text positioning */}
           {isTextLeftIconRight ? (
@@ -74,7 +74,7 @@ export function FeatureCard({
 
   // New layout for screens < 1381px: icon left, text right, both centered
   return (
-    <div className={`bg-black border border-[#353739] rounded-[2rem] h-36 transition-all duration-300 p-4 overflow-hidden relative hover:border-[#555759] hover:-translate-y-0.5 ${className}`}>
+    <div className={`bg-card border border-border rounded-[2rem] h-36 transition-all duration-300 p-4 overflow-hidden relative hover:border-ring hover:-translate-y-0.5 ${className}`}>
       <div className="w-full h-full flex items-center justify-center gap-4">
         {/* Icon on the left */}
         <div className="flex items-center justify-center flex-shrink-0">

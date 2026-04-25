@@ -25,29 +25,29 @@ export function Methodology() {
       {/* 2x3 Grid for < 353px, 3x2 Grid for >= 353px */}
       <div className="grid grid-cols-2 [@media(min-width:353px)]:grid-cols-3 gap-4 mb-4 flex-1 content-center">
         {/* First Row */}
-        <div className="flex flex-col items-center justify-center gap-2 w-full h-22 border border-[#353739] rounded-2xl hover:border-[#555759] transition-colors duration-300">
+        <div className="flex flex-col items-center justify-center gap-2 w-full h-22 border border-border rounded-2xl hover:border-ring transition-colors duration-300">
           <EmailIcon className="w-9 h-9" />
           <span className="font-body text-sm text-[#b3b3b3] font-light">Email</span>
         </div>
-        <div className="flex flex-col items-center justify-center gap-2 w-full h-22 border border-[#353739] rounded-2xl hover:border-[#555759] transition-colors duration-300">
+        <div className="flex flex-col items-center justify-center gap-2 w-full h-22 border border-border rounded-2xl hover:border-ring transition-colors duration-300">
           <VideoIcon className="w-9 h-9" />
           <span className="font-body text-sm text-[#b3b3b3] font-light">Video</span>
         </div>
-        <div className="flex flex-col items-center justify-center gap-2 w-full h-22 border border-[#353739] rounded-xl hover:border-[#555759] transition-colors duration-300">
+        <div className="flex flex-col items-center justify-center gap-2 w-full h-22 border border-border rounded-xl hover:border-ring transition-colors duration-300">
           <TeamsIcon className="w-9 h-9" />
           <span className="font-body text-sm text-[#b3b3b3] font-light">Teams</span>
         </div>
 
         {/* Second Row */}
-        <div className="flex flex-col items-center justify-center gap-2 w-full h-22 border border-[#353739] rounded-2xl hover:border-[#555759] transition-colors duration-300">
+        <div className="flex flex-col items-center justify-center gap-2 w-full h-22 border border-border rounded-2xl hover:border-ring transition-colors duration-300">
           <SlackIcon className="w-9 h-9" />
           <span className="font-body text-sm text-[#b3b3b3] font-light">Slack</span>
         </div>
-        <div className="flex flex-col items-center justify-center gap-2 w-full h-22 border border-[#353739] rounded-2xl hover:border-[#555759] transition-colors duration-300">
+        <div className="flex flex-col items-center justify-center gap-2 w-full h-22 border border-border rounded-2xl hover:border-ring transition-colors duration-300">
           <AsanaIcon className="w-9 h-9" />
           <span className="font-body text-sm text-[#b3b3b3] font-light">Asana</span>
         </div>
-        <div className="flex flex-col items-center justify-center gap-2 w-full h-22 border border-[#353739] rounded-2xl hover:border-[#555759] transition-colors duration-300">
+        <div className="flex flex-col items-center justify-center gap-2 w-full h-22 border border-border rounded-2xl hover:border-ring transition-colors duration-300">
           <TrelloIcon className="w-9 h-9" />
           <span className="font-body text-sm text-[#b3b3b3] font-light">Trello</span>
         </div>
@@ -57,7 +57,7 @@ export function Methodology() {
       <div className="mt-4">
         <button
           onClick={handleRequestChannelClick}
-          className="w-full px-6 py-2 border border-[#353739] rounded-full font-heading text-sm text-[#f2f2f2] hover:border-[#555759] transition-colors duration-300 cursor-pointer hover:opacity-80"
+          className="w-full px-6 py-2 border border-border rounded-full font-heading text-sm text-[#f2f2f2] hover:border-ring transition-colors duration-300 cursor-pointer hover:opacity-80"
         >
           START A PROJECT
         </button>

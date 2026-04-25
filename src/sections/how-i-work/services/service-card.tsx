@@ -5,7 +5,7 @@ export function ServiceCard({ icon, iconBg, title, description }: ServiceCardPro
     // flex-none prevents shrinking; fixed width keeps scrollWidth truthful
     <div className="flex-none w-80 relative h-full">
       {/* Desktop layout (>= 768px) */}
-      <div className="hidden md:block bg-black border border-[#353739] rounded-3xl p-6">
+      <div className="hidden md:block bg-card border border-border rounded-3xl p-6">
         <div className={`w-12 h-12 ${iconBg} rounded-full flex items-center justify-center mb-6`} aria-hidden="true">
           {icon}
         </div>
@@ -18,7 +18,7 @@ export function ServiceCard({ icon, iconBg, title, description }: ServiceCardPro
       </div>
 
       {/* Mobile layout (< 768px) */}
-      <div className="md:hidden bg-black border border-[#353739] rounded-3xl p-6">
+      <div className="md:hidden bg-card border border-border rounded-3xl p-6">
         <div className={`w-12 h-12 ${iconBg} rounded-full flex items-center justify-center mb-6`}>
           {icon}
         </div>

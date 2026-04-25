@@ -22,7 +22,7 @@ export function AdvertisingMobile() {
       </div>
       
       {/* Bottom Bar with tech stack */}
-      <div className="bg-black border border-[#353739] rounded-2xl p-4">
+      <div className="bg-card border border-border rounded-2xl p-4">
         <BottomBar techStack={advertisingPlatformData.techStack} />
       </div>
       

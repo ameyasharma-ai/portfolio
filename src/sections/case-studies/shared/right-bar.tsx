@@ -83,7 +83,7 @@ export function RightBar({ projectData }: RightBarProps) {
   };
 
   return (
-    <div className="w-full h-full flex flex-col overflow-y-auto">
+    <div className="w-full h-full flex flex-col overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
       <div ref={contentRef} className="flex flex-col h-full">
         {/* Header - Hidden on screens < 1390px */}
         <div className="mb-6 hidden [@media(min-width:1390px)]:block">
