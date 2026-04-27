@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router";
 import { useEffect } from "react";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ExternalLink } from "lucide-react";
 import { GithubIcon } from "@/components/icons/socials/github-icon";
 import { VideoContainer } from "../../shared/video-container";
 import { NextStepsButton } from "@/components/ui/next-steps-button";
@@ -20,8 +20,16 @@ export function DesignPlatformDetail() {
     navigate("/");
   };
 
-  const handleGithubClick = () => {
-    window.open("https://github.com/ameyasharma-ai/lasi-ai-app", '_blank', 'noopener,noreferrer');
+  const handleFrontendClick = () => {
+    window.open("https://github.com/ameyasharma-ai/groot-frontend", '_blank', 'noopener,noreferrer');
+  };
+
+  const handleBackendClick = () => {
+    window.open("https://github.com/ameyasharma-ai/groot-backend", '_blank', 'noopener,noreferrer');
+  };
+
+  const handleLiveClick = () => {
+    window.open("https://groot-frontend-orpin.vercel.app", '_blank', 'noopener,noreferrer');
   };
 
   const handleGetInTouchClick = () => {
@@ -58,25 +66,43 @@ export function DesignPlatformDetail() {
           Back
         </button>
 
-        <button
-          onClick={handleGithubClick}
-          className="inline-flex items-center gap-2 px-4 py-2 border border-border rounded-lg hover:border-ring transition-colors cursor-pointer"
-        >
-          <GithubIcon className="w-4 h-4" />
-          GitHub
-        </button>
+        <div className="flex items-center gap-3">
+          <button
+            onClick={handleLiveClick}
+            className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors cursor-pointer"
+          >
+            <ExternalLink className="w-4 h-4" />
+            Live Demo
+          </button>
+          
+          <button
+            onClick={handleFrontendClick}
+            className="inline-flex items-center gap-2 px-4 py-2 border border-border rounded-lg hover:border-ring transition-colors cursor-pointer"
+          >
+            <GithubIcon className="w-4 h-4" />
+            Frontend
+          </button>
+          
+          <button
+            onClick={handleBackendClick}
+            className="inline-flex items-center gap-2 px-4 py-2 border border-border rounded-lg hover:border-ring transition-colors cursor-pointer"
+          >
+            <GithubIcon className="w-4 h-4" />
+            Backend
+          </button>
+        </div>
       </div>
 
 
 
       {/* Title */}
       <h1 className="font-heading text-xl md:text-3xl text-foreground mb-4">
-        Patent-Winning AI Print Design Platform
+        Groot: Immersive AI Voice Assistant Platform
       </h1>
 
       {/* Description */}
       <p className="font-body text-sm text-muted-foreground leading-relaxed mb-8">
-        AI-powered design solution that transforms how small T-shirt brands create market-driven designs by combining intelligent brand research, customer analysis, and visual generation with interactive 3D visualisation.
+        An advanced, multi-persona conversational AI platform that features real-time voice interactions, dynamic knowledge retrieval, and an interactive 3D mathematical visualizer.
       </p>
 
       {/* Video Container */}
@@ -86,7 +112,7 @@ export function DesignPlatformDetail() {
 
       {/* Tech Stack */}
       <p className="font-body text-sm text-muted-foreground mb-12">
-        Next.js • React 19 • Three.js • OpenAI GPT-4 • Replicate API • OpenCV • Fabric.js • TypeScript • MongoDB • Stripe • Clerk Auth
+        React 19 • Vite • Web Audio API • WebSockets • Python • FastAPI • OpenRouter API • Groq Whisper API • Edge TTS • Scikit-learn
       </p>
 
       {/* Two Column Grid Layout */}

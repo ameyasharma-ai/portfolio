@@ -7,19 +7,12 @@ export const processContent: ContentSection = {
   subsections: [
     {
       title: 'Development Methodology',
-      content: `**Iterative Build-and-Test Approach:** 6-month solo development cycle with continuous market validation`
-    },
-    {
-      title: 'Market Collaboration',
-      content: `• **Designer Feedback Loop:** Regular testing with fashion designers for UI/UX optimisation
-• **User Validation:** Iterative improvements based on real user interactions with 75+ active users
-• **Market Research:** Continuous analysis of fashion trends and brand needs`
+      content: `• Focus on Latency: The architecture was designed from day one to minimize the gap between the user speaking and the AI responding.`
     },
     {
       title: 'Technical Evolution',
-      content: `• **Infrastructure Learning:** Discovered the importance of building core functionality first
-• **Performance Optimisation:** Implemented object pooling, canvas caching, and progressive loading
-• **Patent Integration:** Developed sophisticated user preference prediction algorithms`
+      content: `• **Transition to Cloud:** Moved from heavy local PyTorch dependencies (VRAM intensive) to lightning-fast cloud APIs (Groq + OpenRouter) to allow deployment on free-tier cloud providers.
+• **State Management:** Overhauled the React frontend to handle complex, asynchronous audio queues, ensuring TTS chunks play sequentially without overlapping.`
     }
   ]
 };

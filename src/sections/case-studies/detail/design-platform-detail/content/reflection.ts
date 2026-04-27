@@ -7,22 +7,14 @@ export const reflectionContent: ContentSection = {
   subsections: [
     {
       title: 'Key Learnings',
-      content: `**Architecture Prioritisation:** The most valuable lesson was focusing on core functionality (AI research, design generation, 3D visualisation) before building supporting infrastructure (authentication, payments, database optimisation). This approach accelerated user validation and market feedback.`
+      content: `• **Streaming is King:** Sending full responses to a TTS engine is too slow. Chunking LLM output by sentences and synthesizing them asynchronously is the only way to achieve human-like response times.
+• **Browser Audio Contexts:** Handling the Web Audio API requires strict attention to user-interaction rules, as browsers block audio contexts from starting without direct user input.`
     },
     {
       title: 'Technical Achievements',
-      content: `• Successfully coordinated multiple AI models for cohesive design generation
-• Implemented sophisticated 3D texture mapping with real-time preview capabilities
-• Won patent award (US #US10324916B2) in IP Hatch UK 2023 pitch competition
-• Selected for elite AI Forge accelerator (12 of 500+ applicants) with this project
-• Achieved smooth performance with complex 3D rendering and AI processing`
-    },
-    {
-      title: 'Future Enhancements',
-      content: `• **Enhanced Prediction Accuracy:** Deeper integration of device data and user behaviour patterns
-• **Expanded Design Types:** Support for additional garment types beyond T-shirts
-• **Collaborative Features:** Team-based design workflows for larger fashion brands
-• **Performance Scaling:** Optimised infrastructure for handling larger user bases`
+      content: `• Built a sophisticated, custom audio queuing and playback system in React.
+• Implemented a highly optimized 3D canvas visualizer without relying on heavy libraries like Three.js.
+• Created a robust backend capable of gracefully handling model rate limits and automatically repairing its own connection state.`
     }
   ]
 };

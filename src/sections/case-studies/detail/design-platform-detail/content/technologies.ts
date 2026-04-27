@@ -7,40 +7,29 @@ export const technologiesContent: ContentSection = {
   subsections: [
     {
       title: 'Frontend & Framework',
-      content: `• **Next.js** - React-based full-stack framework for server-side rendering
-• **React 19** - Modern UI components with advanced hooks and state management
-• **TypeScript** - Type-safe development across the entire application
-• **Three.js** - 3D graphics library for interactive T-shirt visualization
-• **Fabric.js** - Canvas library for professional design editing tools`
+      content: `• React 19 - Modern UI components with advanced hooks and state management
+• Vite - Lightning-fast frontend tooling and bundling
+• Web Audio API - Deep audio processing for real-time visualizers and Voice Activity Detection (VAD)
+• Web Speech API - Wake-word detection and local speech processing
+• Lucide React - Sleek iconography`
     },
     {
       title: 'AI & Machine Learning',
-      content: `• **OpenAI GPT-4o-mini** - Brand analysis and customer persona generation
-• **Replicate API** - Flux models for high-quality design generation
-• **OpenCV** - Computer vision algorithms for edge detection and image processing
-• **Custom AI Pipeline** - Multi-modal coordination for research, analysis, and generation`
+      content: `• OpenRouter API - Dynamic LLM routing (GPT, Llama 3, Mistral) with auto-failover for high availability
+• Groq Whisper API (whisper-large-v3-turbo) - Ultra-fast, high-accuracy speech-to-text transcription
+• Scikit-learn (TF-IDF Vectorizer) - Cosine similarity-based retrieval for the local Knowledge Base
+• Edge TTS - High-quality, low-latency neural text-to-speech synthesis`
     },
     {
-      title: 'Backend & Database',
-      content: `• **MongoDB** - NoSQL database for flexible schema and complex nested data
-• **Prisma ORM** - Type-safe database access and schema management
-• **Flask** - Microservice for computer vision processing (deployed on Render)
-• **Sharp** - High-performance image processing library`
+      title: 'Backend & Architecture',
+      content: `• Python & FastAPI - High-performance asynchronous backend server
+• WebSockets - Bi-directional, real-time communication for streaming audio and text
+• Wikipedia API - Real-time web scraping for answering factual queries`
     },
     {
-      title: 'Authentication & Payments',
-      content: `• **Clerk** - Complete authentication system with user management
-• **Stripe** - Subscription billing and payment processing`
-    },
-    {
-      title: 'State Management & Optimisation',
-      content: `• **Valtio** - Reactive state management for complex UI interactions
-• **Custom Hooks** - Specialised React hooks for 3D canvas and editor synchronisation`
-    },
-    {
-      title: 'Deployment & DevOps',
-      content: `• **Vercel** - Next.js application hosting and deployment
-• **Render** - Computer vision microservice deployment`
+      title: 'Deployment & Environment',
+      content: `• Vercel - Next-generation frontend hosting
+• Render - Cloud-hosted Python backend microservice`
     }
   ]
 };

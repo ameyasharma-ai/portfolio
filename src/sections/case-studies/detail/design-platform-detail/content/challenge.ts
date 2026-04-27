@@ -6,23 +6,16 @@ export const challengeContent: ContentSection = {
   content: '',
   subsections: [
     {
-      title: 'Business Pain Points',
-      content: `Small T-shirt brands face three critical challenges that limit their growth and market success:
-
-• **Design Direction Uncertainty:** Brands don't know what designs will resonate with their target market
-• **Technical Design Barriers:** Limited access to professional design tools and expertise
-• **Customer Understanding Gap:** Lack of insight into who their ideal customers are and what they prefer`
+      title: 'User Experience Needs',
+      content: `• Traditional AI assistants feel robotic and lack personality. Users needed an immersive, responsive companion that feels alive.
+• Text-based interfaces are slow for multi-tasking; a hands-free, voice-first approach was required.`
     },
     {
       title: 'Technical Constraints',
-      content: `• **User Taste Prediction:** Need for sophisticated algorithms to predict individual customer preferences
-• **Real-time 3D Rendering:** Complex texture mapping and UV coordinate management for interactive visualisation
-• **Multi-Modal AI Integration:** Coordinating brand research, customer analysis, and design generation systems
-• **Performance Optimisation:** Maintaining smooth user experience with heavy 3D rendering and AI processing`
-    },
-    {
-      title: 'User Needs',
-      content: `Fashion entrepreneurs needed a solution that could function as a complete design agency, providing market research, customer insights, and professional-quality design output without requiring technical expertise or significant upfront investment.`
+      content: `• **Ultra-Low Latency:** Voice conversations require instant responses. Stacking STT, LLM generation, and TTS usually introduces heavy delays.
+• **Context Awareness:** The AI needed to remember user details over time without bloating the LLM prompt window.
+• **Browser Security:** Browsers aggressively block microphone access over non-HTTPS connections, complicating local development and deployment.
+• **Model Availability:** Free-tier AI APIs frequently hit rate limits, requiring a robust fallback system to prevent downtime.`
     }
   ]
 };

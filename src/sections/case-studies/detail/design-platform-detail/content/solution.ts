@@ -7,25 +7,20 @@ export const solutionContent: ContentSection = {
   subsections: [
     {
       title: 'High-Level Approach',
-      content: `Built an AI-powered fashion design platform that acts as a complete design agency, combining intelligent market research with visual design generation and interactive 3D preview capabilities.`
+      content: `Built a cyberpunk-themed, voice-first AI platform featuring multiple distinct personas (Lisa, Atlas, Nova). The system uses WebSockets to stream audio and text in real-time, drastically reducing perceived latency.`
     },
     {
       title: 'Core Features',
-      content: `• **🔍 AI Research Engine:** Automated brand analysis and customer persona generation using GPT-4
-• **🎨 Smart Design Creation:** AI-generated visual designs tailored to brand identity and target market
-• **👕 Interactive 3D Visualisation:** Real-time T-shirt preview with advanced texture mapping
-• **✏️ Professional Editor:** Vector-based design editing with OpenCV-powered shape detection
-• **🔮 Predictive Taste Technology:** Patent-pending system for understanding customer preferences`
+      content: `• 🗣️ **Multi-Persona AI:** Switch between distinct personalities with tailored system prompts and voices.
+• 🧠 **Dynamic Knowledge Base:** TF-IDF-powered memory system that automatically saves and retrieves relevant facts.
+• 🌐 **Real-Time Web Search:** Wikipedia integration for pulling live factual data.
+• 🎙️ **Smart Voice Activity Detection (VAD):** Automatically detects when the user stops speaking to trigger processing.
+• 🌀 **Interactive 3D Visualizer:** A Fibonacci sphere that reacts mathematically to the AI's voice volume using the Web Audio API.`
     },
     {
       title: 'Architecture Overview',
-      content: `**Multi-tier AI Pipeline:** Research → Analysis → Generation → Visualisation → Editing
-
-**Microservices Design:** Separate computer vision service for image processing
-
-**Real-time 3D Rendering:** Three.js with advanced UV mapping and texture management
-
-**Scalable Backend:** Next.js with MongoDB for flexible data architecture`
+      content: `• **Bi-Directional Streaming:** Audio blobs are captured on the frontend, sent via WebSockets, transcribed by Groq, processed by an LLM, and streamed back as Base64 Edge TTS audio.
+• **Dynamic Failover System:** The backend automatically fetches a list of available free LLMs from OpenRouter. If the primary model fails, it seamlessly reroutes the prompt to a backup model.`
     }
   ]
 };

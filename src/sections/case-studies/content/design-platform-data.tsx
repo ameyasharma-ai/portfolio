@@ -1,51 +1,51 @@
-import { NextjsIcon } from "@/components/icons/skills/next-js-icon";
-import { ThreejsIcon } from "@/components/icons/skills/three-js-icon";
-import { OpencvIcon } from "@/components/icons/skills/open-cv-icon";
-import { LlmsIcon } from "@/components/icons/skills/llms-icon";
+import { ReactIcon } from "@/components/icons/skills/react-icon";
+import { ViteIcon } from "@/components/icons/skills/vite-icon";
 import { PythonIcon } from "@/components/icons/skills/python-icon";
-import { MongodbIcon } from "@/components/icons/skills/mongo-db-icon";
+import { FastAPIIcon } from "@/components/icons/skills/fast-api-icon";
+import { OpenaiIcon } from "@/components/icons/skills/open-ai-icon";
+import { VercelIcon } from "@/components/icons/skills/vercel-icon";
 import type { CaseStudyData } from "../types";
 
 export const designPlatformData: CaseStudyData = {
   projectData: {
     slug: "design-platform",
-    title: "Design Platform",
-    description: "Built in 6 months | Patent-winning innovation | AI Forge validated",
+    title: "Groot",
+    description: "Multi-persona AI platform | Real-time voice interaction | 3D mathematical visualizer",
     sections: [
       {
         title: "Problem",
         items: [
-          "• Brands lack design direction and targeting",
-          "• No market research backing decisions"
+          "• Traditional AI assistants feel robotic and lack personality",
+          "• Free-tier APIs suffer from rate limits and high latency"
         ]
       },
       {
         title: "Solution",
         items: [
-          "• AI generates designs from brand analysis",
-          "• 3D visualization with advanced editing",
-          "• LLM-powered market research integration"
+          "• Multi-persona AI with real-time WebSockets",
+          "• Dynamic Knowledge Base & Voice Activity Detection",
+          "• Auto-failover LLM routing for high availability"
         ]
       },
       {
         title: "Impact",
         items: [
-          "• Won U.S. Patent #US10324916B2",
-          "• AI Forge accelerator (12 of 500+ applicants)"
+          "• Achieved ultra-low latency conversational flow",
+          "• Seamless 3D audio-reactive visualization via Web Audio API"
         ]
       }
     ],
     buttons: {
-      githubUrl: "https://github.com/ameyasharma-ai/lasi-ai-app",
+      githubUrl: "https://github.com/ameyasharma-ai/groot-frontend",
       detailPath: "/case-studies/design-platform"
     }
   },
   techStack: [
-    { icon: <NextjsIcon className="[@media(min-width:1390px)]:w-12 [@media(min-width:1390px)]:h-12 w-10 h-10" />, name: "Next.js" },
-    { icon: <ThreejsIcon className="[@media(min-width:1390px)]:w-12 [@media(min-width:1390px)]:h-12 w-10 h-10" />, name: "Three.js" },
-    { icon: <OpencvIcon className="[@media(min-width:1390px)]:w-12 [@media(min-width:1390px)]:h-12 w-10 h-10" />, name: "OpenCV" },
-    { icon: <LlmsIcon className="[@media(min-width:1390px)]:w-12 [@media(min-width:1390px)]:h-12 w-10 h-10" />, name: "LLMs" },
+    { icon: <ReactIcon className="[@media(min-width:1390px)]:w-12 [@media(min-width:1390px)]:h-12 w-10 h-10" />, name: "React 19" },
+    { icon: <ViteIcon className="[@media(min-width:1390px)]:w-12 [@media(min-width:1390px)]:h-12 w-10 h-10" />, name: "Vite" },
     { icon: <PythonIcon className="[@media(min-width:1390px)]:w-12 [@media(min-width:1390px)]:h-12 w-10 h-10" />, name: "Python" },
-    { icon: <MongodbIcon className="[@media(min-width:1390px)]:w-12 [@media(min-width:1390px)]:h-12 w-10 h-10" />, name: "MongoDB" }
+    { icon: <FastAPIIcon className="[@media(min-width:1390px)]:w-12 [@media(min-width:1390px)]:h-12 w-10 h-10" />, name: "FastAPI" },
+    { icon: <OpenaiIcon className="[@media(min-width:1390px)]:w-12 [@media(min-width:1390px)]:h-12 w-10 h-10" />, name: "OpenRouter" },
+    { icon: <VercelIcon className="[@media(min-width:1390px)]:w-12 [@media(min-width:1390px)]:h-12 w-10 h-10" />, name: "Vercel" }
   ]
 };

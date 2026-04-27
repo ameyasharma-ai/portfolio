@@ -4,6 +4,7 @@ import { useVideoViewport } from '@/hooks/useVideoViewport';
 
 interface CustomVideoPlayerProps {
   publicId: string;
+  cloudName?: string;
   className?: string;
   autoPlay?: boolean;
   muted?: boolean;
@@ -36,6 +37,7 @@ const isSafariBrowser = (): boolean => {
 
 export function CustomVideoPlayer({
   publicId,
+  cloudName: customCloudName,
   className = '',
   autoPlay = false,
   muted = false,
@@ -65,7 +67,7 @@ export function CustomVideoPlayer({
     enabled: true
   });
 
-  const cloudName = import.meta.env.VITE_CLOUDINARY_CLOUD_NAME;
+  const cloudName = customCloudName || import.meta.env.VITE_CLOUDINARY_CLOUD_NAME;
   
   // Generate Cloudinary video URL with optimizations
   const videoUrl = `https://res.cloudinary.com/${cloudName}/video/upload/f_auto,q_auto/${publicId}`;
