@@ -14,7 +14,7 @@ export function CaseStudyDetailPage() {
       case "design-platform":
         return {
           title: "Groot Case Study",
-          description: "Immersive AI Voice Assistant Platform. Built with Next.js, Three.js, OpenCV, and advanced LLMs.",
+          description: "Immersive AI Voice Assistant Platform. Built with React 19, FastAPI, WebSockets, and advanced LLMs via OpenRouter.",
           image: "https://www.kolzo.in/case-studies/design-platform-og.jpg",
           datePublished: "2024-01-01"
         };

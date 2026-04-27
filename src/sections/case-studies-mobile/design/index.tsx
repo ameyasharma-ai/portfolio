@@ -12,7 +12,7 @@ export function DesignMobile() {
           Groot
         </h3>
         <p className="font-body text-sm text-muted-foreground leading-relaxed">
-          AI-powered design solution for T-shirt brands
+          Immersive AI Voice Assistant Platform
         </p>
       </div>
 
