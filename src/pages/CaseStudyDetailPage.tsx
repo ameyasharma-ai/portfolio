@@ -14,15 +14,15 @@ export function CaseStudyDetailPage() {
       case "design-platform":
         return {
           title: "Groot Case Study",
-          description: "Patent-winning AI-powered design solution for T-shirt brands. Built with Next.js, Three.js, OpenCV, and advanced LLMs.",
-          image: "https://www.stavrossymeonidis.dev/case-studies/design-platform-og.jpg",
+          description: "Immersive AI Voice Assistant Platform. Built with Next.js, Three.js, OpenCV, and advanced LLMs.",
+          image: "https://www.kolzo.in/case-studies/design-platform-og.jpg",
           datePublished: "2024-01-01"
         };
       case "advertising-platform":
         return {
           title: "Automated Ad Campaign Platform Case Study",
           description: "Email-powered integration platform transforming Microsoft Forms into automated campaign setups across multiple advertising platforms.",
-          image: "https://www.stavrossymeonidis.dev/case-studies/advertising-platform-og.jpg",
+          image: "https://www.kolzo.in/case-studies/advertising-platform-og.jpg",
           datePublished: "2024-06-01"
         };
       default:
@@ -60,12 +60,12 @@ export function CaseStudyDetailPage() {
         <SEO
           title={caseStudyMeta.title}
           description={caseStudyMeta.description}
-          url={`https://www.stavrossymeonidis.dev/case-studies/${slug}`}
+          url={`https://www.kolzo.in/case-studies/${slug}`}
           type="article"
           image={caseStudyMeta.image}
           jsonLd={getCaseStudyStructuredData({
             ...caseStudyMeta,
-            url: `https://www.stavrossymeonidis.dev/case-studies/${slug}`
+            url: `https://www.kolzo.in/case-studies/${slug}`
           })}
         />
       )}

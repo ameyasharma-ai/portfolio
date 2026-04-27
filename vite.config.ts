@@ -18,7 +18,7 @@ export default defineConfig({
     react(),
     tailwindcss(),
     Sitemap({
-      hostname: 'https://www.stavrossymeonidis.dev',
+      hostname: 'https://www.kolzo.in',
       dynamicRoutes,
       exclude: ['/admin', '/private'],
       // Remove the incorrect properties and use the correct ones

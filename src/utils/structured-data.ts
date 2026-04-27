@@ -2,8 +2,8 @@ export const getPersonStructuredData = () => ({
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Ameya Sharma",
-  "url": "https://www.stavrossymeonidis.dev",
-  "image": "https://www.stavrossymeonidis.dev/graph-profile-dev.jpg",
+  "url": "https://www.kolzo.in",
+  "image": "https://www.kolzo.in/graph-profile-dev.jpg",
   "sameAs": [
     "https://www.linkedin.com/in/ameyasharma999/",
     "https://github.com/ameyasharma-ai"
@@ -38,7 +38,7 @@ export const getWebSiteStructuredData = () => ({
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": "Ameya Sharma Portfolio",
-  "url": "https://www.stavrossymeonidis.dev",
+  "url": "https://www.kolzo.in",
   "description": "Portfolio of Ameya Sharma - Patent-winning full-stack developer",
   "publisher": {
     "@type": "Person",
@@ -48,7 +48,7 @@ export const getWebSiteStructuredData = () => ({
     "@type": "SearchAction",
     "target": {
       "@type": "EntryPoint",
-      "urlTemplate": "https://www.stavrossymeonidis.dev/?search={search_term_string}"
+      "urlTemplate": "https://www.kolzo.in/?search={search_term_string}"
     },
     "query-input": "required name=search_term_string"
   }
