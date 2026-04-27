@@ -9,7 +9,6 @@ import {
 } from "@/components/ui/morphing-popover";
 import { useState } from "react";
 import { MobileNav } from "./mobile-nav";
-import DevLogo from "@/assets/dev-logo.svg";
 
 export function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,7 +22,7 @@ export function Sidebar() {
       {/* Mobile Logo - Left side */}
       <div className="fixed top-7 left-6 z-50 md:hidden">
         <img 
-          src={DevLogo} 
+          src="/jsm-logo.png" 
           alt="Ameya Sharma Logo" 
           className="w-12 h-12" 
         />
