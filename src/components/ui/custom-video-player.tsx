@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { Volume2, VolumeX } from 'lucide-react';
+import { Volume2, VolumeX, Play, Pause } from 'lucide-react';
 import { useVideoViewport } from '@/hooks/useVideoViewport';
 
 interface CustomVideoPlayerProps {
@@ -59,6 +59,33 @@ export function CustomVideoPlayer({
   const [duration, setDuration] = useState(0);
   const [volume, setVolume] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
+  const [showControls, setShowControls] = useState(false);
+  const hasManuallyPaused = useRef(false);
+
+  const togglePlay = async () => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    try {
+      if (isPlaying) {
+        hasManuallyPaused.current = true;
+        await video.pause();
+      } else {
+        hasManuallyPaused.current = false;
+        await video.play();
+      }
+    } catch (err) {
+      console.error('Play/pause error:', err);
+    }
+  };
+
+  const handleVideoClick = () => {
+    if (isMobileDevice()) {
+      setShowControls(!showControls);
+    } else {
+      togglePlay();
+    }
+  };
 
   // Initialize the autoplay hook
   const { isInViewport } = useVideoViewport(videoRef, {
@@ -179,18 +206,19 @@ export function CustomVideoPlayer({
     if (isMobile || isSafari || !isLoading) {
       console.log('🎬 CustomVideoPlayer: Viewport change detected', { 
         isInViewport, 
-        currentlyPlaying: isPlaying,
+        isPaused: video.paused,
         isMobile,
         isSafari,
-        isLoading
+        isLoading,
+        hasManuallyPaused: hasManuallyPaused.current
       });
 
       const handleAutoPlay = async () => {
         try {
-          if (isInViewport && !isPlaying) {
+          if (isInViewport && video.paused && !hasManuallyPaused.current) {
             console.log('🎬 CustomVideoPlayer: Auto-playing video (entered viewport)');
             await video.play();
-          } else if (!isInViewport && isPlaying) {
+          } else if (!isInViewport && !video.paused) {
             console.log('🎬 CustomVideoPlayer: Auto-pausing video (left viewport)');
             await video.pause();
           }
@@ -203,7 +231,7 @@ export function CustomVideoPlayer({
     } else {
       console.log('🎬 CustomVideoPlayer: Waiting for loading to complete');
     }
-  }, [isInViewport, isPlaying, isLoading]);
+  }, [isInViewport, isLoading]);
 
   const toggleMute = () => {
     const video = videoRef.current;
@@ -260,20 +288,21 @@ export function CustomVideoPlayer({
         loop={loop}
         playsInline
         preload="metadata"
-        className="w-full h-full object-cover"
+        className="w-full h-full object-cover cursor-pointer"
+        onClick={handleVideoClick}
       />
 
       {/* Loading Spinner - Only show if actually loading (not on mobile/Safari after timeout) */}
       {isLoading && !isMobileDevice() && !isSafariBrowser() && (
-        <div className="absolute inset-0 flex items-center justify-center bg-card/50">
+        <div className="absolute inset-0 flex items-center justify-center bg-card/50 pointer-events-none">
           <div className="w-8 h-8 border-2 border-white border-t-transparent rounded-full animate-spin" />
         </div>
       )}
 
       {/* Custom Controls Overlay */}
-      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-t from-black/60 via-transparent to-transparent">
+      <div className={`absolute inset-0 pointer-events-none transition-opacity duration-300 bg-gradient-to-t from-black/60 via-transparent to-transparent ${showControls ? 'opacity-100' : 'opacity-0 md:group-hover:opacity-100'}`}>
         {/* Bottom Controls */}
-        <div className="absolute bottom-0 left-0 right-0 p-4">
+        <div className="absolute bottom-0 left-0 right-0 p-4 pointer-events-auto">
           {/* Progress Bar */}
           <div
             ref={progressRef}
@@ -288,7 +317,18 @@ export function CustomVideoPlayer({
 
           {/* Controls Row */}
           <div className="flex items-center justify-between text-white text-sm">
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-4">
+              {/* Play/Pause */}
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  togglePlay();
+                }}
+                className="hover:opacity-80 transition-opacity"
+              >
+                {isPlaying ? <Pause className="w-5 h-5" /> : <Play className="w-5 h-5" />}
+              </button>
+
               {/* Volume */}
               <div className="flex items-center gap-2">
                 <button

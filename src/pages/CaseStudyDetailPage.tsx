@@ -13,7 +13,7 @@ export function CaseStudyDetailPage() {
     switch (slug) {
       case "design-platform":
         return {
-          title: "AI Design Platform Case Study",
+          title: "Groot Case Study",
           description: "Patent-winning AI-powered design solution for T-shirt brands. Built with Next.js, Three.js, OpenCV, and advanced LLMs.",
           image: "https://www.stavrossymeonidis.dev/case-studies/design-platform-og.jpg",
           datePublished: "2024-01-01"
