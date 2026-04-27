@@ -2,7 +2,7 @@ import { ReactIcon } from "@/components/icons/skills/react-icon";
 import { ViteIcon } from "@/components/icons/skills/vite-icon";
 import { PythonIcon } from "@/components/icons/skills/python-icon";
 import { FastAPIIcon } from "@/components/icons/skills/fast-api-icon";
-import { OpenaiIcon } from "@/components/icons/skills/open-ai-icon";
+import { OpenrouterIcon } from "@/components/icons/skills/openrouter-icon";
 import { VercelIcon } from "@/components/icons/skills/vercel-icon";
 import type { CaseStudyData } from "../types";
 
@@ -45,7 +45,7 @@ export const designPlatformData: CaseStudyData = {
     { icon: <ViteIcon className="[@media(min-width:1390px)]:w-12 [@media(min-width:1390px)]:h-12 w-10 h-10" />, name: "Vite" },
     { icon: <PythonIcon className="[@media(min-width:1390px)]:w-12 [@media(min-width:1390px)]:h-12 w-10 h-10" />, name: "Python" },
     { icon: <FastAPIIcon className="[@media(min-width:1390px)]:w-12 [@media(min-width:1390px)]:h-12 w-10 h-10" />, name: "FastAPI" },
-    { icon: <OpenaiIcon className="[@media(min-width:1390px)]:w-12 [@media(min-width:1390px)]:h-12 w-10 h-10" />, name: "OpenRouter" },
+    { icon: <OpenrouterIcon className="[@media(min-width:1390px)]:w-12 [@media(min-width:1390px)]:h-12 w-10 h-10" />, name: "OpenRouter" },
     { icon: <VercelIcon className="[@media(min-width:1390px)]:w-12 [@media(min-width:1390px)]:h-12 w-10 h-10" />, name: "Vercel" }
   ]
 };
