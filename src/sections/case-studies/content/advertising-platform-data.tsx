@@ -36,7 +36,7 @@ export const advertisingPlatformData: CaseStudyData = {
       }
     ],
     buttons: {
-      githubUrl: "https://github.com/ameyasharma-ai/",
+      githubUrl: "https://github.com/ameyasharma-ai/inline-frontend/",
       detailPath: "/case-studies/advertising-platform"
     }
   },
