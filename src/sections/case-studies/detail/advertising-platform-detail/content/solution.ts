@@ -7,22 +7,23 @@ export const solutionContent: ContentSection = {
   subsections: [
     {
       title: 'High-Level Approach',
-      content: `Built an innovative email-based integration that transforms Microsoft Forms submissions into automated campaign setups across multiple advertising platforms.`
+      content: `Built a highly responsive websocket-based architecture prioritizing speed and minimal memory footprint, seamlessly combining a robust IDE experience with visual collaboration.`
     },
     {
       title: 'Core Features',
-      content: `• **🔄 Seamless Microsoft Forms integration** via Power Automate
-• **🆔 UUID-based email routing** for multi-tenant organisation attribution
-• **📝 Auto-populated campaign forms** for Google Ads, Meta, TikTok, LinkedIn, and other platforms
-• **🎯 One-click campaign submission** workflow`
+      content: `• **📝 Real-time, multi-file code editing** with collaborative syntax highlighting
+• **🤖 AI-powered Copilot** for context-aware autocompletion and code generation
+• **⚙️ Multi-language code execution sandbox** (JavaScript, TypeScript, Python, C++, Java)
+• **🎨 Infinite collaborative whiteboard** for system architecture and sketching
+• **🔐 Secure multi-tenant rooms** with auto-generated alphanumeric passwords`
     },
     {
       title: 'Architecture Overview',
-      content: `**Email-based Integration:** Email serves as the integration layer between Microsoft ecosystem and Unyte platform
+      content: `**Frontend Architecture:** Frontend-heavy Vite React application optimized for ultra-fast rendering.
 
-**Multi-Platform Support:** Single form submission creates campaigns across Google Ads, Meta, TikTok, LinkedIn, and other major platforms
+**Real-Time Backend:** Lightweight Express backend acting as a secure websocket message broker.
 
-**Multi-Tenant Architecture:** UUID-based organisation routing with ForwardEmail.net providing reliable message routing to Supabase backend`
+**Secure Proxy Architecture:** Backend Proxy Architecture ensures all Judge0 and OpenRouter API calls are securely routed through the server, completely sanitizing the client bundle.`
     }
   ]
 };

@@ -9,10 +9,10 @@ export function AdvertisingMobile() {
       {/* Title and Description */}
       <div className="text-left">
         <h3 className="font-heading text-lg text-foreground">
-          Automated Campaign Creation
+          InLine
         </h3>
         <p className="font-body text-sm text-muted-foreground leading-relaxed">
-          Automated ad campaign creation platform
+          Real-time collaborative workspace
         </p>
       </div>
       

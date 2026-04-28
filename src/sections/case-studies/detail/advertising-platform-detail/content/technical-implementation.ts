@@ -6,33 +6,22 @@ export const technicalImplementationContent: ContentSection = {
   content: '',
   subsections: [
     {
-      title: '📧 Email-Based Integration Architecture',
-      content: `**Microsoft Ecosystem Integration**
-
-• Microsoft Form submission triggers Power Automate workflow
-• Power Automate transforms form Q&A into structured JSON payload
-• JSON sent via email to unique organisation address: \`forms+uuid@unyte.ai\`
-• ForwardEmail.net catches emails and forwards to Supabase webhook
-• UUID enables automatic attribution to correct organisation/account
-• Form data appears instantly in organisation's Unyte dashboard`
+      title: 'Real-Time Synchronization Engine',
+      content: `• **Decentralized P2P state map** managed by Socket.IO for keystrokes, cursors, and file system changes.
+• **Optimized debounce mechanisms** for cursor tracking to reduce network payload overhead.
+• **Instant broadcast** of every keystroke ensures all participants stay perfectly in sync.`
     },
     {
-      title: '🚀 Multi-Platform Campaign Generation',
-      content: `**Automated Campaign Creation**
-
-• Click "Create Campaign for [Platform]" within form details
-• Client information auto-populates platform-specific campaign forms
-• All required fields filled automatically based on form submission data
-• Single-click campaign submission to Google Ads, Meta, TikTok, LinkedIn, or other platforms`
+      title: 'Secure Proxy Architecture',
+      content: `• **Migrated vulnerable client-side execution logic** to the Express backend.
+• **Environment variables strictly isolated** on the server (\`JUDGE0_API_URL\`, \`OPENROUTER_API_KEY\`), completely bypassing browser CORS restrictions and preventing credential leakage.
+• **Backend Proxy** acts as a secure intermediary for all sensitive API interactions.`
     },
     {
-      title: '🏢 Multi-Tenant Architecture',
-      content: `**Scalable Organisation Management**
-
-• UUID-based organisation isolation
-• Secure data segregation between agency accounts
-• Scalable email routing system supporting unlimited organisations
-• Cost-effective solution that bypasses expensive API integration costs`
+      title: 'Immersive UI/UX',
+      content: `• **Premium "hacker-inspired" dark mode aesthetic** with glassmorphism and dynamic glowing orbs.
+• **Custom syntax-highlighted themes** (Tokyo Night, Dracula, GitHub Dark) powered by CodeMirror 6.
+• **State-of-the-art SEO** meta tags for rich social sharing and professional presentation.`
     }
   ]
 };

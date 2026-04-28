@@ -7,19 +7,17 @@ export const challengeContent: ContentSection = {
   subsections: [
     {
       title: 'Business Pain Points',
-      content: `Manual campaign creation takes excessive time and introduces costly human errors that delay launches and reduce efficiency for enterprise advertising agencies.`
+      content: `Remote engineering teams and coding interviewers lack a unified, friction-free space for both coding and architectural brainstorming, often requiring them to juggle multiple separate applications.`
     },
     {
       title: 'Technical Constraints',
-      content: `• **💰 Near-zero budget** for development and infrastructure
-• **🏢 Microsoft ecosystem requirement** - Client needed seamless integration with existing Microsoft ecosystem (Forms + Power Automate)
-• **🔒 No OAuth permissions** allowed for security reasons
-• **💸 Power Automate HTTP API costs** - HTTP API calls incur additional costs, making standard API integration financially prohibitive
-• **⚡ Zero setup requirement** - Solution must require zero complex setup from agency users`
+      content: `• **⚡ Zero-latency requirement** - Keystrokes and cursor movements must synchronize instantly across multiple users.
+• **🔒 Security & CORS** - Third-party API keys (AI, Code Execution) cannot be exposed to the frontend browser bundle.
+• **🧹 Resource Management** - Backend must handle ephemeral multi-tenant rooms without leaking memory from abandoned sessions.`
     },
     {
       title: 'User Needs',
-      content: `One-click campaign creation that works within existing Microsoft workflows without additional authentication or technical overhead.`
+      content: `One-click room creation with secure password generation, live cursor tracking, in-browser code execution, and an immersive aesthetic.`
     }
   ]
 };

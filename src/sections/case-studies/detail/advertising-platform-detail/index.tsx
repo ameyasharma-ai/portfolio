@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router";
 import { useEffect } from "react";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ExternalLink } from "lucide-react";
 import { GithubIcon } from "@/components/icons/socials/github-icon";
 import { VideoContainer } from "../../shared/video-container";
 import { NextStepsButton } from "@/components/ui/next-steps-button";
@@ -20,8 +20,16 @@ export function AdvertisingPlatformDetail() {
     navigate("/");
   };
 
-  const handleGithubClick = () => {
-    window.open("https://github.com/ameyasharma-ai/form-automation-dev/", '_blank', 'noopener,noreferrer');
+  const handleFrontendClick = () => {
+    window.open("https://github.com/ameyasharma-ai/inline-frontend", '_blank', 'noopener,noreferrer');
+  };
+
+  const handleBackendClick = () => {
+    window.open("https://github.com/ameyasharma-ai/inline-backend", '_blank', 'noopener,noreferrer');
+  };
+
+  const handleLiveClick = () => {
+    window.open("https://inline-frontend.vercel.app", '_blank', 'noopener,noreferrer');
   };
 
   const handleGetInTouchClick = () => {
@@ -48,7 +56,7 @@ export function AdvertisingPlatformDetail() {
 
   return (
     <div className="max-w-5xl mx-auto py-12 px-6">
-      {/* Back Button and GitHub Button */}
+      {/* Back Button and Project Links */}
       <div className="flex items-center justify-between mb-8">
         <button
           onClick={handleBackClick}
@@ -58,23 +66,41 @@ export function AdvertisingPlatformDetail() {
           Back
         </button>
 
-        <button
-          onClick={handleGithubClick}
-          className="inline-flex items-center gap-2 px-4 py-2 border border-border rounded-lg hover:border-ring transition-colors cursor-pointer"
-        >
-          <GithubIcon className="w-4 h-4" />
-          GitHub
-        </button>
+        <div className="flex items-center gap-3">
+          <button
+            onClick={handleLiveClick}
+            className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors cursor-pointer"
+          >
+            <ExternalLink className="w-4 h-4" />
+            Live Demo
+          </button>
+          
+          <button
+            onClick={handleFrontendClick}
+            className="inline-flex items-center gap-2 px-4 py-2 border border-border rounded-lg hover:border-ring transition-colors cursor-pointer"
+          >
+            <GithubIcon className="w-4 h-4" />
+            Frontend
+          </button>
+          
+          <button
+            onClick={handleBackendClick}
+            className="inline-flex items-center gap-2 px-4 py-2 border border-border rounded-lg hover:border-ring transition-colors cursor-pointer"
+          >
+            <GithubIcon className="w-4 h-4" />
+            Backend
+          </button>
+        </div>
       </div>
 
       {/* Title */}
       <h1 className="font-heading text-xl md:text-3xl text-foreground mb-4">
-        Automated Ad Campaign Creation Platform
+        InLine: Real-Time Collaborative Workspace
       </h1>
 
       {/* Description */}
       <p className="font-body text-sm text-muted-foreground leading-relaxed mb-8">
-        Email-powered integration platform that transforms Microsoft Forms submissions into automated campaign setups across multiple advertising platforms, eliminating manual errors and dramatically reducing setup time.
+        State-of-the-art, real-time collaborative coding and brainstorming environment that bridges the gap between developers and designers, featuring a code editor, AI copilot, live terminal sandboxes, and an integrated infinite whiteboard.
       </p>
 
       {/* Video Container */}
@@ -84,7 +110,7 @@ export function AdvertisingPlatformDetail() {
 
       {/* Tech Stack */}
       <p className="font-body text-sm text-muted-foreground mb-12">
-        Next.js 15 • TypeScript • React 19 • Supabase • Google Ads API • Meta API • TikTok API • LinkedIn API • Microsoft Forms • Power Automate • ForwardEmail.net
+        Vite • TypeScript • React 18 • Node.js • Express • Socket.IO • CodeMirror 6 • TLDraw • Judge0 API • OpenRouter API
       </p>
 
       {/* Two Column Grid Layout */}

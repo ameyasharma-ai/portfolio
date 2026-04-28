@@ -20,10 +20,10 @@ export function CaseStudyDetailPage() {
         };
       case "advertising-platform":
         return {
-          title: "Automated Ad Campaign Platform Case Study",
-          description: "Email-powered integration platform transforming Microsoft Forms into automated campaign setups across multiple advertising platforms.",
-          image: "https://www.kolzo.in/case-studies/advertising-platform-og.jpg",
-          datePublished: "2024-06-01"
+          title: "InLine: Real-Time Collaborative Workspace Case Study",
+          description: "State-of-the-art, real-time collaborative coding and brainstorming environment featuring a code editor, AI copilot, live terminal sandboxes, and an integrated infinite whiteboard.",
+          image: "https://www.kolzo.in/case-studies/inline-thumbnail.png",
+          datePublished: "2024-11-01"
         };
       default:
         return null;

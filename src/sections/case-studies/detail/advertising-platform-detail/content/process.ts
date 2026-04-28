@@ -7,19 +7,12 @@ export const processContent: ContentSection = {
   subsections: [
     {
       title: 'Development Methodology',
-      content: `**Waterfall approach:** 6-week development cycle with daily client updates ensuring alignment on business requirements and technical constraints.`
+      content: `Iterative development focusing first on core websocket stability, followed by feature integrations (AI, Code Execution), and finalized with rigorous security hardening.`
     },
     {
-      title: 'Client Collaboration',
-      content: `• **🤝 Continuous communication:** Client updates every 1-2 days to validate technical approach
-• **📋 Requirements validation:** Daily feedback sessions on architecture decisions
-• **🔍 Solution alignment:** Ensuring technical approach met all business constraints`
-    },
-    {
-      title: 'Solution Exploration',
-      content: `• **🔍 Multi-approach evaluation:** Extensive evaluation of multiple integration approaches before selecting email-based solution
-• **💡 Creative problem-solving:** Email-based architecture emerged as optimal solution meeting all technical and budget constraints
-• **✅ Constraint satisfaction:** Final solution satisfied every business and technical requirement`
+      title: 'Solution Alignment',
+      content: `• **Automated background daemon** (\`setInterval\`) implemented to prune unattended rooms after 30 minutes of inactivity, preserving server RAM on free-tier deployments.
+• **Refactored AI and Execution workflow** to a backend proxy pattern to guarantee enterprise-grade security for API keys.`
     }
   ]
 };

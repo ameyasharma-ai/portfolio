@@ -1,0 +1,121 @@
+# InLine: The Next-Generation Real-Time Collaborative Workspace
+
+InLine is a state-of-the-art, real-time collaborative coding and brainstorming environment designed to bridge the gap between developers, designers, and remote teams. Built from the ground up with modern web technologies, InLine offers a deeply synchronized workspace where multiple users can seamlessly code, draw, and communicate without any latency or conflicts.
+
+## Core Pillars of InLine
+
+### 1. Advanced Real-Time Synchronization Engine
+At its heart, InLine utilizes a robust, low-latency Socket.IO architecture. This ensures that every keystroke, cursor movement, and file system change is instantly broadcast to all participants in a workspace. The backend manages a decentralized P2P state map, meaning rooms are highly ephemeral, secure, and fast.
+
+### 2. Multi-Language Code Execution Sandbox
+InLine breaks free from being just a text editor by integrating directly with high-performance code execution engines (like the Piston v2 API). Users can instantly compile, run, and debug code in over 5 different programming languages (JavaScript, TypeScript, Python, C++, Java) directly within the browser. The execution context handles standard input, parses standard output and errors, and gracefully handles complex unicode responses.
+
+### 3. AI-Powered Copilot
+Development doesn't happen in a vacuum. InLine integrates an intelligent AI Copilot powered by massive LLMs (like Llama 3.3 70B, Qwen Coder, and GPT-OSS 120B) via OpenRouter and Pollinations. The Copilot is context-aware—it can generate new code, explain existing snippets, or directly refactor active files with an elegant, inline diff-replacement system.
+
+### 4. Integrated Collaborative Whiteboard
+Because software engineering is as much about architecture as it is about code, InLine includes a fully featured infinite canvas whiteboard powered by TLDraw. Teams can switch seamlessly from writing a backend controller to sketching out the system architecture on a shared, real-time drawing board.
+
+### 5. Premium, Immersive User Interface
+InLine rejects the sterile, overly utilitarian look of legacy editors. Instead, it embraces a vibrant, "hacker-inspired" dark mode aesthetic with glassmorphism, dynamic glowing orbs, fluid animations, and a rich array of custom syntax-highlighted themes (like Tokyo Night, Dracula, and GitHub Dark).
+
+## Under The Hood
+The frontend is built with React 18, Vite, and TailwindCSS for ultra-fast rendering and an optimized build pipeline. The code editor relies on CodeMirror 6, allowing for deep customization, keybindings, and extensions. The backend is a lightweight Node.js/Express server that acts as the real-time websocket message broker, prioritizing speed and minimal memory footprint.
+
+InLine is built by Ameya Sharma (github.com/ameyasharma-ai) as a testament to what is possible when modern web sockets meet agentic AI and beautiful UI design.
+
+---
+
+# InLine: Real-Time Collaborative Workspace
+State-of-the-art, real-time collaborative coding and brainstorming environment that bridges the gap between developers and designers, featuring a code editor, AI copilot, live terminal sandboxes, and an integrated infinite whiteboard.
+
+Vite • TypeScript • React 18 • Node.js • Express • Socket.IO • CodeMirror 6 • TLDraw • Judge0 API • OpenRouter API
+
+## Technologies Used 🛠️
+**Frontend & Framework**
+• Vite - Lightning-fast build tool
+• TypeScript - Type-safe development
+• React 18 - Modern UI components
+• TailwindCSS - Utility-first styling
+• CodeMirror 6 - Highly customizable code editor
+• TLDraw - Infinite canvas whiteboard
+
+**Backend & Real-Time**
+• Node.js & Express - Lightweight backend server
+• Socket.IO - Low-latency bidirectional communication
+
+**Integrations**
+• Judge0 API - Multi-language code execution engine
+• OpenRouter API - Intelligent AI Copilot generation
+
+**Infrastructure**
+• Vercel - Frontend deployment
+• Render - Backend deployment and WebSocket broker
+
+## Challenge 🎯
+**Business Pain Points**
+Remote engineering teams and coding interviewers lack a unified, friction-free space for both coding and architectural brainstorming, often requiring them to juggle multiple separate applications.
+
+**Technical Constraints**
+• ⚡ Zero-latency requirement - Keystrokes and cursor movements must synchronize instantly across multiple users.
+• 🔒 Security & CORS - Third-party API keys (AI, Code Execution) cannot be exposed to the frontend browser bundle.
+• 🧹 Resource Management - Backend must handle ephemeral multi-tenant rooms without leaking memory from abandoned sessions.
+
+**User Needs**
+One-click room creation with secure password generation, live cursor tracking, in-browser code execution, and an immersive aesthetic.
+
+## Solution ✨
+**High-Level Approach**
+Built a highly responsive websocket-based architecture prioritizing speed and minimal memory footprint, seamlessly combining a robust IDE experience with visual collaboration.
+
+**Core Features**
+• 📝 Real-time, multi-file code editing with collaborative syntax highlighting
+• 🤖 AI-powered Copilot for context-aware autocompletion and code generation
+• ⚙️ Multi-language code execution sandbox (JavaScript, TypeScript, Python, C++, Java)
+• 🎨 Infinite collaborative whiteboard for system architecture and sketching
+• 🔐 Secure multi-tenant rooms with auto-generated alphanumeric passwords
+
+**Architecture Overview**
+• Frontend-heavy Vite React application optimized for ultra-fast rendering.
+• Lightweight Express backend acting as a secure websocket message broker.
+• Backend Proxy Architecture ensures all Judge0 and OpenRouter API calls are securely routed through the server, completely sanitizing the client bundle.
+
+## Technical Implementation ⚙️
+**Real-Time Synchronization Engine**
+• Decentralized P2P state map managed by Socket.IO for keystrokes, cursors, and file system changes.
+• Optimized debounce mechanisms for cursor tracking to reduce network payload overhead.
+
+**Secure Proxy Architecture**
+• Migrated vulnerable client-side execution logic to the Express backend.
+• Environment variables strictly isolated on the server (`JUDGE0_API_URL`, `OPENROUTER_API_KEY`), completely bypassing browser CORS restrictions and preventing credential leakage.
+
+**Immersive UI/UX**
+• Premium "hacker-inspired" dark mode aesthetic with glassmorphism and dynamic glowing orbs.
+• Custom syntax-highlighted themes (Tokyo Night, Dracula, GitHub Dark).
+• State-of-the-art Open Graph and Twitter SEO meta tags for rich social sharing.
+
+## Process 🔄
+**Development Methodology**
+Iterative development focusing first on core websocket stability, followed by feature integrations (AI, Code Execution), and finalized with rigorous security hardening.
+
+**Solution Alignment**
+• Implemented an automated background daemon (`setInterval`) to prune unattended rooms after 30 minutes of inactivity, preserving server RAM on free-tier deployments.
+• Refactored the entire AI and Execution workflow to a backend proxy pattern to guarantee enterprise-grade security for API keys.
+
+## Reflection 💭
+**Key Learning**
+Secure architecture is paramount. Moving external API calls (Judge0, OpenRouter) to a backend proxy not only prevented potential credential leakage but also permanently resolved complex CORS issues associated with browser-based execution.
+
+**Project Success**
+• Delivered a production-ready application that seamlessly blends coding and architectural drawing.
+• Achieved robust server performance with unattended room auto-pruning.
+• Implemented a stunning, premium user interface that wows users at first glance.
+
+**Future Enhancements**
+• 🚀 Voice & Video Integration: WebRTC-based communication within rooms.
+• 📊 Git Integration: Bi-directional syncing with GitHub repositories.
+• 🤖 Advanced AI: Multi-agent debugging and automated unit test generation.
+
+## Next Steps 📞
+Ready to build something innovative together?
+**Get In Touch**: [github.com/ameyasharma-ai](https://github.com/ameyasharma-ai)

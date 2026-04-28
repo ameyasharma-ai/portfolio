@@ -7,29 +7,27 @@ export const technologiesContent: ContentSection = {
   subsections: [
     {
       title: 'Frontend & Framework',
-      content: `• **Next.js 15** - React-based full-stack framework
+      content: `• **Vite** - Lightning-fast build tool
 • **TypeScript** - Type-safe development
-• **React 19** - Modern UI components
-• **shadcn/ui** - Component library and design system`
+• **React 18** - Modern UI components
+• **TailwindCSS** - Utility-first styling
+• **CodeMirror 6** - Highly customizable code editor
+• **TLDraw** - Infinite canvas whiteboard`
     },
     {
-      title: 'Backend & Database',
-      content: `• **Supabase** - PostgreSQL database and authentication
-• **ForwardEmail.net** - Email forwarding service`
+      title: 'Backend & Real-Time',
+      content: `• **Node.js & Express** - Lightweight backend server
+• **Socket.IO** - Low-latency bidirectional communication`
     },
     {
       title: 'Integrations',
-      content: `• **Google Ads API** - Campaign creation automation
-• **Meta API** - Facebook/Instagram advertising
-• **TikTok API** - TikTok advertising campaigns
-• **LinkedIn API** - Professional network advertising
-• **Microsoft Forms** - Client data collection
-• **Power Automate** - Microsoft workflow automation`
+      content: `• **Judge0 API** - Multi-language code execution engine
+• **OpenRouter API** - Intelligent AI Copilot generation`
     },
     {
       title: 'Infrastructure',
-      content: `• **Vercel** - Deployment and hosting
-• **Email-based architecture** - Cost-effective integration layer`
+      content: `• **Vercel** - Frontend deployment
+• **Render** - Backend deployment and WebSocket broker`
     }
   ]
 };
