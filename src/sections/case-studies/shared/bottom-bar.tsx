@@ -61,21 +61,6 @@ export function BottomBar({ techStack }: BottomBarProps) {
     prevTechStackRef.current = techStack;
   }, [techStack]);
 
-  // Split tech stack for mobile layout
-  const getRowsForMobile = (items: TechStackItem[]) => {
-    if (items.length === 6) {
-      // Design platform: 3 + 3
-      return [items.slice(0, 3), items.slice(3, 6)];
-    } else if (items.length === 5) {
-      // Advertising platform: 3 + 2
-      return [items.slice(0, 3), items.slice(3, 5)];
-    }
-    // Fallback: split roughly in half
-    const mid = Math.ceil(items.length / 2);
-    return [items.slice(0, mid), items.slice(mid)];
-  };
-
-  const mobileRows = getRowsForMobile(techStack);
 
   return (
     <div className="w-full h-full flex items-center justify-center p-4 [@media(min-width:1390px)]:p-6">
