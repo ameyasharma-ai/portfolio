@@ -37,6 +37,7 @@ export const advertisingPlatformData: CaseStudyData = {
     ],
     buttons: {
       githubUrl: "https://github.com/ameyasharma-ai/inline-frontend/",
+      liveUrl: "https://inline-frontend.vercel.app",
       detailPath: "/case-studies/advertising-platform"
     }
   },

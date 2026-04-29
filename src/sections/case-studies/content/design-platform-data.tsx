@@ -37,6 +37,7 @@ export const designPlatformData: CaseStudyData = {
     ],
     buttons: {
       githubUrl: "https://github.com/ameyasharma-ai/groot-frontend",
+      liveUrl: "https://groot-frontend-orpin.vercel.app",
       detailPath: "/case-studies/design-platform"
     }
   },

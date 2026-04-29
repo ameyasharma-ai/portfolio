@@ -8,9 +8,26 @@ import { Skills } from "@/sections/skills";
 import { AboutMe } from "@/sections/about-me";
 import { Footer } from "@/sections/footer";
 import { useSectionTracker } from "@/hooks/useSectionTracker";
+import { useEffect } from "react";
 
 export function HomePage() {
   useSectionTracker();
+
+  // Restore scroll position when returning from case study detail page
+  useEffect(() => {
+    const savedY = sessionStorage.getItem('homeScrollY');
+    if (savedY) {
+      const scrollY = parseInt(savedY, 10);
+      // Delay slightly to let Lenis smooth scroll initialize first
+      const timer = setTimeout(() => {
+        window.scrollTo(0, scrollY);
+      }, 150);
+      // Clean up after restoring
+      sessionStorage.removeItem('homeScrollY');
+      sessionStorage.removeItem('caseStudyReturn');
+      return () => clearTimeout(timer);
+    }
+  }, []);
 
   // Combine structured data
   const structuredData = {

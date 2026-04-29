@@ -6,8 +6,23 @@ import { AboutMeMobile } from "@/sections/about-me-mobile";
 import { MobileFooter } from "@/sections/footer-mobile";
 import { Sidebar } from "@/components/navigation/sidebar/sidebar";
 import { ProgressiveBlur } from "@/components/ui/progressive-blur";
+import { useEffect } from "react";
 
 export function MobileHomePage() {
+  // Restore scroll position when returning from case study detail page
+  useEffect(() => {
+    const savedY = sessionStorage.getItem('homeScrollY');
+    if (savedY) {
+      const scrollY = parseInt(savedY, 10);
+      // Use requestAnimationFrame to ensure DOM is rendered before scrolling
+      requestAnimationFrame(() => {
+        window.scrollTo(0, scrollY);
+      });
+      // Clean up after restoring
+      sessionStorage.removeItem('homeScrollY');
+      sessionStorage.removeItem('caseStudyReturn');
+    }
+  }, []);
   return (
     <div className="flex min-h-svh flex-col">
       {/* Global Progressive Blur at top of screen */}

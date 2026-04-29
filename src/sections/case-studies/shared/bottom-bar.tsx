@@ -93,31 +93,18 @@ export function BottomBar({ techStack }: BottomBarProps) {
           ))}
         </div>
 
-        {/* Mobile Layout (screens <600px) - Two rows with justify-around */}
-        <div className="flex min-[600px]:hidden flex-col gap-6 w-full">
-          {/* First Row */}
-          <div className="flex items-center justify-between w-full">
-            {mobileRows[0].map((tech, index) => (
-              <div key={`${tech.name}-row1-${index}`} className="flex flex-col items-center gap-4">
+        {/* Mobile Layout (screens <600px) - 3-column grid for perfect alignment */}
+        <div className="min-[600px]:hidden grid grid-cols-3 gap-y-6 gap-x-4 w-full">
+          {techStack.map((tech, index) => (
+            <div key={`${tech.name}-mobile-${index}`} className="flex flex-col items-center gap-2">
+              <div className="w-8 h-8 flex items-center justify-center [&>svg]:w-8 [&>svg]:h-8">
                 {tech.icon}
-                <span className="font-body text-sm font-light text-foreground">
-                  {tech.name}
-                </span>
               </div>
-            ))}
-          </div>
-
-          {/* Second Row */}
-          <div className="flex items-center justify-between w-full">
-            {mobileRows[1].map((tech, index) => (
-              <div key={`${tech.name}-row2-${index}`} className="flex flex-col items-center gap-4">
-                {tech.icon}
-                <span className="font-body text-sm font-light text-foreground">
-                  {tech.name}
-                </span>
-              </div>
-            ))}
-          </div>
+              <span className="font-body text-xs font-light text-foreground text-center whitespace-nowrap">
+                {tech.name}
+              </span>
+            </div>
+          ))}
         </div>
 
       </div>

@@ -14,10 +14,17 @@ export function AdvertisingPlatformDetail() {
   // Scroll to top when component mounts
   useEffect(() => {
     window.scrollTo(0, 0);
+    // Save that we came from a case study so back nav knows to restore scroll
+    sessionStorage.setItem('caseStudyReturn', 'true');
   }, []);
 
   const handleBackClick = () => {
-    navigate("/");
+    // Use history back so scroll position is restored
+    if (window.history.length > 1) {
+      navigate(-1);
+    } else {
+      navigate('/');
+    }
   };
 
   const handleFrontendClick = () => {
@@ -57,37 +64,37 @@ export function AdvertisingPlatformDetail() {
   return (
     <div className="max-w-5xl mx-auto py-12 px-6">
       {/* Back Button and Project Links */}
-      <div className="flex items-center justify-between mb-8">
+      <div className="flex flex-col gap-4 mb-8 md:flex-row md:items-center md:justify-between">
         <button
           onClick={handleBackClick}
-          className="inline-flex items-center gap-2 text-primary hover:underline cursor-pointer"
+          className="inline-flex items-center gap-2 text-primary hover:underline cursor-pointer self-start"
         >
           <ArrowLeft className="w-4 h-4" />
           Back
         </button>
 
-        <div className="flex items-center gap-3">
+        <div className="flex flex-wrap items-center gap-2 md:gap-3">
           <button
             onClick={handleLiveClick}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors cursor-pointer"
+            className="inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 text-sm bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors cursor-pointer"
           >
-            <ExternalLink className="w-4 h-4" />
+            <ExternalLink className="w-4 h-4 shrink-0" />
             Live Demo
           </button>
           
           <button
             onClick={handleFrontendClick}
-            className="inline-flex items-center gap-2 px-4 py-2 border border-border rounded-lg hover:border-ring transition-colors cursor-pointer"
+            className="inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 text-sm border border-border rounded-lg hover:border-ring transition-colors cursor-pointer"
           >
-            <GithubIcon className="w-4 h-4" />
+            <GithubIcon className="w-4 h-4 shrink-0" />
             Frontend
           </button>
           
           <button
             onClick={handleBackendClick}
-            className="inline-flex items-center gap-2 px-4 py-2 border border-border rounded-lg hover:border-ring transition-colors cursor-pointer"
+            className="inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 text-sm border border-border rounded-lg hover:border-ring transition-colors cursor-pointer"
           >
-            <GithubIcon className="w-4 h-4" />
+            <GithubIcon className="w-4 h-4 shrink-0" />
             Backend
           </button>
         </div>

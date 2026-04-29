@@ -1,8 +1,7 @@
 import { useRef, useEffect } from "react";
 import { useNavigate } from "react-router";
 import gsap from "gsap";
-import { ArrowRight } from "lucide-react";
-import { GithubIcon } from "@/components/icons/socials/github-icon";
+import { ArrowRight, ExternalLink } from "lucide-react";
 import type { ProjectData } from "../types";
 
 interface RightBarProps {
@@ -65,21 +64,14 @@ export function RightBar({ projectData }: RightBarProps) {
     prevProjectDataRef.current = projectData;
   }, [projectData]);
 
-  const handleGithubClick = () => {
-    window.open(projectData.buttons.githubUrl, '_blank', 'noopener,noreferrer');
+  const handleLiveDemoClick = () => {
+    window.open(projectData.buttons.liveUrl, '_blank', 'noopener,noreferrer');
   };
 
   const handleLearnMoreClick = () => {
-    // Check if we're on mobile (< 768px)
-    const isMobile = window.innerWidth < 768;
-    
-    if (isMobile) {
-      // Use React Router navigation for mobile
-      navigate(projectData.buttons.detailPath);
-    } else {
-      // Use hard navigation for desktop to bypass scroll restoration issues
-      window.location.href = projectData.buttons.detailPath;
-    }
+    // Save scroll position before navigating
+    sessionStorage.setItem('homeScrollY', window.scrollY.toString());
+    navigate(projectData.buttons.detailPath);
   };
 
   return (
@@ -116,11 +108,11 @@ export function RightBar({ projectData }: RightBarProps) {
         {/* Buttons - Always visible, but positioning adjusts based on screen size */}
         <div className="flex items-center gap-6 mt-0 [@media(min-width:1390px)]:mt-6 justify-start">
           <button
-            onClick={handleGithubClick}
+            onClick={handleLiveDemoClick}
             className="flex items-center gap-2 px-4 py-2 border border-border rounded-lg font-body text-sm text-foreground hover:border-ring transition-colors cursor-pointer"
           >
-            <GithubIcon className="w-4 h-4" />
-            GitHub
+            <ExternalLink className="w-4 h-4" />
+            Live Demo
           </button>
           <button
             onClick={handleLearnMoreClick}

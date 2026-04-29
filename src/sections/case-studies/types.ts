@@ -10,6 +10,7 @@ export interface ProjectSection {
 
 export interface ProjectButtons {
   githubUrl: string;
+  liveUrl: string;
   detailPath: string;
 }
 
