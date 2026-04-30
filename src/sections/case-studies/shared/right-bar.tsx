@@ -80,10 +80,10 @@ export function RightBar({ projectData }: RightBarProps) {
   };
 
   return (
-    <div className="w-full h-full flex flex-col overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
-      <div ref={contentRef} className="flex flex-col h-full">
+    <div className="w-full h-full flex flex-col min-h-0">
+      <div ref={contentRef} className="flex flex-col h-full min-h-0">
         {/* Header - Hidden on screens < 1390px */}
-        <div className="mb-6 hidden [@media(min-width:1390px)]:block">
+        <div className="mb-6 hidden [@media(min-width:1390px)]:block flex-shrink-0">
           <h3 className="font-heading text-2xl text-foreground mb-2">
             {projectData.title}
           </h3>
@@ -92,8 +92,8 @@ export function RightBar({ projectData }: RightBarProps) {
           </p>
         </div>
 
-        {/* Dynamic Sections - Hidden on screens < 1390px */}
-        <div className="flex-1 hidden [@media(min-width:1390px)]:block">
+        {/* Dynamic Sections - Hidden on screens < 1390px, Scrollable if content overflows */}
+        <div className="flex-1 hidden [@media(min-width:1390px)]:block overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] min-h-0 pr-2">
           {projectData.sections.map((section, index) => (
             <div key={`${projectData.title}-${section.title}-${index}`} className={index === projectData.sections.length - 1 ? "" : "mb-6"}>
               <h4 className="font-heading text-lg text-foreground mb-2">
@@ -110,8 +110,8 @@ export function RightBar({ projectData }: RightBarProps) {
           ))}
         </div>
 
-        {/* Buttons - Always visible, but positioning adjusts based on screen size */}
-        <div className="flex flex-wrap items-center gap-4 [@media(min-width:1390px)]:gap-6 mt-0 [@media(min-width:1390px)]:mt-6 justify-start">
+        {/* Buttons - Always visible, pinned to bottom on PC */}
+        <div className="flex flex-wrap items-center gap-4 [@media(min-width:1390px)]:gap-6 mt-4 [@media(min-width:1390px)]:mt-6 justify-start flex-shrink-0 bg-card">
           <button
             onClick={handleLiveDemoClick}
             className="flex items-center gap-2 px-3 py-1.5 [@media(min-width:1390px)]:px-4 [@media(min-width:1390px)]:py-2 border border-border rounded-lg font-body text-xs [@media(min-width:1390px)]:text-sm text-foreground hover:border-ring transition-colors cursor-pointer"

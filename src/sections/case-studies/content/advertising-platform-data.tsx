@@ -15,23 +15,23 @@ export const advertisingPlatformData: CaseStudyData = {
       {
         title: "Problem",
         items: [
-          "• Remote teams lack unified space for coding and brainstorming",
-          "• Juggling multiple apps causes friction and context switching"
+          "• Lack of unified space for remote teams",
+          "• High friction from context switching"
         ]
       },
       {
         title: "Solution",
         items: [
-          "• Real-time collaborative IDE with multi-file sync",
-          "• Integrated AI Copilot and multi-language execution",
-          "• Shared infinite whiteboard for system architecture",
+          "• Real-time collaborative IDE & sync",
+          "• AI Copilot & multi-language execution",
+          "• Shared infinite architecture whiteboard",
         ]
       },
       {
         title: "Impact",
         items: [
-          "• Seamless bridge between developers and designers",
-          "• Zero-latency synchronization across remote teams"
+          "• Bridge for developers and designers",
+          "• Zero-latency team synchronization"
         ]
       }
     ],

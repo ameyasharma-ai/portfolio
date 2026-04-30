@@ -15,23 +15,23 @@ export const designPlatformData: CaseStudyData = {
       {
         title: "Problem",
         items: [
-          "• Traditional AI assistants feel robotic and lack personality",
-          "• Free-tier APIs suffer from rate limits and high latency"
+          "• Robotic AI assistants lack personality",
+          "• API rate limits and high latency"
         ]
       },
       {
         title: "Solution",
         items: [
           "• Multi-persona AI with real-time WebSockets",
-          "• Dynamic Knowledge Base & Voice Activity Detection",
-          "• Auto-failover LLM routing for high availability"
+          "• Dynamic Knowledge Base & VAD",
+          "• Auto-failover LLM routing"
         ]
       },
       {
         title: "Impact",
         items: [
-          "• Achieved ultra-low latency conversational flow",
-          "• Seamless 3D audio-reactive visualization via Web Audio API"
+          "• Ultra-low latency conversational flow",
+          "• 3D audio-reactive visualization"
         ]
       }
     ],
