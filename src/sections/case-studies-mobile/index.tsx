@@ -1,5 +1,6 @@
 import { AdvertisingMobile } from './advertising';
 import { DesignMobile } from './design';
+import { CodeGraphMobile } from './codegraph';
 
 export function CaseStudiesMobile() {
   return (
@@ -24,8 +25,13 @@ export function CaseStudiesMobile() {
         </div>
         
         {/* Advertising Case Study */}
-        <div>
+        <div className="mb-10">
           <AdvertisingMobile />
+        </div>
+
+        {/* CodeGraph Case Study */}
+        <div>
+          <CodeGraphMobile />
         </div>
       </div>
     </section>

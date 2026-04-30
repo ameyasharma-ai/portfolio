@@ -1,16 +1,16 @@
 import { CustomVideoPlayer } from "@/components/ui/custom-video-player";
 
-export function DesignPlatformVideo() {
+export function CodeGraphVideo() {
   return (
     <div className="w-full aspect-video overflow-hidden bg-black/90">
       <CustomVideoPlayer
         cloudName="day7gel9b"
-        publicId="72C94B09-71C4-4795-BCF3-AD0D8EA6EF16_Copy_vavtfh"
+        publicId="387AC562-8E99-45EC-B14F-55A25FD85C1B_Copy_cgwb2v"
         className="w-full h-full [&>video]:object-cover [&>video]:w-full [&>video]:h-full"
         muted={true}
         autoPlay={true}
-        onPlay={() => console.log('Design platform video started playing')}
-        onPause={() => console.log('Design platform video paused')}
+        onPlay={() => console.log('CodeGraph video started playing')}
+        onPause={() => console.log('CodeGraph video paused')}
       />
     </div>
   );

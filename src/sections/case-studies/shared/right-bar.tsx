@@ -2,6 +2,7 @@ import { useRef, useEffect } from "react";
 import { useNavigate } from "react-router";
 import gsap from "gsap";
 import { ArrowRight, ExternalLink } from "lucide-react";
+import { GithubIcon } from "@/components/icons/socials/github-icon";
 import type { ProjectData } from "../types";
 
 interface RightBarProps {
@@ -68,6 +69,10 @@ export function RightBar({ projectData }: RightBarProps) {
     window.open(projectData.buttons.liveUrl, '_blank', 'noopener,noreferrer');
   };
 
+  const handleGithubClick = () => {
+    window.open(projectData.buttons.githubUrl, '_blank', 'noopener,noreferrer');
+  };
+
   const handleLearnMoreClick = () => {
     // Save scroll position before navigating
     sessionStorage.setItem('homeScrollY', window.scrollY.toString());
@@ -106,20 +111,29 @@ export function RightBar({ projectData }: RightBarProps) {
         </div>
 
         {/* Buttons - Always visible, but positioning adjusts based on screen size */}
-        <div className="flex items-center gap-6 mt-0 [@media(min-width:1390px)]:mt-6 justify-start">
+        <div className="flex flex-wrap items-center gap-4 [@media(min-width:1390px)]:gap-6 mt-0 [@media(min-width:1390px)]:mt-6 justify-start">
           <button
             onClick={handleLiveDemoClick}
-            className="flex items-center gap-2 px-4 py-2 border border-border rounded-lg font-body text-sm text-foreground hover:border-ring transition-colors cursor-pointer"
+            className="flex items-center gap-2 px-3 py-1.5 [@media(min-width:1390px)]:px-4 [@media(min-width:1390px)]:py-2 border border-border rounded-lg font-body text-xs [@media(min-width:1390px)]:text-sm text-foreground hover:border-ring transition-colors cursor-pointer"
           >
             <ExternalLink className="w-4 h-4" />
             Live Demo
           </button>
+          
+          <button
+            onClick={handleGithubClick}
+            className="flex items-center gap-2 px-3 py-1.5 [@media(min-width:1390px)]:px-4 [@media(min-width:1390px)]:py-2 border border-border rounded-lg font-body text-xs [@media(min-width:1390px)]:text-sm text-foreground hover:border-ring transition-colors cursor-pointer"
+          >
+            <GithubIcon className="w-4 h-4" />
+            GitHub
+          </button>
+
           <button
             onClick={handleLearnMoreClick}
-            className="font-heading text-[#f2f2f2] hover:opacity-80 transition-opacity flex items-center gap-2 cursor-pointer"
+            className="font-heading text-[#f2f2f2] hover:opacity-80 transition-opacity flex items-center gap-2 cursor-pointer text-xs [@media(min-width:1390px)]:text-sm"
           >
             Learn More
-            <ArrowRight className="w-5 h-5 mb-1" />
+            <ArrowRight className="w-4 h-4 [@media(min-width:1390px)]:w-5 [@media(min-width:1390px)]:h-5 mb-1" />
           </button>
         </div>
       </div>

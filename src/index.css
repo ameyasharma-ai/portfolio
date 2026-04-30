@@ -91,6 +91,10 @@
   to {
     transform: translateY(calc(-100% - var(--gap)));}}}
 
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   --radius: 0.625rem;
   --background: oklch(0.99 0.005 260);

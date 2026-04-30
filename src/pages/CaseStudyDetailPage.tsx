@@ -4,6 +4,7 @@ import { useParams, Link } from "react-router";
 import { ArrowLeft } from "lucide-react";
 import { DesignPlatformDetail } from "@/sections/case-studies/detail/design-platform-detail";
 import { AdvertisingPlatformDetail } from "@/sections/case-studies/detail/advertising-platform-detail";
+import { CodeGraphDetail } from "@/sections/case-studies/detail/codegraph-detail";
 
 export function CaseStudyDetailPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -25,6 +26,13 @@ export function CaseStudyDetailPage() {
           image: "https://www.kolzo.in/case-studies/inline-thumbnail.png",
           datePublished: "2024-11-01"
         };
+      case "codegraph":
+        return {
+          title: "CodeGraph: AI-Powered Codebase Visualizer Case Study",
+          description: "Production-grade codebase visualization tool that transforms complex GitHub repositories into interactive 3D dependency graphs with AI-powered insights.",
+          image: "https://www.kolzo.in/case-studies/codegraph-thumbnail.png", // Assuming existence or placeholder
+          datePublished: "2024-12-01"
+        };
       default:
         return null;
     }
@@ -39,6 +47,8 @@ export function CaseStudyDetailPage() {
         return <DesignPlatformDetail />;
       case "advertising-platform":
         return <AdvertisingPlatformDetail />;
+      case "codegraph":
+        return <CodeGraphDetail />;
       default:
         return (
           <div className="min-h-screen flex items-center justify-center">

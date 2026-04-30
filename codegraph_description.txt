@@ -1,0 +1,127 @@
+Back
+Live Demo
+Frontend
+Backend
+CodeGraph: AI-Powered Codebase Visualizer
+Production-grade codebase visualization tool that transforms complex GitHub repositories into interactive 3D dependency graphs, featuring AI-powered architectural insights, sub-second caching, and real-time dependency flow tracing.
+
+0:00 / 1:15
+Next.js 15 • TypeScript • React Flow • Tailwind CSS v4 • Supabase • OpenRouter API • GitHub REST API
+
+Technologies Used 🛠️
+Frontend & Framework
+• Next.js 15 - React framework for production-grade apps
+
+• TypeScript - Type-safe development across the stack
+
+• React Flow - Highly customizable graph visualization engine
+
+• Tailwind CSS v4 - Modern, high-performance styling
+
+• Lucide React - Sleek, consistent icon system
+
+Database & AI
+• Supabase (PostgreSQL) - High-performance caching and persistence layer
+
+• OpenRouter API - Access to Gemini 2.0 Flash for architectural analysis
+
+Infrastructure & API
+• GitHub REST API - Recursive repository tree and content extraction
+
+• Vercel - Edge-ready frontend and serverless API deployment
+
+Challenge 🎯
+Business Pain Points
+Developers and architects often waste hours manually tracing imports and reading documentation to understand the structure of large or unfamiliar repositories, leading to slower onboarding and increased risk during refactoring.
+
+Technical Constraints
+• ⚡ Computational Overhead - Parsing thousands of files and imports recursively can be slow and resource-heavy.
+
+• 🔒 API Security - Sensitive tokens for GitHub and AI providers must be isolated from the client-side bundle.
+
+• 📈 Scalability & Rate Limits - Public GitHub APIs have strict limits that must be managed to ensure service availability.
+
+User Needs
+A fast, intuitive "one-click" visualization that provides both a bird's-eye view of architecture and deep, AI-driven context for individual files.
+
+Solution ✨
+High-Level Approach
+Built a secure, server-side orchestrated architecture that prioritizes speed through a robust caching layer while delivering a premium, interactive frontend experience.
+
+Core Features
+• 🕸️ Interactive Dependency Mapping - Dynamic, zoomable graphs showing how files connect.
+
+• 🤖 AI Architect Insights - Automated file-level summaries explaining the purpose of every module.
+
+• 🔍 Flow Tracing - Instant visualization of import/export paths when clicking on a node.
+
+• 🚀 Sub-Second Caching - Near-instant reloads for previously analyzed repositories via Supabase.
+
+• 📱 Responsive Glassmorphism - Premium, mobile-optimized dark-themed interface.
+
+Architecture Overview
+Frontend Architecture: Next.js Client Components optimized for interactive graph manipulation and touch gestures.
+
+Serverless Logic: API Routes handling secure GitHub fetching and regex-based import parsing.
+
+Caching Layer: Supabase acts as a persistent graph-store, drastically reducing redundant API calls and processing time.
+
+Technical Implementation ⚙️
+Graph Reconstruction Engine
+• Implemented a recursive tree-traversal algorithm using the GitHub API to map entire repository structures.
+
+• Developed a lightweight, high-speed regex parser to extract ES Module imports without the overhead of a full AST.
+
+• Custom React Flow integration with memoized node types to prevent UI lag in large codebases.
+
+Secure Proxy Architecture
+• Isolated all sensitive credentials (`OPENROUTER_API_KEY`, `GITHUB_TOKEN`) on the server.
+
+• Frontend communicates only with internal API routes, ensuring no API keys are ever exposed in the browser's "Inspect Element" tab.
+
+• Implemented Row-Level Security (RLS) on Supabase to protect cached architectural data.
+
+Immersive UI/UX
+• State-of-the-art dark mode with backdrop-blur effects and custom HSL color palettes.
+
+• Dynamic viewport locking for mobile devices to ensure the graph canvas always remains interactive.
+
+• Optimized SEO metadata and native favicon integration for a professional product presence.
+
+Process 🔄
+Development Methodology
+Rapid prototyping of the parsing engine followed by iterative UI polish and final integration of the Supabase-AI caching pipeline.
+
+Solution Alignment
+• Integrated OpenRouter's Gemini 2.0 Flash model to balance high-speed response times with deep architectural understanding.
+
+• Optimized the React Flow viewport logic to handle over 200+ nodes smoothly on both desktop and mobile.
+
+Reflection 💭
+Key Learning
+Database-driven caching is the backbone of speed. By persisting analyzed graphs in Supabase, we transformed a 10-second analysis process into a sub-second interactive experience for returning users.
+
+Project Success
+• Built a tool that provides instant clarity on complex repo architectures.
+
+• Achieved a "one-click" experience that abstracts away the complexity of GitHub's REST API.
+
+• Delivered a premium design that rivals enterprise-level developer tools.
+
+Future Enhancements
+• 🚀 3D Visualization: Transforming 2D React Flow maps into immersive 3D space.
+
+• 📊 Commit History Integration: Visualizing how the graph evolved over time.
+
+• 🤖 Multi-Agent AI: Deeper repository-wide architectural audits using multiple LLMs.
+
+Next Steps 📞
+Ready to visualize the future of your codebase?
+Get In Touch
+Technologies Used 🛠️
+Challenge 🎯
+Solution ✨
+Technical Implementation ⚙️
+Process 🔄
+Reflection 💭
+Next Steps 📞

@@ -3,6 +3,7 @@ import { RightBar } from './shared/right-bar';
 import { BottomBar } from './shared/bottom-bar';
 import { designPlatformData } from './content/design-platform-data';
 import { advertisingPlatformData } from './content/advertising-platform-data';
+import { codegraphData } from './content/codegraph-data';
 import { useScrollTransition } from './useScrollTransition';
 
 export function TransitionLayout() {
@@ -10,13 +11,17 @@ export function TransitionLayout() {
     sectionRef,
     designVideoRef,
     advertisingVideoRef,
+    codegraphVideoRef,
     rightBarRef,
     bottomBarRef,
     activeCaseStudy,
   } = useScrollTransition();
 
   // Get the current data based on active case study
-  const currentData = activeCaseStudy === 'design' ? designPlatformData : advertisingPlatformData;
+  const currentData = 
+    activeCaseStudy === 'design' ? designPlatformData : 
+    activeCaseStudy === 'advertising' ? advertisingPlatformData : 
+    codegraphData;
 
   return (
     <div 
@@ -29,7 +34,7 @@ export function TransitionLayout() {
           {/* Left side - Overlapping Videos and BottomBar */}
           <div className="[@media(min-width:1390px)]:col-span-2 flex flex-col gap-6 h-full">
             {/* Video Container - Takes most height on small screens, flex-[3] on large screens */}
-            <div className="bento-square flex-[4] [@media(min-width:1390px)]:flex-[3] relative overflow-hidden">
+            <div className="bento-square !p-0 flex-[4] [@media(min-width:1390px)]:flex-[3] relative overflow-hidden">
               {/* Design Platform Video */}
               <div 
                 ref={designVideoRef}
@@ -45,12 +50,20 @@ export function TransitionLayout() {
               >
                 <VideoContainer activeVideo="advertising" />
               </div>
+
+              {/* CodeGraph Video */}
+              <div 
+                ref={codegraphVideoRef}
+                className="absolute inset-0 w-full h-full"
+              >
+                <VideoContainer activeVideo="codegraph" />
+              </div>
             </div>
 
             {/* Bottom Bar - Minimal height on small screens, flex-1 on large screens */}
             <div 
               ref={bottomBarRef}
-              className="bg-card border border-border rounded-[2rem] p-4 [@media(min-width:1390px)]:p-8[@media(min-width:1390px)]:h-auto [@media(min-width:1390px)]:min-h-[200px] transition-all duration-300 ease-in-out hover:border-ring hover:-translate-y-0.5 flex-none [@media(min-width:1390px)]:flex-1 [@media(min-width:1390px)]:mb-0 mb-3"
+              className="bg-card border border-border rounded-[2rem] p-4 [@media(min-width:1390px)]:p-8 [@media(min-width:1390px)]:h-auto [@media(min-width:1390px)]:min-h-[200px] transition-all duration-300 ease-in-out hover:border-ring hover:-translate-y-0.5 flex-none [@media(min-width:1390px)]:flex-1 [@media(min-width:1390px)]:mb-0 mb-3"
             >
               <BottomBar techStack={currentData.techStack} />
             </div>
