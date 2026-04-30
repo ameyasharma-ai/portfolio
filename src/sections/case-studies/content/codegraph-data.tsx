@@ -3,7 +3,6 @@ import { TypescriptIcon } from "@/components/icons/skills/typescript-icon";
 import { ReactIcon } from "@/components/icons/skills/react-icon";
 import { SupabaseIcon } from "@/components/icons/skills/supabase-icon";
 import { OpenrouterIcon } from "@/components/icons/skills/openrouter-icon";
-import { VercelIcon } from "@/components/icons/skills/vercel-icon";
 import { GithubIcon } from "@/components/icons/socials/github-icon";
 import type { CaseStudyData } from "../types";
 
