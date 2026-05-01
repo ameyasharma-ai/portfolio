@@ -86,9 +86,10 @@ As a full-stack developer, I specialize in bridging the gap between complex back
 ## 📬 Contact & Links
 
 - **GitHub**: [@ameyasharma-ai](https://github.com/ameyasharma-ai)
-- **Live Portfolio**: [Portfolio Link]
-- **Email**: [Your Email]
+- **Live Portfolio**: [ameyasharma.me](https://ameyasharma.me) 
+- **Email**: [sharmaameya999@gmail.com](mailto:[sharmaameya999@gmail.com]) 
 
 ---
 
 > "Building the future of the web, one pixel and one packet at a time."
+ 
