@@ -1,71 +1,94 @@
-# React + TypeScript + Vite
+# Ameya Sharma | Full-Stack Developer Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to my professional portfolio. This project is a high-performance, visually immersive showcase of my engineering work, designed with a focus on **Bento Grid architecture**, **GSAP-powered transitions**, and **AI-integrated applications**.
 
-Currently, two official plugins are available:
+## 🚀 The Vision
+As a full-stack developer, I specialize in bridging the gap between complex backend logic and premium, user-centric interfaces. This portfolio itself is a testament to that philosophy—combining sub-second performance with high-fidelity animations.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Core
+- **Framework**: [Next.js 15](https://nextjs.org/) / [React 19](https://react.dev/)
+- **Language**: [TypeScript](https://www.typescriptlang.org/) (Strictly typed)
+- **Bundler**: [Vite](https://vitejs.dev/) for ultra-fast HMR
 
-```js
-export default tseslint.config([
-  globalIgnores(["dist"]),
-  {
-    files: ["**/*.{ts,tsx}"],
-    extends: [
-      // Other configs...
+### UI/UX & Styling
+- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
+- **Animations**: [GSAP](https://greensock.com/gsap/) (GreenSock Animation Platform)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **Design System**: Custom Bento Grid with Glassmorphism and Depth
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+### Media & Backend Integration
+- **Video Hosting**: [Cloudinary](https://cloudinary.com/)
+- **Database/Auth**: [Supabase](https://supabase.com/)
+- **AI Integration**: [OpenRouter API](https://openrouter.ai/)
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 📂 Featured Case Studies
 
-```js
-// eslint.config.js
-import reactX from "eslint-plugin-react-x";
-import reactDom from "eslint-plugin-react-dom";
+### 1. [CodeGraph](https://codegraph-eight.vercel.app)
+**AI-Powered Codebase Visualizer**
+- Transforms complex GitHub repositories into interactive **3D dependency graphs**.
+- Features sub-second analysis reloads via **Supabase caching**.
+- Secured via a Server-Side Proxy for isolated API execution.
+- *Stack: Next.js 15, React Flow, Supabase, GitHub REST API.*
 
-export default tseslint.config([
-  globalIgnores(["dist"]),
-  {
-    files: ["**/*.{ts,tsx}"],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs["recommended-typescript"],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
-```
+### 2. [InLine](https://inline-frontend.vercel.app)
+**Real-Time Collaborative Workspace**
+- A unified platform for remote teams combining a **Collaborative IDE** and an **Infinite Whiteboard**.
+- Features zero-latency synchronization using **Socket.IO**.
+- Integrated AI Copilot for real-time code suggestions and architectural brainstorming.
+- *Stack: Vite, React, Node.js, Socket.IO, OpenRouter.*
 
-## dev-site
+### 3. [Groot](https://groot-frontend-orpin.vercel.app)
+**Immersive AI Voice Assistant**
+- Real-time conversational AI with **Multi-Persona support**.
+- Features a 3D audio-reactive visualizer using the **Web Audio API**.
+- Implements **Voice Activity Detection (VAD)** for natural turn-taking.
+- *Stack: React 19, Python, FastAPI, WebSockets.*
+
+---
+
+## ✨ Key Portfolio Features
+
+- **GSAP Scroll Orchestration**: Precise timeline-based transitions between case studies.
+- **Bento Grid Architecture**: A modular, responsive layout that scales from mobile to ultra-wide displays.
+- **Smooth Navigation**: Global `scroll-behavior: smooth` and React Router integration for a seamless "App-like" feel.
+- **Optimized Performance**: Lazy-loaded video components and optimized asset delivery via Cloudinary.
+
+---
+
+## 🛠️ Getting Started
+
+### Prerequisites
+- Node.js 18+
+- npm or pnpm
+
+### Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/ameyasharma-ai/portfolio.git
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Run the development server:
+   ```bash
+   npm run dev
+   ```
+
+---
+
+## 📬 Contact & Links
+
+- **GitHub**: [@ameyasharma-ai](https://github.com/ameyasharma-ai)
+- **Live Portfolio**: [Portfolio Link]
+- **Email**: [Your Email]
+
+---
+
+> "Building the future of the web, one pixel and one packet at a time."
