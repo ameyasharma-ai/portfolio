@@ -29,12 +29,12 @@ As a full-stack developer, I specialize in bridging the gap between complex back
 
 ## 📂 Featured Case Studies
 
-### 1. [CodeGraph](https://codegraph-eight.vercel.app)
-**AI-Powered Codebase Visualizer**
-- Transforms complex GitHub repositories into interactive **3D dependency graphs**.
-- Features sub-second analysis reloads via **Supabase caching**.
-- Secured via a Server-Side Proxy for isolated API execution.
-- *Stack: Next.js 15, React Flow, Supabase, GitHub REST API.*
+### 1. [Groot](https://groot-frontend-orpin.vercel.app)
+**Immersive AI Voice Assistant**
+- Real-time conversational AI with **Multi-Persona support**.
+- Features a 3D audio-reactive visualizer using the **Web Audio API**.
+- Implements **Voice Activity Detection (VAD)** for natural turn-taking.
+- *Stack: React 19, Python, FastAPI, WebSockets.*
 
 ### 2. [InLine](https://inline-frontend.vercel.app)
 **Real-Time Collaborative Workspace**
@@ -43,12 +43,12 @@ As a full-stack developer, I specialize in bridging the gap between complex back
 - Integrated AI Copilot for real-time code suggestions and architectural brainstorming.
 - *Stack: Vite, React, Node.js, Socket.IO, OpenRouter.*
 
-### 3. [Groot](https://groot-frontend-orpin.vercel.app)
-**Immersive AI Voice Assistant**
-- Real-time conversational AI with **Multi-Persona support**.
-- Features a 3D audio-reactive visualizer using the **Web Audio API**.
-- Implements **Voice Activity Detection (VAD)** for natural turn-taking.
-- *Stack: React 19, Python, FastAPI, WebSockets.*
+### 3. [CodeGraph](https://codegraph-eight.vercel.app)
+**AI-Powered Codebase Visualizer**
+- Transforms complex GitHub repositories into interactive **3D dependency graphs**.
+- Features sub-second analysis reloads via **Supabase caching**.
+- Secured via a Server-Side Proxy for isolated API execution.
+- *Stack: Next.js 15, React Flow, Supabase, GitHub REST API.*
 
 ---
 
