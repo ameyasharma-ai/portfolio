@@ -24,12 +24,7 @@ export function DesignPlatformDetail() {
   }, []);
 
   const handleBackClick = () => {
-    // Use history back so scroll position is restored
-    if (window.history.length > 1) {
-      navigate(-1);
-    } else {
-      navigate('/');
-    }
+    navigate('/');
   };
 
   const handleFrontendClick = () => {
@@ -51,6 +46,10 @@ export function DesignPlatformDetail() {
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
+    
+    // Update the URL hash without adding to browser history
+    window.history.replaceState(null, '', `#${id}`);
+
     if (globalLenis) {
       globalLenis.scrollTo(`#${id}`, { 
         offset: -100,
