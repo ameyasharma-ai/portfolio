@@ -45,6 +45,21 @@ export function CodeGraphDetail() {
     openDrawer();
   };
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    if (globalLenis) {
+      globalLenis.scrollTo(`#${id}`, { 
+        offset: -100,
+        duration: 1.5
+      });
+    } else {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
+
   // Custom component renderer
   const renderCustomComponent = (section: typeof codegraphContent.sections[0]) => {
     if (section.customComponent === 'next-steps-cta') {
@@ -113,6 +128,22 @@ export function CodeGraphDetail() {
         Next.js 15 • TypeScript • React Flow • Tailwind CSS v4 • Supabase • OpenRouter API • GitHub REST API • Vercel
       </p>
 
+      {/* Quick Nav - Visible on Mobile, Hidden on Desktop (since it has sidebar) */}
+      <div className="md:hidden mb-12 overflow-x-auto pb-4 scrollbar-hide">
+        <div className="flex gap-3 min-w-max">
+          {codegraphContent.sections.map((section) => (
+            <a
+              key={`quick-nav-${section.id}`}
+              href={`#${section.id}`}
+              onClick={(e) => handleNavClick(e, section.id)}
+              className="px-4 py-2 bg-card border border-border rounded-full text-xs font-body text-muted-foreground hover:text-foreground hover:border-ring transition-all"
+            >
+              {section.title}
+            </a>
+          ))}
+        </div>
+      </div>
+
       {/* Two Column Grid Layout */}
       <div className="grid grid-cols-6 gap-8">
         {/* Left Column - Main Content (full width on mobile, 80% on desktop) */}
@@ -166,6 +197,7 @@ export function CodeGraphDetail() {
               <a
                 key={section.id}
                 href={`#${section.id}`}
+                onClick={(e) => handleNavClick(e, section.id)}
                 className="block font-body text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
                 {section.title}
