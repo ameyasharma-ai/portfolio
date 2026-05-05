@@ -1,19 +1,24 @@
 import { useNavigate } from "react-router";
-import { useEffect } from "react";
+import { useLayoutEffect } from "react";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import { GithubIcon } from "@/components/icons/socials/github-icon";
 import { VideoContainer } from "../../shared/video-container";
 import { NextStepsButton } from "@/components/ui/next-steps-button";
 import { useDrawerStore } from "@/stores/drawerStore";
 import { codegraphContent } from "./content";
+import { globalLenis } from "@/components/providers/smooth-scroll-provider";
 
 export function CodeGraphDetail() {
   const navigate = useNavigate();
   const { open: openDrawer } = useDrawerStore();
 
-  // Scroll to top when component mounts
-  useEffect(() => {
-    window.scrollTo(0, 0);
+  // Scroll to top when component mounts before painting
+  useLayoutEffect(() => {
+    if (globalLenis) {
+      globalLenis.scrollTo(0, { immediate: true });
+    } else {
+      window.scrollTo(0, 0);
+    }
     // Save that we came from a case study so back nav knows to restore scroll
     sessionStorage.setItem('caseStudyReturn', 'true');
   }, []);

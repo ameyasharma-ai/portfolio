@@ -7,6 +7,7 @@ import { MobileFooter } from "@/sections/footer-mobile";
 import { Sidebar } from "@/components/navigation/sidebar/sidebar";
 import { ProgressiveBlur } from "@/components/ui/progressive-blur";
 import { useEffect } from "react";
+import { globalLenis } from "@/components/providers/smooth-scroll-provider";
 
 export function MobileHomePage() {
   // Restore scroll position when returning from case study detail page
@@ -16,7 +17,11 @@ export function MobileHomePage() {
       const scrollY = parseInt(savedY, 10);
       // Use requestAnimationFrame to ensure DOM is rendered before scrolling
       requestAnimationFrame(() => {
-        window.scrollTo(0, scrollY);
+        if (globalLenis) {
+          globalLenis.scrollTo(scrollY, { immediate: true });
+        } else {
+          window.scrollTo(0, scrollY);
+        }
       });
       // Clean up after restoring
       sessionStorage.removeItem('homeScrollY');

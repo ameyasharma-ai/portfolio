@@ -9,8 +9,6 @@ export function AdvertisingPlatformVideo() {
         className="w-full h-full [&>video]:object-cover [&>video]:w-full [&>video]:h-full"
         muted={true}
         autoPlay={true}
-        onPlay={() => console.log('InLine platform video started playing')}
-        onPause={() => console.log('InLine platform video paused')}
       />
     </div>
   );

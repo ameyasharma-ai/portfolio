@@ -24,8 +24,8 @@ export function AnimatedNumber({
     spring.set(value);
   }, [spring, value]);
 
-  // Create motion component using motion() function
-  const Component = motion(as);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const Component = motion.create(as as any);
 
   return (
     <Component className={cn('tabular-nums', className)}>

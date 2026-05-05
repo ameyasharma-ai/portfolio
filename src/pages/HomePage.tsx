@@ -9,6 +9,7 @@ import { AboutMe } from "@/sections/about-me";
 import { Footer } from "@/sections/footer";
 import { useSectionTracker } from "@/hooks/useSectionTracker";
 import { useEffect } from "react";
+import { globalLenis } from "@/components/providers/smooth-scroll-provider";
 
 export function HomePage() {
   useSectionTracker();
@@ -20,7 +21,11 @@ export function HomePage() {
       const scrollY = parseInt(savedY, 10);
       // Delay slightly to let Lenis smooth scroll initialize first
       const timer = setTimeout(() => {
-        window.scrollTo(0, scrollY);
+        if (globalLenis) {
+          globalLenis.scrollTo(scrollY, { immediate: true });
+        } else {
+          window.scrollTo(0, scrollY);
+        }
       }, 150);
       // Clean up after restoring
       sessionStorage.removeItem('homeScrollY');

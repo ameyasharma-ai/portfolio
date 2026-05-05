@@ -104,20 +104,20 @@ export function CustomVideoPlayer({
     const video = videoRef.current;
     if (!video) return;
 
-    console.log('🎬 CustomVideoPlayer: Setting up video event listeners');
+
 
     const isMobile = isMobileDevice();
     const isSafari = isSafariBrowser();
-    console.log('🎬 CustomVideoPlayer: Browser detection:', { isMobile, isSafari });
+
 
     const handleLoadedData = () => {
-      console.log('🎬 CustomVideoPlayer: Video loaded (loadeddata event)');
+
       setIsLoading(false);
       setDuration(video.duration);
     };
 
     const handleCanPlay = () => {
-      console.log('🎬 CustomVideoPlayer: Video can play (canplay event)');
+
       setIsLoading(false);
       if (video.duration && !isNaN(video.duration)) {
         setDuration(video.duration);
@@ -131,13 +131,13 @@ export function CustomVideoPlayer({
     };
 
     const handlePlay = () => {
-      console.log('🎬 CustomVideoPlayer: Video play event');
+
       setIsPlaying(true);
       onPlay?.();
     };
 
     const handlePause = () => {
-      console.log('🎬 CustomVideoPlayer: Video pause event');
+
       setIsPlaying(false);
       onPause?.();
     };
@@ -150,7 +150,7 @@ export function CustomVideoPlayer({
     };
 
     const handleEnded = () => {
-      console.log('🎬 CustomVideoPlayer: Video ended');
+
       setIsPlaying(false);
       if (!loop) {
         setCurrentTime(0);
@@ -160,9 +160,9 @@ export function CustomVideoPlayer({
     // Fallback timeout for mobile and Safari (both have unreliable video events)
     let loadingTimeout: NodeJS.Timeout;
     if (isMobile || isSafari) {
-      console.log('🎬 CustomVideoPlayer: Setting loading timeout fallback for', isMobile ? 'mobile' : 'Safari');
+
       loadingTimeout = setTimeout(() => {
-        console.log('🎬 CustomVideoPlayer: Loading timeout - assuming video is ready');
+
         setIsLoading(false);
         if (video.duration && !isNaN(video.duration)) {
           setDuration(video.duration);
@@ -180,7 +180,7 @@ export function CustomVideoPlayer({
     video.addEventListener('ended', handleEnded);
 
     return () => {
-      console.log('🎬 CustomVideoPlayer: Cleaning up video event listeners');
+
       if (loadingTimeout) {
         clearTimeout(loadingTimeout);
       }
@@ -204,22 +204,15 @@ export function CustomVideoPlayer({
     
     // Don't wait for loading completion on mobile or Safari
     if (isMobile || isSafari || !isLoading) {
-      console.log('🎬 CustomVideoPlayer: Viewport change detected', { 
-        isInViewport, 
-        isPaused: video.paused,
-        isMobile,
-        isSafari,
-        isLoading,
-        hasManuallyPaused: hasManuallyPaused.current
-      });
+
 
       const handleAutoPlay = async () => {
         try {
           if (isInViewport && video.paused && !hasManuallyPaused.current) {
-            console.log('🎬 CustomVideoPlayer: Auto-playing video (entered viewport)');
+
             await video.play();
           } else if (!isInViewport && !video.paused) {
-            console.log('🎬 CustomVideoPlayer: Auto-pausing video (left viewport)');
+
             await video.pause();
           }
         } catch (error) {
@@ -228,8 +221,6 @@ export function CustomVideoPlayer({
       };
 
       handleAutoPlay();
-    } else {
-      console.log('🎬 CustomVideoPlayer: Waiting for loading to complete');
     }
   }, [isInViewport, isLoading]);
 

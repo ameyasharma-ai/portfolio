@@ -9,8 +9,6 @@ export function CodeGraphVideo() {
         className="w-full h-full [&>video]:object-cover [&>video]:w-full [&>video]:h-full"
         muted={true}
         autoPlay={true}
-        onPlay={() => console.log('CodeGraph video started playing')}
-        onPause={() => console.log('CodeGraph video paused')}
       />
     </div>
   );

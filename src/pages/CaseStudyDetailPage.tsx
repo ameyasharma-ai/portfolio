@@ -2,6 +2,7 @@ import { SEO } from "@/components/seo/SEO";
 import { getCaseStudyStructuredData } from "@/utils/structured-data";
 import { useParams, Link } from "react-router";
 import { ArrowLeft } from "lucide-react";
+import { motion } from "framer-motion";
 import { DesignPlatformDetail } from "@/sections/case-studies/detail/design-platform-detail";
 import { AdvertisingPlatformDetail } from "@/sections/case-studies/detail/advertising-platform-detail";
 import { CodeGraphDetail } from "@/sections/case-studies/detail/codegraph-detail";
@@ -79,9 +80,14 @@ export function CaseStudyDetailPage() {
           })}
         />
       )}
-      <div className="min-h-screen bg-background">
+      <motion.div 
+        className="min-h-screen bg-background"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.4, ease: "easeOut" }}
+      >
         {renderCaseStudyDetail()}
-      </div>
+      </motion.div>
     </>
   );
 }

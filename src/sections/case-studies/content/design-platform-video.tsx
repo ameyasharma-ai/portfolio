@@ -9,8 +9,6 @@ export function DesignPlatformVideo() {
         className="w-full h-full [&>video]:object-cover [&>video]:w-full [&>video]:h-full"
         muted={true}
         autoPlay={true}
-        onPlay={() => console.log('Design platform video started playing')}
-        onPause={() => console.log('Design platform video paused')}
       />
     </div>
   );

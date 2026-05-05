@@ -29,7 +29,7 @@ export function useSectionTracker() {
         (entries) => {
           // Use ref to get current navigation state (avoids stale closure)
           if (isNavigatingRef.current) {
-            console.log('🚫 Skipping section updates during navigation');
+
             return;
           }
 
@@ -37,7 +37,7 @@ export function useSectionTracker() {
             if (entry.isIntersecting) {
               const sectionId = entry.target.id;
               
-              console.log(`📍 Section in viewport: ${sectionId}`);
+
               
               // Handle footer specially - set activeSection to null to hide all tab backgrounds
               if (sectionId === 'footer') {
@@ -60,15 +60,13 @@ export function useSectionTracker() {
         const element = document.getElementById(sectionId);
         if (element) {
           observer.observe(element);
-          console.log(`🔍 Observing section: ${sectionId}`);
-        } else {
-          console.warn(`⚠️ Section not found: ${sectionId}`);
+
         }
       });
 
       // Cleanup function
       return () => {
-        console.log('🧹 Cleaning up section observer');
+
         observer.disconnect();
       };
     }, 1000); // Wait 1 second for GSAP to initialize

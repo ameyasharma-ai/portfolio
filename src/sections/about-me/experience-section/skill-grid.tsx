@@ -68,7 +68,7 @@ function VerticalSkillGrid({ skills }: { skills: SkillItem[] }) {
   } = useVerticalScroll();
 
   // Add console logging to test vertical progress
-  console.log('🔍 Vertical Scroll Test - Progress:', scrollProgress, 'Is Scrolling:', isScrolling);
+
 
   return (
     <div className="relative flex flex-col gap-3 flex-1 max-h-[553px]">

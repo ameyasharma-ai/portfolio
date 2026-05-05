@@ -18,13 +18,13 @@ export function ParticleSphere() {
   }
 
   function onLoad(spline: Application) {
-    console.log('Spline loaded, trying setZoom...')
+
     setSplineApp(spline)
 
     // Set initial zoom based on current screen size
     const zoomLevel = getZoomLevel()
     spline.setZoom(zoomLevel)
-    console.log(`setZoom(${zoomLevel}) called for screen width: ${window.innerWidth}px`)
+
   }
 
   // Handle resize for zoom adjustments
@@ -34,7 +34,7 @@ export function ParticleSphere() {
       if (splineApp) {
         const zoomLevel = getZoomLevel()
         splineApp.setZoom(zoomLevel)
-        console.log(`Zoom adjusted to ${zoomLevel} for screen width: ${window.innerWidth}px`)
+
       }
     }
 
