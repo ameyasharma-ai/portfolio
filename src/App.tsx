@@ -24,11 +24,13 @@ function DesktopApp() {
 
 function MobileApp() {
   return (
-    <Routes>
-      <Route path="/" element={<MobileHomePage />} />
-      <Route path="/case-studies/:slug" element={<CaseStudyDetailPage />} />
-      <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
-    </Routes>
+    <SmoothScrollProvider>
+      <Routes>
+        <Route path="/" element={<MobileHomePage />} />
+        <Route path="/case-studies/:slug" element={<CaseStudyDetailPage />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+      </Routes>
+    </SmoothScrollProvider>
   );
 }
 
