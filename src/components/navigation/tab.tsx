@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { motion } from "framer-motion";
 import { useNavigationStore, type DesktopSectionId } from "@/stores/navigationStore";
 import { useDrawerStore } from "@/stores/drawerStore";
+import { globalLenis } from "@/components/providers/smooth-scroll-provider";
 import type { TabProps } from "./types";
 
 // Mapping from desktop href to section IDs
@@ -40,16 +41,24 @@ export const Tab = ({ children, setPosition, href, isActive }: TabProps) => {
         // Immediately set the target section for better UX
         setActiveSection(targetSectionId);
         
-        // Start smooth scroll
-        targetElement.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
-        
-        // End navigation state after scroll completes
-        setTimeout(() => {
-          setIsNavigating(false);
-        }, 1000); // 1 second should be enough for smooth scroll
+        // Start smooth scroll using Lenis
+        if (globalLenis) {
+          globalLenis.scrollTo(`#${targetId}`, {
+            duration: 1.5,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            onComplete: () => {
+              setIsNavigating(false);
+            }
+          });
+        } else {
+          targetElement.scrollIntoView({
+            behavior: 'auto',
+            block: 'start'
+          });
+          setTimeout(() => {
+            setIsNavigating(false);
+          }, 1000);
+        }
       }
     }
   };

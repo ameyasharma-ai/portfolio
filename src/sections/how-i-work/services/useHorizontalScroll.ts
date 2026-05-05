@@ -44,22 +44,27 @@ export function useHorizontalScroll() {
       end: () => `+=${getDistance()}`,   // scrub exactly the distance
       pin: true,
       animation: tween,
-      scrub: 1,
+      scrub: true,
       anticipatePin: 1,
       invalidateOnRefresh: true,
       onUpdate: (self) => {
-        // Calculate shadow visibility based on scroll progress
         const progress = self.progress;
         
-        // Update progress tracking
-        setScrollProgress(progress);
-        setIsScrolling(progress > 0 && progress < 1);
+        // Use functional updates to prevent unnecessary re-renders
+        // and only update if the value has meaningfully changed
+        setScrollProgress(prev => {
+          if (Math.abs(prev - progress) > 0.005) return progress;
+          return prev;
+        });
+
+        const scrolling = progress > 0 && progress < 1;
+        setIsScrolling(scrolling);
         
-        // Show left shadow when we've scrolled (progress > 0)
-        setShowLeftShadow(progress > 0);
+        const left = progress > 0.01;
+        setShowLeftShadow(prev => (prev !== left ? left : prev));
         
-        // Show right shadow when not at the end (progress < 1)
-        setShowRightShadow(progress < 0.99); // Small buffer to account for precision
+        const right = progress < 0.99;
+        setShowRightShadow(prev => (prev !== right ? right : prev));
       },
       onEnter: () => {
         setIsScrolling(true);

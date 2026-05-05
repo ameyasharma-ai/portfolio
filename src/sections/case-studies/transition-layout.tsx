@@ -63,7 +63,7 @@ export function TransitionLayout() {
             {/* Bottom Bar - Minimal height on small screens, flex-1 on large screens */}
             <div 
               ref={bottomBarRef}
-              className="bg-card border border-border rounded-[2rem] p-4 [@media(min-width:1390px)]:p-8 [@media(min-width:1390px)]:h-auto [@media(min-width:1390px)]:min-h-[200px] transition-all duration-300 ease-in-out hover:border-ring hover:-translate-y-0.5 flex-none [@media(min-width:1390px)]:flex-1 [@media(min-width:1390px)]:mb-0 mb-3"
+              className="bg-card border border-border rounded-[2rem] p-4 [@media(min-width:1390px)]:p-8 [@media(min-width:1390px)]:h-auto [@media(min-width:1390px)]:min-h-[200px] flex-none [@media(min-width:1390px)]:flex-1 [@media(min-width:1390px)]:mb-0 mb-3"
             >
               <BottomBar techStack={currentData.techStack} />
             </div>
@@ -72,7 +72,7 @@ export function TransitionLayout() {
           {/* Right side - RightBar with conditional bento-square styling and minimal height on small screens */}
           <div 
             ref={rightBarRef}
-            className="[@media(min-width:1390px)]:h-auto [@media(min-width:1390px)]:bg-card [@media(min-width:1390px)]:border [@media(min-width:1390px)]:border-border [@media(min-width:1390px)]:rounded-[2rem] [@media(min-width:1390px)]:p-8 [@media(min-width:1390px)]:min-h-[200px] [@media(min-width:1390px)]:transition-all [@media(min-width:1390px)]:duration-300 [@media(min-width:1390px)]:ease-in-out [@media(min-width:1390px)]:hover:border-ring [@media(min-width:1390px)]:hover:-translate-y-0.5 flex-none"
+            className="[@media(min-width:1390px)]:h-auto [@media(min-width:1390px)]:bg-card [@media(min-width:1390px)]:border [@media(min-width:1390px)]:border-border [@media(min-width:1390px)]:rounded-[2rem] [@media(min-width:1390px)]:p-8 [@media(min-width:1390px)]:min-h-[200px] flex-none"
           >
             <RightBar projectData={currentData.projectData} />
           </div>

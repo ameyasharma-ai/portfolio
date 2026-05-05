@@ -44,22 +44,25 @@ export function useVerticalScroll() {
       end: () => `+=${getDistance()}`,   // scrub exactly the distance needed
       pin: true,
       animation: tween,
-      scrub: 1,
+      scrub: true,
       anticipatePin: 1,
       invalidateOnRefresh: true,
       onUpdate: (self) => {
-        // Calculate shadow visibility based on scroll progress
         const progress = self.progress;
         
-        // Update progress tracking
-        setScrollProgress(progress);
-        setIsScrolling(progress > 0 && progress < 1);
+        setScrollProgress(prev => {
+          if (Math.abs(prev - progress) > 0.005) return progress;
+          return prev;
+        });
+
+        const scrolling = progress > 0 && progress < 1;
+        setIsScrolling(scrolling);
         
-        // Show top shadow when we've scrolled (progress > 0)
-        setShowTopShadow(progress > 0);
+        const top = progress > 0.01;
+        setShowTopShadow(prev => (prev !== top ? top : prev));
         
-        // Show bottom shadow when not at the end (progress < 1)
-        setShowBottomShadow(progress < 0.99); // Small buffer to account for precision
+        const bottom = progress < 0.99;
+        setShowBottomShadow(prev => (prev !== bottom ? bottom : prev));
       },
       onEnter: () => {
         setIsScrolling(true);

@@ -143,13 +143,13 @@ export function DesignPlatformDetail() {
       {/* Quick Nav - Visible on Mobile, Hidden on Desktop (since it has sidebar) */}
       <div className="md:hidden mb-12">
         <p className="text-[10px] uppercase tracking-widest text-muted-foreground mb-3 font-body ml-1">Jump to section</p>
-        <div className="flex flex-wrap gap-2">
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
           {designPlatformContent.sections.map((section) => (
             <a
               key={`quick-nav-${section.id}`}
               href={`#${section.id}`}
               onClick={(e) => handleNavClick(e, section.id)}
-              className="px-3 py-1.5 bg-card/50 border border-border rounded-lg text-[11px] font-body text-muted-foreground hover:text-foreground hover:border-ring transition-all active:scale-95"
+              className="px-3 py-2 bg-card/50 border border-border rounded-lg text-[11px] font-body text-muted-foreground hover:text-foreground hover:border-ring transition-all active:scale-95 flex items-center justify-center text-center leading-tight h-10"
             >
               {section.title}
             </a>

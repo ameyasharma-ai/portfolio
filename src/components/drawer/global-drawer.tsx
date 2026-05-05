@@ -7,6 +7,7 @@ import {
   DrawerFooter,
   DrawerHeader,
   DrawerTitle,
+  DrawerDescription,
 } from "@/components/ui/drawer";
 import { motion, type Variants } from "framer-motion";
 import { X } from "lucide-react";
@@ -116,9 +117,9 @@ export function GlobalDrawer() {
               </DrawerTitle>
 
               {!isSubmitSuccessful && (
-                <p className="text-sm leading-relaxed text-muted-foreground font-body">
+                <DrawerDescription className="text-sm leading-relaxed text-muted-foreground font-body">
                   If you're building something meaningful, let's talk. I focus on systems that actually ship and create real business impact.
-                </p>
+                </DrawerDescription>
               )}
             </DrawerHeader>
           </motion.div>

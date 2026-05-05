@@ -29,7 +29,12 @@ export function useScrollTransition() {
     const advertisingVideo = advertisingVideoRef.current;
     const codegraphVideo = codegraphVideoRef.current;
 
-    // Set initial positions
+    // Set initial positions and promote to GPU layers immediately
+    gsap.set([designVideo, advertisingVideo, codegraphVideo], { 
+      force3D: true, 
+      willChange: 'transform' 
+    });
+    
     gsap.set(designVideo, { y: 0, zIndex: 3 });
     gsap.set(advertisingVideo, { y: '100%', zIndex: 2 });
     gsap.set(codegraphVideo, { y: '100%', zIndex: 1 });
@@ -41,31 +46,17 @@ export function useScrollTransition() {
         start: 'center center',
         end: '+=200%', // Increased scroll distance for 3 projects
         pin: true,
-        scrub: 1,
+        scrub: true, // 1:1 scroll responsiveness for fluid feel
         anticipatePin: 1,
         onUpdate: (self) => {
-          // Precise content switching based on animation progress
-          if (self.progress < 0.33) {
-            setActiveCaseStudy(current => {
-              if (current !== 'design') {
-                return 'design';
-              }
-              return current;
-            });
-          } else if (self.progress >= 0.33 && self.progress < 0.66) {
-            setActiveCaseStudy(current => {
-              if (current !== 'advertising') {
-                return 'advertising';
-              }
-              return current;
-            });
-          } else {
-            setActiveCaseStudy(current => {
-              if (current !== 'codegraph') {
-                return 'codegraph';
-              }
-              return current;
-            });
+          const progress = self.progress;
+          // Use a small buffer to prevent rapid switching at boundaries
+          if (progress < 0.32) {
+            setActiveCaseStudy(current => (current !== 'design' ? 'design' : current));
+          } else if (progress >= 0.34 && progress < 0.65) {
+            setActiveCaseStudy(current => (current !== 'advertising' ? 'advertising' : current));
+          } else if (progress >= 0.67) {
+            setActiveCaseStudy(current => (current !== 'codegraph' ? 'codegraph' : current));
           }
         },
         invalidateOnRefresh: true,
@@ -77,25 +68,25 @@ export function useScrollTransition() {
       // --- Transition 1: Design to Advertising ---
       .to(designVideo, {
         y: '-100%',
-        duration: 1,
-        ease: 'power2.inOut'
+        duration: 1.5,
+        ease: 'power3.inOut'
       }, 0)
       .to(advertisingVideo, {
         y: '0%',
-        duration: 1,
-        ease: 'power2.inOut'
+        duration: 1.5,
+        ease: 'power3.inOut'
       }, 0)
       
       // --- Transition 2: Advertising to CodeGraph ---
       .to(advertisingVideo, {
         y: '-100%',
-        duration: 1,
-        ease: 'power2.inOut'
+        duration: 1.5,
+        ease: 'power3.inOut'
       }, 1) // Start at the middle of the timeline
       .to(codegraphVideo, {
         y: '0%',
-        duration: 1,
-        ease: 'power2.inOut'
+        duration: 1.5,
+        ease: 'power3.inOut'
       }, 1);
 
     // Cleanup function
@@ -109,15 +100,23 @@ export function useScrollTransition() {
     };
   }, []);
 
-  // Additional effect to handle window resize
+  // Clever Fix: Force a series of refreshes after mount
+  // This ensures that all layout shifts (images loading, fonts, etc.) are captured
   useLayoutEffect(() => {
+    const timer1 = setTimeout(() => ScrollTrigger.refresh(), 500);
+    const timer2 = setTimeout(() => ScrollTrigger.refresh(), 2000);
+
     const handleResize = () => {
       ScrollTrigger.refresh();
     };
 
+    window.addEventListener('load', handleResize);
     window.addEventListener('resize', handleResize);
     
     return () => {
+      clearTimeout(timer1);
+      clearTimeout(timer2);
+      window.removeEventListener('load', handleResize);
       window.removeEventListener('resize', handleResize);
     };
   }, []);
