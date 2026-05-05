@@ -106,14 +106,6 @@ export const AnimatedBeam: React.FC<AnimatedBeamProps> = ({
         const pathIsVertical = deltaY > deltaX;
         setIsVertical(pathIsVertical);
 
-        console.log('🔍 Path analysis:', {
-          deltaX,
-          deltaY,
-          isVertical: pathIsVertical,
-          from: { x: startX, y: startY },
-          to: { x: endX, y: endY }
-        });
-
         const controlY = startY - curvature;
         const d = `M ${startX},${startY} Q ${
           (startX + endX) / 2

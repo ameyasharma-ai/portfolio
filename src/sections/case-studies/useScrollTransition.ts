@@ -48,7 +48,6 @@ export function useScrollTransition() {
           if (self.progress < 0.33) {
             setActiveCaseStudy(current => {
               if (current !== 'design') {
-                console.log('Switching to design at progress:', self.progress);
                 return 'design';
               }
               return current;
@@ -56,7 +55,6 @@ export function useScrollTransition() {
           } else if (self.progress >= 0.33 && self.progress < 0.66) {
             setActiveCaseStudy(current => {
               if (current !== 'advertising') {
-                console.log('Switching to advertising at progress:', self.progress);
                 return 'advertising';
               }
               return current;
@@ -64,7 +62,6 @@ export function useScrollTransition() {
           } else {
             setActiveCaseStudy(current => {
               if (current !== 'codegraph') {
-                console.log('Switching to codegraph at progress:', self.progress);
                 return 'codegraph';
               }
               return current;

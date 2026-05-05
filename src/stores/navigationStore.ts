@@ -53,7 +53,6 @@ export const useNavigationStore = create<NavigationState>((set, get) => ({
   },
   
   setIsNavigating: (navigating: boolean) => {
-    console.log(`🧭 Navigation state: ${navigating ? 'START' : 'END'}`);
     set({ isNavigating: navigating });
   },
   

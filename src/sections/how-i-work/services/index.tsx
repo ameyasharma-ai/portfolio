@@ -18,7 +18,6 @@ export function Services() {
   const { open: openDrawer } = useDrawerStore();
 
   const handleRequestServiceClick = () => {
-    console.log('🎯 Opening contact drawer from services section');
     openDrawer();
   };
 

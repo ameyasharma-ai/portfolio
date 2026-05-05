@@ -10,7 +10,6 @@ export function Methodology() {
   const { open: openDrawer } = useDrawerStore();
 
   const handleRequestChannelClick = () => {
-    console.log('🎯 Opening contact drawer from methodology section');
     openDrawer();
   };
 

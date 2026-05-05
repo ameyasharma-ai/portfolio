@@ -36,7 +36,6 @@ export function CodeGraphDetail() {
   };
 
   const handleGetInTouchClick = () => {
-    console.log('🎯 Opening contact drawer from case study detail');
     openDrawer();
   };
 

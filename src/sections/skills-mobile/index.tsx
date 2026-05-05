@@ -6,7 +6,6 @@ export function SkillsMobile() {
   const { open: openDrawer } = useDrawerStore();
 
   const handleLetsTalkClick = () => {
-    console.log('🎯 Opening contact drawer from skills mobile section');
     openDrawer();
   };
 

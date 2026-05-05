@@ -23,7 +23,6 @@ export function MobileNav({ onNavigationClick }: MobileNavProps) {
   const handleNavClick = (item: typeof navigationItems[0]) => {
     // Handle Contact button specifically
     if (item.name === "Contact") {
-      console.log('🎯 Opening contact drawer from mobile navigation');
       openDrawer();
       onNavigationClick(); // Close sidebar
       return;
@@ -37,8 +36,6 @@ export function MobileNav({ onNavigationClick }: MobileNavProps) {
       const targetSectionId = MOBILE_HREF_TO_SECTION_MAP[mobileHref];
       
       if (targetElement && targetSectionId) {
-        console.log(`🎯 Starting mobile navigation to: ${targetSectionId}`);
-        
         // Start navigation state (pauses section tracking)
         setIsNavigating(true);
         
@@ -53,7 +50,6 @@ export function MobileNav({ onNavigationClick }: MobileNavProps) {
         
         // End navigation state after scroll completes
         setTimeout(() => {
-          console.log('🏁 Mobile navigation completed');
           setIsNavigating(false);
         }, 1000); // 1 second should be enough for smooth scroll
         

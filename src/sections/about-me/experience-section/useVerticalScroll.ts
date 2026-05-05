@@ -55,10 +55,6 @@ export function useVerticalScroll() {
         setScrollProgress(progress);
         setIsScrolling(progress > 0 && progress < 1);
         
-        // TEST: Log progress for vertical scroll testing
-        console.log('📊 Vertical Scroll Progress:', progress);
-        console.log('🔄 Vertical Scrolling Active:', progress > 0 && progress < 1);
-        
         // Show top shadow when we've scrolled (progress > 0)
         setShowTopShadow(progress > 0);
         
@@ -66,19 +62,15 @@ export function useVerticalScroll() {
         setShowBottomShadow(progress < 0.99); // Small buffer to account for precision
       },
       onEnter: () => {
-        console.log('🔥 Vertical scroll: onEnter');
         setIsScrolling(true);
       },
       onLeave: () => {
-        console.log('🚪 Vertical scroll: onLeave');
         setIsScrolling(false);
       },
       onEnterBack: () => {
-        console.log('🔄 Vertical scroll: onEnterBack');
         setIsScrolling(true);
       },
       onLeaveBack: () => {
-        console.log('⬅️ Vertical scroll: onLeaveBack');
         setIsScrolling(false);
       },
       // markers: true, // Uncomment for debugging

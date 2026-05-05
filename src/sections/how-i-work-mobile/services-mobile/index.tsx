@@ -8,7 +8,6 @@ export function ServicesMobile() {
   const { open: openDrawer } = useDrawerStore();
 
   const handleRequestServiceClick = () => {
-    console.log('🎯 Opening contact drawer from mobile services section');
     openDrawer();
   };
 

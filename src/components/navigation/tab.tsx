@@ -23,7 +23,6 @@ export const Tab = ({ children, setPosition, href, isActive }: TabProps) => {
     
     // Handle Contact button specifically
     if (href === '#contact') {
-      console.log('🎯 Opening contact drawer');
       openDrawer();
       return;
     }
@@ -35,8 +34,6 @@ export const Tab = ({ children, setPosition, href, isActive }: TabProps) => {
       const targetSectionId = DESKTOP_HREF_TO_SECTION_MAP[href];
       
       if (targetElement && targetSectionId) {
-        console.log(`🎯 Starting navigation to: ${targetSectionId}`);
-        
         // Start navigation state (pauses section tracking)
         setIsNavigating(true);
         
@@ -51,7 +48,6 @@ export const Tab = ({ children, setPosition, href, isActive }: TabProps) => {
         
         // End navigation state after scroll completes
         setTimeout(() => {
-          console.log('🏁 Navigation completed');
           setIsNavigating(false);
         }, 1000); // 1 second should be enough for smooth scroll
       }

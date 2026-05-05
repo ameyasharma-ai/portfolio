@@ -9,7 +9,6 @@ export function Capabilities() {
   const { open: openDrawer } = useDrawerStore();
 
   const handleLetsTalkClick = () => {
-    console.log('🎯 Opening contact drawer from capabilities section');
     openDrawer();
   };
 

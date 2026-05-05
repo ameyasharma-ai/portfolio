@@ -10,7 +10,6 @@ export function MobileHome() {
   const { open: openDrawer } = useDrawerStore();
 
   const handleConnectClick = () => {
-    console.log('🎯 Opening contact drawer from mobile home section');
     openDrawer();
   };
 

@@ -40,7 +40,6 @@ export function DesignPlatformDetail() {
   };
 
   const handleGetInTouchClick = () => {
-    console.log('🎯 Opening contact drawer from case study detail');
     openDrawer();
   };
 

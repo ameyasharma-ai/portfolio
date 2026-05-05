@@ -17,14 +17,13 @@ export function Contact() {
       await navigator.clipboard.writeText(originalEmail);
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
-    } catch (err) {
-      console.error("Failed to copy text: ", err);
+    } catch {
+      // Failed to copy
     }
   };
 
   // Whole section click → open drawer
   const handleOpenDrawer = () => {
-    console.log("📩 Opening contact drawer");
     openDrawer();
   };
 

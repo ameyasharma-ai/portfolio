@@ -4,7 +4,6 @@ export function AvailabilityCard() {
   const { open: openDrawer } = useDrawerStore();
 
   const handleAvailabilityClick = () => {
-    console.log('🎯 Opening contact drawer from availability card');
     openDrawer();
   };
 
