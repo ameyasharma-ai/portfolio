@@ -127,14 +127,15 @@ export function CodeGraphDetail() {
       </p>
 
       {/* Quick Nav - Visible on Mobile, Hidden on Desktop (since it has sidebar) */}
-      <div className="md:hidden mb-12 overflow-x-auto pb-4 scrollbar-hide">
-        <div className="flex gap-3 min-w-max">
+      <div className="md:hidden mb-12">
+        <p className="text-[10px] uppercase tracking-widest text-muted-foreground mb-3 font-body ml-1">Jump to section</p>
+        <div className="flex flex-wrap gap-2">
           {codegraphContent.sections.map((section) => (
             <a
               key={`quick-nav-${section.id}`}
               href={`#${section.id}`}
               onClick={(e) => handleNavClick(e, section.id)}
-              className="px-4 py-2 bg-card border border-border rounded-full text-xs font-body text-muted-foreground hover:text-foreground hover:border-ring transition-all"
+              className="px-3 py-1.5 bg-card/50 border border-border rounded-lg text-[11px] font-body text-muted-foreground hover:text-foreground hover:border-ring transition-all active:scale-95"
             >
               {section.title}
             </a>
