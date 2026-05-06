@@ -1,33 +1,35 @@
 import { create } from 'zustand';
 
 // Desktop Section IDs
-type DesktopSectionId = 'home' | 'how-i-work' | 'case-studies' | 'skills' | 'about-me';
+type DesktopSectionId = 'home' | 'services' | 'case-studies' | 'skills' | 'about-me' | 'footer';
 
 // Mobile Section IDs  
-type MobileSectionId = 'home-mobile' | 'how-i-work-mobile' | 'case-studies-mobile' | 'skills-mobile' | 'about-me-mobile';
+type MobileSectionId = 'home-mobile' | 'services' | 'case-studies-mobile' | 'skills-mobile' | 'about-me-mobile' | 'footer';
 
 // Combined Section IDs
 type SectionId = DesktopSectionId | MobileSectionId;
 
 // Navigation item names from the constants
-type NavigationItem = "Home" | "How I Work" | "Case Studies" | "Skills" | "About me";
+type NavigationItem = "Home" | "Services" | "Case Studies" | "Skills" | "About" | "Contact";
 
 // Mapping from desktop section IDs to navigation item names
 const DESKTOP_SECTION_TO_NAV_MAP: Record<DesktopSectionId, NavigationItem> = {
   'home': "Home",
-  'how-i-work': "How I Work",
+  'services': "Services",
   'case-studies': "Case Studies",
   'skills': "Skills",
-  'about-me': "About me",
+  'about-me': "About",
+  'footer': "Contact",
 };
 
 // Mapping from mobile section IDs to navigation item names
 const MOBILE_SECTION_TO_NAV_MAP: Record<MobileSectionId, NavigationItem> = {
   'home-mobile': "Home",
-  'how-i-work-mobile': "How I Work",
+  'services': "Services",
   'case-studies-mobile': "Case Studies",
   'skills-mobile': "Skills",
-  'about-me-mobile': "About me",
+  'about-me-mobile': "About",
+  'footer': "Contact",
 };
 
 // Helper function to detect if we're on mobile

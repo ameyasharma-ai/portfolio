@@ -30,8 +30,8 @@ export const designPlatformData: CaseStudyData = {
       {
         title: "Impact",
         items: [
-          "• Ultra-low latency conversational flow",
-          "• 3D audio-reactive visualization"
+          "• Sub-200ms conversational latency achieved",
+          "• Enterprise-grade LLM failover architecture"
         ]
       }
     ],

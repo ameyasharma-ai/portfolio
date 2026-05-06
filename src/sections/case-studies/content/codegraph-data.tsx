@@ -31,9 +31,8 @@ export const codegraphData: CaseStudyData = {
       {
         title: "Impact",
         items: [
-          "• Instant visualization of complex architectures",
-          "• One-click analysis of any GitHub repo",
-          "• Enterprise-grade security for AI credentials"
+          "• 60% faster onboarding for complex repos",
+          "• One-click analysis for any GitHub repo"
         ]
       }
     ],

@@ -1,6 +1,5 @@
 import { navigationItems } from "@/constants/index";
 import { useNavigationStore, type MobileSectionId } from "@/stores/navigationStore";
-import { useDrawerStore } from "@/stores/drawerStore";
 import { globalLenis } from "@/components/providers/smooth-scroll-provider";
 import RainbowButton from '@/components/magicui/rainbow-button';
 
@@ -11,24 +10,17 @@ interface MobileNavProps {
 // Mapping from mobile href to section IDs
 const MOBILE_HREF_TO_SECTION_MAP: Record<string, MobileSectionId> = {
   '#home-mobile': 'home-mobile',
-  '#how-i-work-mobile': 'how-i-work-mobile',
+  '#services': 'services',
   '#case-studies-mobile': 'case-studies-mobile',
   '#skills-mobile': 'skills-mobile',
   '#about-me-mobile': 'about-me-mobile',
+  '#footer': 'footer',
 };
 
 export function MobileNav({ onNavigationClick }: MobileNavProps) {
   const { setIsNavigating, setActiveSection } = useNavigationStore();
-  const { open: openDrawer } = useDrawerStore();
 
   const handleNavClick = (item: typeof navigationItems[0]) => {
-    // Handle Contact button specifically
-    if (item.name === "Contact") {
-      openDrawer();
-      onNavigationClick(); // Close sidebar
-      return;
-    }
-    
     // Handle section navigation for other links using mobile links
     const mobileHref = item.mobileLink;
     if (mobileHref.startsWith('#')) {
@@ -47,6 +39,7 @@ export function MobileNav({ onNavigationClick }: MobileNavProps) {
         if (globalLenis) {
           globalLenis.scrollTo(`#${targetId}`, {
             duration: 1.5,
+            offset: -40,
             easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
             onComplete: () => {
               setIsNavigating(false);

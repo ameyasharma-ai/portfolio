@@ -22,6 +22,12 @@ export const technicalImplementationContent: ContentSection = {
       content: `• **Premium "hacker-inspired" dark mode aesthetic** with glassmorphism and dynamic glowing orbs.
 • **Custom syntax-highlighted themes** (Tokyo Night, Dracula, GitHub Dark) powered by CodeMirror 6.
 • **State-of-the-art SEO** meta tags for rich social sharing and professional presentation.`
+    },
+    {
+      title: 'Performance Tuning',
+      content: `• **Asset Optimization:** Minimal bundle sizes through aggressive tree-shaking in Vite.
+• **State Isolation:** Prevented unnecessary re-renders in the infinite canvas using memoized React components.
+• **Buffer Management:** Implemented efficient WebSocket message batching for high-frequency cursor updates.`
     }
   ]
 };

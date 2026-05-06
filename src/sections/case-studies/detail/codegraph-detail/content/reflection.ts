@@ -16,6 +16,10 @@ export const reflectionContent: ContentSection = {
     {
       title: 'Future Enhancements',
       content: '• **3D Visualization**: Transforming 2D React Flow maps into immersive 3D space.\n• **Commit History Integration**: Visualizing how the graph evolved over time.\n• **Multi-Agent AI**: Deeper repository-wide architectural audits using multiple LLMs.'
+    },
+    {
+      title: 'Design Rationale',
+      content: 'Choosing React Flow over standard D3 allowed for much faster development of the interactive "node" system, while leveraging Next.js 15 server actions ensured that no sensitive API tokens ever touched the client-side bundle.'
     }
   ]
 };

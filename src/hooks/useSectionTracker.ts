@@ -3,10 +3,14 @@ import { useNavigationStore, type SectionId } from '@/stores/navigationStore';
 
 const SECTIONS = [
   'home',
-  'how-i-work', 
+  'home-mobile',
+  'services',
   'case-studies',
+  'case-studies-mobile',
   'skills',
+  'skills-mobile',
   'about-me',
+  'about-me-mobile',
   'footer'
 ] as const;
 
@@ -27,17 +31,9 @@ export function useSectionTracker() {
     const timer = setTimeout(() => {
       const observer = new IntersectionObserver(
         (entries) => {
-          // Use ref to get current navigation state (avoids stale closure)
-          if (isNavigatingRef.current) {
-
-            return;
-          }
-
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
               const sectionId = entry.target.id;
-              
-
               
               // Handle footer specially - set activeSection to null to hide all tab backgrounds
               if (sectionId === 'footer') {
@@ -50,8 +46,7 @@ export function useSectionTracker() {
           });
         },
         {
-          threshold: 0.1, // Lower threshold - log when 10% is visible
-          rootMargin: '-10% 0px -10% 0px' // Smaller detection area
+          threshold: 0.4, // Trigger when 40% of section is visible
         }
       );
 

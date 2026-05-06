@@ -21,6 +21,12 @@ export const solutionContent: ContentSection = {
       title: 'Architecture Overview',
       content: `• **Bi-Directional Streaming:** Audio blobs are captured on the frontend, sent via WebSockets, transcribed by Groq, processed by an LLM, and streamed back as Base64 Edge TTS audio.
 • **Dynamic Failover System:** The backend automatically fetches a list of available free LLMs from OpenRouter. If the primary model fails, it seamlessly reroutes the prompt to a backup model.`
+    },
+    {
+      title: 'Future Roadmap',
+      content: `• **Local LLM Integration:** Enabling fully offline private conversations using Ollama.
+• **Vision Capabilities:** Allowing the assistant to "see" via the camera for object recognition.
+• **Multi-Modal Output:** Generating images and diagrams on-the-fly during voice chats.`
     }
   ]
 };

@@ -1,34 +1,33 @@
-import { TextShimmer } from '@/components/ui/text-shimmer';
 import { SocialLinks } from './social-links';
-import { CometCard } from '@/components/ui/comet-card';
 
 export function ProfileSection() {
   return (
-    <div className="bento-no-min col-span-3 row-span-3 flex flex-col items-center gap-8 [@media(min-width:685px)]:flex-row [@media(min-width:685px)]:items-center">
-      {/* Profile Image with CometCard - top row on mobile, left side on desktop */}
-      <CometCard className="w-64 flex-shrink-0 [@media(min-width:685px)]:ml-4">
+    <div className="flex flex-col items-center gap-12 [@media(min-width:685px)]:flex-row [@media(min-width:685px)]:items-center w-full">
+      {/* Profile Image - left side on desktop */}
+      <div className="w-64 h-64 flex-shrink-0 relative">
         <img
           src="/profile-dev.jpg"
           alt="Ameya Sharma"
-          className="w-full h-full object-cover rounded-2xl"
+          className="w-full h-full object-cover rounded-[2rem] border border-border"
         />
-      </CometCard>
+        <div className="absolute -bottom-4 -right-4 bg-primary text-primary-foreground px-4 py-1 rounded-full text-[10px] font-heading uppercase tracking-widest">
+          Lead Dev
+        </div>
+      </div>
 
       {/* Text - bottom row on mobile, right side on desktop */}
-      <div className="flex flex-col text-center [@media(min-width:685px)]:text-left [@media(min-width:685px)]:ml-4">
-        <h3 className="font-heading text-2xl text-foreground mb-2">
-          <TextShimmer
-            as="span"
-            className="dark:[--base-color:#f2f2f2] dark:[--base-gradient-color:#B2B2B2]"
-            duration={1.5}
-            spread={5}
-          >
-            Ameya Sharma
-          </TextShimmer>
+      <div className="flex flex-col text-center [@media(min-width:685px)]:text-left flex-1">
+        <h3 className="font-heading text-4xl text-foreground mb-1">
+          Ameya Sharma
         </h3>
-        <p className="font-body text-sm font-light text-muted-foreground mb-4">
+        <p className="font-body text-xs font-light text-primary mb-6 uppercase tracking-[0.4em]">
           AI SYSTEMS ENGINEER
         </p>
+
+        <p className="font-body text-base text-muted-foreground leading-relaxed mb-8 font-light max-w-sm italic">
+          "I build systems that drive revenue and unlock scale. Every solution starts with one question: 'What business outcome does this create?'"
+        </p>
+
         <div className="flex justify-center [@media(min-width:685px)]:justify-start">
           <SocialLinks />
         </div>

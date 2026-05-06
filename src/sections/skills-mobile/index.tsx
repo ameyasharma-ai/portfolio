@@ -12,42 +12,43 @@ export function SkillsMobile() {
   return (
     <section 
       id="skills-mobile" 
-      className="w-full px-2.5 mt-12"
+      className="w-full px-6 mt-32"
     >
-      <div className="w-full max-w-7xl mx-auto">
+      <div className="w-full max-w-lg mx-auto">
         {/* Section Headers */}
-        <div className="mb-8 text-center">
-          <h2 className="font-body text-lg font-light text-foreground mb-4">
-            MY SKILLS
-          </h2>
-          <p className="font-heading text-2xl text-foreground">
-            BUILDING PRODUCTION AI SYSTEMS THAT SOLVE REAL PROBLEMS
+        <div className="mb-20">
+          <p className="font-heading text-[10px] uppercase tracking-[0.4em] text-primary mb-4">
+            Infrastructure
           </p>
+          <h2 className="font-heading text-5xl leading-[0.85] text-foreground uppercase tracking-tighter break-words">
+            Built for <br /> <span className="text-primary">Performance</span>
+          </h2>
         </div>
 
-        {/* Skills Grid - Mobile optimized: 3 columns */}
-        <div className="mb-8">
-          <div className="w-full bg-[#353739] p-[1px] rounded-2xl">
-            <div className="grid grid-cols-3 gap-[1px] bg-[#353739] rounded-2xl overflow-hidden">
-              {skillsData.map((skill, index) => (
-                <SkillCard 
-                  key={index}
-                  skill={skill}
-                  index={index}
-                />
-              ))}
-            </div>
+        {/* Skills Grid */}
+        <div className="mb-12">
+          <div className="grid grid-cols-3 gap-px bg-border/20 border border-border/20 rounded-[2rem] overflow-hidden">
+            {skillsData.map((skill, index) => (
+              <div key={index} className="bg-background p-6 flex flex-col items-center justify-center gap-3">
+                <div className="scale-110">
+                  <SkillCard 
+                    skill={skill}
+                    index={index}
+                  />
+                </div>
+              </div>
+            ))}
           </div>
         </div>
 
-        {/* Bottom Section - Centered */}
-        <div className="flex flex-col items-center justify-center gap-4 text-center">
-          <p className="font-body font-light text-[#b3b3b3] text-base">
-            Don't see your stack?
+        {/* Bottom Section */}
+        <div className="p-8 bg-card border border-border rounded-[2.5rem] text-center">
+          <p className="font-body text-sm text-muted-foreground mb-6 font-light">
+            Need a custom integration?
           </p>
           <button 
             onClick={handleLetsTalkClick}
-            className="px-6 pt-2 pb-1 border border-border rounded-full font-heading text-sm text-foreground hover:border-ring transition-colors duration-300 cursor-pointer hover:opacity-80"
+            className="w-full py-4 bg-primary/10 border border-primary/20 rounded-xl font-heading text-[10px] uppercase tracking-widest text-primary hover:bg-primary/20 transition-all cursor-pointer"
           >
             LET'S TALK
           </button>

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { TransitionLayout } from './transition-layout';
+import { ProjectGrid } from './project-grid';
 
 export function CaseStudies() {
   return (
@@ -16,11 +16,11 @@ export function CaseStudies() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="text-center mb-16"
         >
-          <h2 className="font-body text-lg font-light text-primary mb-4">
-            CASE STUDIES
+          <h2 className="font-body text-lg font-light text-primary mb-4 tracking-widest">
+            SELECTED PROJECTS
           </h2>
-          <p className="font-heading text-5xl text-foreground">
-            Curated Work
+          <p className="font-heading text-4xl md:text-5xl text-foreground">
+            Building Systems that Scale
           </p>
         </motion.div>
         
@@ -30,7 +30,7 @@ export function CaseStudies() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 1, delay: 0.2 }}
         >
-          <TransitionLayout />
+          <ProjectGrid />
         </motion.div>
       </div>
     </section>

@@ -6,31 +6,27 @@ export function CaseStudiesMobile() {
   return (
     <section 
       id="case-studies-mobile" 
-      className="w-full px-2.5 mt-12"
+      className="w-full px-6 mt-32"
     >
-      <div className="w-full max-w-7xl mx-auto">
+      <div className="w-full max-w-lg mx-auto">
         {/* Section Title */}
-        <div className="text-center mb-8">
-          <h2 className="font-body text-lg font-light text-foreground mb-4">
-            CASE STUDIES
-          </h2>
-          <p className="font-heading text-3xl text-foreground">
-            Curated Work
+        <div className="mb-20">
+          <p className="font-heading text-[10px] uppercase tracking-[0.4em] text-primary mb-4">
+            Selected Work
           </p>
+          <h2 className="font-heading text-6xl leading-[0.85] text-foreground uppercase tracking-tighter">
+            Building <br /> <span className="text-primary">Systems</span> <br /> that scale
+          </h2>
         </div>
         
-        {/* Design Case Study */}
-        <div className="mb-10">
+        <div className="space-y-24">
+          {/* Design Case Study */}
           <DesignMobile />
-        </div>
-        
-        {/* Advertising Case Study */}
-        <div className="mb-10">
+          
+          {/* Advertising Case Study */}
           <AdvertisingMobile />
-        </div>
 
-        {/* CodeGraph Case Study */}
-        <div>
+          {/* CodeGraph Case Study */}
           <CodeGraphMobile />
         </div>
       </div>

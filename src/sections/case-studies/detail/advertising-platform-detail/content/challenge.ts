@@ -18,6 +18,10 @@ export const challengeContent: ContentSection = {
     {
       title: 'User Needs',
       content: `One-click room creation with secure password generation, live cursor tracking, in-browser code execution, and an immersive aesthetic.`
+    },
+    {
+      title: 'Market Positioning',
+      content: `Built to compete with enterprise tools like Replit and Miro by offering a lightweight, unified alternative for high-stakes technical interviews and collaborative prototyping.`
     }
   ]
 };

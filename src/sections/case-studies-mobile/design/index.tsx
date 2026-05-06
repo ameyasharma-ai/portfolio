@@ -2,33 +2,61 @@ import { DesignPlatformVideo } from "../../case-studies/content/design-platform-
 import { BottomBar } from "../../case-studies/shared/bottom-bar";
 import { RightBar } from "../../case-studies/shared/right-bar";
 import { designPlatformData } from "../../case-studies/content/design-platform-data";
+import { useNavigate } from "react-router";
+import { globalLenis } from "@/components/providers/smooth-scroll-provider";
 
 export function DesignMobile() {
+  const navigate = useNavigate();
+
   return (
-    <div className="w-full space-y-6">
-      {/* Title and Description */}
-      <div className="text-left">
-        <h3 className="font-heading text-lg text-foreground">
+    <div className="w-full group">
+      {/* 1. Heading */}
+      <div className="mb-6">
+        <h3 className="font-heading text-3xl text-foreground uppercase tracking-tighter group-hover:text-primary transition-colors">
           Groot
         </h3>
-        <p className="font-body text-sm text-muted-foreground leading-relaxed">
-          Immersive AI Voice Assistant Platform
+        <p className="font-heading text-[10px] text-primary uppercase tracking-[0.2em] mt-1">
+          Immersive AI Platform
         </p>
       </div>
 
-      {/* Video Container without bento-square class - 16:9 aspect ratio */}
-      <div className="w-full aspect-video overflow-hidden rounded-2xl">
+      {/* 2. Video */}
+      <div className="relative aspect-video overflow-hidden rounded-[2rem] border border-border shadow-xl mb-8 bg-black">
         <DesignPlatformVideo />
       </div>
 
-      {/* Bottom Bar with tech stack */}
-      <div className="bg-card border border-border rounded-2xl p-4">
-        <BottomBar techStack={designPlatformData.techStack} />
-      </div>
+      {/* 3. Details/Buttons */}
+      <div className="space-y-6">
+        <p className="font-body text-sm text-muted-foreground leading-relaxed font-light line-clamp-3">
+          An advanced conversational AI platform featuring real-time voice interactions and 3D visualizers.
+        </p>
 
-      {/* Right Bar with buttons */}
-      <div className="w-full">
-        <RightBar projectData={designPlatformData.projectData} />
+        <div className="flex flex-col gap-3">
+          <button
+            onClick={() => {
+              const scrollY = globalLenis ? globalLenis.scroll : window.scrollY;
+              sessionStorage.setItem('homeScrollY', scrollY.toString());
+              navigate('/case-studies/design');
+            }}
+            className="w-full py-4 bg-primary text-primary-foreground rounded-2xl font-heading text-[10px] uppercase tracking-widest shadow-lg shadow-primary/10"
+          >
+            Full Case Study
+          </button>
+          <div className="grid grid-cols-2 gap-3">
+            <button
+              onClick={() => window.open("https://groot-frontend-orpin.vercel.app", "_blank")}
+              className="py-3 bg-card border border-border rounded-xl font-heading text-[9px] uppercase tracking-widest text-foreground"
+            >
+              Live Demo
+            </button>
+            <button
+              onClick={() => window.open("https://github.com/ameyasharma-ai/groot-frontend", "_blank")}
+              className="py-3 bg-card border border-border rounded-xl font-heading text-[9px] uppercase tracking-widest text-foreground"
+            >
+              GitHub
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );

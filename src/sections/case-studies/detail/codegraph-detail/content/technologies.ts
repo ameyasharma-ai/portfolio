@@ -16,6 +16,10 @@ export const technologiesContent: ContentSection = {
     {
       title: "Infrastructure & API",
       content: "• **GitHub REST API** - Recursive repository tree and content extraction\n• **Vercel** - Edge-ready frontend and serverless API deployment"
+    },
+    {
+      title: "DevOps & Tooling",
+      content: "• **GitHub Actions** - Automated CI/CD for seamless production updates\n• **ESLint & Prettier** - Strict code quality and formatting standards"
     }
   ]
 };

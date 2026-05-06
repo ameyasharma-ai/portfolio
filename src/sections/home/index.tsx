@@ -14,7 +14,7 @@ export function Home() {
       </div>
 
       {/* Main Layout Container */}
-      <div className="relative z-10 flex-1 flex flex-col w-full pb-6 md:pb-10 pt-24 md:pt-32 px-6 md:px-16 pointer-events-none">
+      <div className="relative z-10 flex-1 flex flex-col w-full pb-6 md:pb-10 pt-20 md:pt-24 px-6 md:px-16 pointer-events-none">
         
         {/* Title Section (Flex grow, centers content, prevents overlap) */}
         <div className="flex-1 flex flex-col justify-center w-full min-h-0 py-8">

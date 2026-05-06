@@ -16,6 +16,10 @@ export const technicalImplementationContent: ContentSection = {
     {
       title: 'Immersive UI/UX',
       content: '• State-of-the-art dark mode with backdrop-blur effects and custom HSL color palettes.\n• Dynamic viewport locking for mobile devices to ensure the graph canvas always remains interactive.\n• Optimized SEO metadata and native favicon integration for a professional product presence.'
+    },
+    {
+      title: 'Edge Case Handling',
+      content: '• Implemented robust error boundaries to handle deleted or private repositories.\n• Optimized large file-tree parsing using non-blocking asynchronous operations to prevent main-thread freezing.\n• Custom rate-limit detection to gracefully inform users during heavy GitHub API traffic.'
     }
   ]
 };

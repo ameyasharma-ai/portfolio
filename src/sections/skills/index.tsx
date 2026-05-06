@@ -18,10 +18,10 @@ export function Skills() {
         {/* Section Headers */}
         <div className="mb-12 text-center">
           <h2 className="font-body text-lg font-light text-foreground mb-4">
-            MY SKILLS
+            ADVANCED TECH STACK
           </h2>
-          <p className="font-heading text-2xl text-foreground">
-            BUILDING PRODUCTION AI SYSTEMS THAT SOLVE REAL PROBLEMS
+          <p className="font-heading text-2xl md:text-3xl text-foreground">
+            Production-ready tools for high-performance products.
           </p>
         </div>
 

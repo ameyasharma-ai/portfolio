@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Copy, Check, ExternalLink } from "lucide-react";
+import { Check } from "lucide-react";
 import { GithubIcon } from '@/components/icons/socials/github-icon';
 import { LinkedinIcon } from '@/components/icons/socials/linkedin-icon';
 import emailIcon from '../../../assets/email-icon.svg';
@@ -28,59 +28,48 @@ export function ContactMethods() {
   };
 
   return (
-    <div className="flex flex-col gap-4 mt-8">
-      {/* Email Row */}
-      <div className="group flex items-center gap-4 p-4 rounded-2xl border border-border transition-all hover:border-ring hover:transform hover:-translate-y-0.5">
-        <div className="w-12 h-12 rounded-lg border border-border group-hover:border-ring transition-colors flex items-center justify-center flex-shrink-0">
-          <img src={emailIcon} alt="Email" className="w-6 h-6" />
+    <div className="flex flex-col gap-3 w-full mt-8">
+      {/* 3-Column Horizontal Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+        {/* Email Card */}
+        <div className="group relative p-[1px] rounded-xl overflow-hidden bg-border/50 hover:bg-primary/30 transition-all duration-500">
+          <div className="relative flex flex-col items-center gap-2 p-4 bg-card/50 rounded-xl backdrop-blur-sm group-hover:bg-primary/5 transition-all duration-500 h-full text-center">
+            <div className="flex flex-col flex-1 min-w-0">
+              <span className="text-[8px] text-primary uppercase tracking-[0.3em] font-heading mb-1">Email</span>
+              <button 
+                onClick={handleCopyEmail}
+                className="font-body text-[10px] text-foreground font-light truncate hover:text-primary transition-colors cursor-pointer"
+              >
+                {copied ? "Copied!" : "sharmaameya..."}
+              </button>
+            </div>
+          </div>
         </div>
-        <span className="font-body text-foreground flex-1">
-          {email}
-        </span>
-        <button
-          onClick={handleCopyEmail}
-          className="w-10 h-10 rounded-lg flex items-center justify-center hover:bg-accent cursor-pointer transition-colors"
-          aria-label="Copy email address"
-        >
-          {copied ? (
-            <Check className="w-5 h-5 text-green-500" />
-          ) : (
-            <Copy className="w-5 h-5 text-muted-foreground hover:text-foreground" />
-          )}
-        </button>
-      </div>
 
-      {/* LinkedIn Row */}
-      <div className="group flex items-center gap-4 p-4 rounded-2xl border border-border transition-all hover:border-ring hover:transform hover:-translate-y-0.5">
-        <div className="w-12 h-12 rounded-lg border border-border group-hover:border-ring transition-colors flex items-center justify-center flex-shrink-0">
-          <LinkedinIcon className="w-6 h-6 text-background" />
-        </div>
-        <span className="font-body text-foreground flex-1 text-left">
-          ameyasharma999
-        </span>
-        <button
+        {/* LinkedIn Card */}
+        <button 
           onClick={handleLinkedInClick}
-          className="w-10 h-10 rounded-lg flex items-center justify-center hover:bg-accent cursor-pointer transition-colors"
-          aria-label="Open LinkedIn profile"
+          className="group relative p-[1px] rounded-xl overflow-hidden bg-border/50 hover:bg-primary/30 transition-all duration-500 text-left cursor-pointer"
         >
-          <ExternalLink className="w-5 h-5 text-muted-foreground" />
+          <div className="relative flex flex-col items-center gap-2 p-4 bg-card/50 rounded-xl backdrop-blur-sm group-hover:bg-primary/5 transition-all duration-500 h-full text-center">
+            <div className="flex flex-col flex-1 min-w-0">
+              <span className="text-[8px] text-primary uppercase tracking-[0.3em] font-heading mb-1">LinkedIn</span>
+              <span className="font-body text-[10px] text-foreground font-light truncate">/in/ameya...</span>
+            </div>
+          </div>
         </button>
-      </div>
 
-      {/* GitHub Row */}
-      <div className="group flex items-center gap-4 p-4 rounded-2xl border border-border transition-all hover:border-ring hover:transform hover:-translate-y-0.5">
-        <div className="w-12 h-12 rounded-lg border border-border group-hover:border-ring transition-colors flex items-center justify-center flex-shrink-0">
-          <GithubIcon className="w-6 h-6 text-background" />
-        </div>
-        <span className="font-body text-foreground flex-1 text-left">
-          @ameyasharma-ai
-        </span>
-        <button
+        {/* GitHub Card */}
+        <button 
           onClick={handleGithubClick}
-          className="w-10 h-10 rounded-lg flex items-center justify-center hover:bg-accent cursor-pointer transition-colors"
-          aria-label="Open GitHub profile"
+          className="group relative p-[1px] rounded-xl overflow-hidden bg-border/50 hover:bg-primary/30 transition-all duration-500 text-left cursor-pointer"
         >
-          <ExternalLink className="w-5 h-5 text-muted-foreground" />
+          <div className="relative flex flex-col items-center gap-2 p-4 bg-card/50 rounded-xl backdrop-blur-sm group-hover:bg-primary/5 transition-all duration-500 h-full text-center">
+            <div className="flex flex-col flex-1 min-w-0">
+              <span className="text-[8px] text-primary uppercase tracking-[0.3em] font-heading mb-1">GitHub</span>
+              <span className="font-body text-[10px] text-foreground font-light truncate">@ameyasharma</span>
+            </div>
+          </div>
         </button>
       </div>
     </div>

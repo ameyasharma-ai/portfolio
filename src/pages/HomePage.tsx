@@ -2,16 +2,19 @@ import { NavBar } from "@/components/navigation/nav-bar";
 import { SEO } from "@/components/seo/SEO";
 import { getPersonStructuredData, getWebSiteStructuredData } from "@/utils/structured-data";
 import { Home } from "@/sections/home";
-import { HowIWork } from "@/sections/how-i-work";
 import { CaseStudies } from "@/sections/case-studies";
 import { Skills } from "@/sections/skills";
 import { AboutMe } from "@/sections/about-me";
 import { Footer } from "@/sections/footer";
 import { useSectionTracker } from "@/hooks/useSectionTracker";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { globalLenis } from "@/components/providers/smooth-scroll-provider";
+import { ServicesSection } from "@/sections/services";
+import { CTASection } from "@/components/ui/cta-section";
+import { motion, AnimatePresence } from "framer-motion";
 
 export function HomePage() {
+  const [isRestoring, setIsRestoring] = useState(!!sessionStorage.getItem('homeScrollY'));
   useSectionTracker();
 
   // Restore scroll position when returning from case study detail page
@@ -19,18 +22,25 @@ export function HomePage() {
     const savedY = sessionStorage.getItem('homeScrollY');
     if (savedY) {
       const scrollY = parseInt(savedY, 10);
-      // Delay slightly to let Lenis smooth scroll initialize first
-      const timer = setTimeout(() => {
+      
+      const restoreScroll = () => {
         if (globalLenis) {
           globalLenis.scrollTo(scrollY, { immediate: true });
+          window.scrollTo(0, scrollY);
+          sessionStorage.removeItem('homeScrollY');
+          sessionStorage.removeItem('caseStudyReturn');
+          
+          // Delay showing content until after scroll is set
+          setTimeout(() => setIsRestoring(false), 50);
         } else {
           window.scrollTo(0, scrollY);
+          requestAnimationFrame(restoreScroll);
         }
-      }, 150);
-      // Clean up after restoring
-      sessionStorage.removeItem('homeScrollY');
-      sessionStorage.removeItem('caseStudyReturn');
-      return () => clearTimeout(timer);
+      };
+
+      restoreScroll();
+    } else {
+      setIsRestoring(false);
     }
   }, []);
 
@@ -46,17 +56,43 @@ export function HomePage() {
   return (
     <>
       <SEO 
-        title="Ameya Sharma - Patent-Winning Full-Stack Developer"
-        description="Patent-winning full-stack developer specializing in AI automation, enterprise solutions, and production-ready systems. Building streamlined operations with cutting-edge technology."
+        title="Ameya Sharma | Premium AI & Web Developer for Hire"
+        description="Build high-performance AI systems and scalable web applications that drive growth. Premium full-stack development for ambitious startups and founders."
         url="https://www.kolzo.in"
         jsonLd={structuredData}
       />
-      <div className="flex min-h-svh flex-col">
+      
+      <AnimatePresence>
+        {isRestoring && (
+          <motion.div 
+            initial={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] bg-background"
+          />
+        )}
+      </AnimatePresence>
+
+      <div className={`flex min-h-svh flex-col ${isRestoring ? 'opacity-0' : 'opacity-100 transition-opacity duration-300'}`}>
         <NavBar />
         <main className="w-full max-w-[1550px] mx-auto">
           <Home />
-          <HowIWork />
+          <CTASection 
+            title="Drive results with high-performance systems."
+            subtitle="I build fast, scalable web products that help businesses grow and launch in weeks."
+            className="bg-background"
+          />
+          <ServicesSection />
+          <CTASection 
+            title="Let's build your next big idea."
+            subtitle="From prototype to production-grade architecture. I'm ready to ship your vision."
+            className="bg-card/50"
+          />
           <CaseStudies />
+          <CTASection 
+            title="Ready to dominate your market?"
+            subtitle="I help founders and startups automate operations and scale with cutting-edge AI integrations."
+            className="bg-background"
+          />
           <Skills />
           <AboutMe />
           <Footer />

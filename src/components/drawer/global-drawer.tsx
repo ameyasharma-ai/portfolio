@@ -4,10 +4,6 @@ import {
   Drawer,
   DrawerClose,
   DrawerContent,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerTitle,
-  DrawerDescription,
 } from "@/components/ui/drawer";
 import { motion, type Variants } from "framer-motion";
 import { X } from "lucide-react";
@@ -54,7 +50,7 @@ export function GlobalDrawer() {
   const { isOpen, close } = useDrawerStore();
   const { isSubmitting, isSubmitSuccessful, isSuccess, message, handleSubmit, resetFormState } = useSubmitForm();
 
-  // Confetti
+  // Confetti effect on success
   useEffect(() => {
     if (isSubmitSuccessful && isSuccess) {
       const duration = 5 * 1000;
@@ -89,134 +85,170 @@ export function GlobalDrawer() {
 
   return (
     <Drawer open={isOpen} onOpenChange={(open) => !open && close()} repositionInputs={false}>
-      <DrawerContent className="mx-2.5 max-w-none sm:max-w-fit sm:mx-auto p-4 sm:p-6 rounded-2xl shadow-xl">
+      <DrawerContent className="mx-0 w-full h-[100dvh] p-0 rounded-none border-none bg-background overflow-hidden z-[100]">
         <motion.div
           variants={drawerVariants}
           initial="hidden"
           animate="visible"
-          className="mx-auto w-full max-w-[480px] space-y-4 sm:space-y-6"
+          className="w-full h-full relative"
         >
-          {/* Header */}
-          <motion.div variants={itemVariants}>
-            <DrawerHeader className="px-0 space-y-2.5 relative">
-              <DrawerClose asChild>
-                <button
-                  className="absolute -top-2 -right-2 p-2 hover:bg-accent rounded-full transition-colors"
-                  aria-label="Close"
-                >
-                  <X className="w-4 h-4" />
-                </button>
-              </DrawerClose>
+          {/* Close Button Desktop */}
+          <button
+            onClick={close}
+            className="absolute top-10 right-10 p-4 hover:bg-accent rounded-full transition-colors z-[110] hidden lg:block"
+            aria-label="Close"
+          >
+            <X className="w-6 h-6" />
+          </button>
 
-              <DrawerTitle className="text-2xl font-heading tracking-tight mt-6">
-                {isSubmitSuccessful
-                  ? isSuccess
-                    ? "Message received"
-                    : "Something went wrong"
-                  : "Start a project"}
-              </DrawerTitle>
+          <div className="grid grid-cols-1 lg:grid-cols-12 h-full overflow-y-auto lg:overflow-hidden">
+            
+            {/* Left Column - Info & Booking */}
+            <div className="lg:col-span-7 p-8 md:p-16 lg:p-32 flex flex-col justify-center bg-card/30 relative overflow-hidden border-b lg:border-b-0 lg:border-r border-border/50">
+              <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
+                <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-primary/5 blur-[150px] rounded-full" />
+              </div>
+              
+              {/* Close Button Mobile */}
+              <button
+                onClick={close}
+                className="absolute top-8 left-8 p-3 hover:bg-accent rounded-full transition-colors z-[110] lg:hidden"
+                aria-label="Close"
+              >
+                <X className="w-5 h-5" />
+              </button>
 
-              {!isSubmitSuccessful && (
-                <DrawerDescription className="text-sm leading-relaxed text-muted-foreground font-body">
-                  If you're building something meaningful, let's talk. I focus on systems that actually ship and create real business impact.
-                </DrawerDescription>
-              )}
-            </DrawerHeader>
-          </motion.div>
+              <motion.div variants={itemVariants} className="relative z-10 max-w-2xl">
+                <h2 className="font-heading text-6xl md:text-8xl text-foreground mb-10 uppercase tracking-tighter leading-[0.85]">
+                  Let's build <br /> <span className="text-primary">your next big idea.</span>
+                </h2>
+                <p className="font-body text-xl md:text-2xl text-muted-foreground mb-16 font-light leading-relaxed">
+                  I design and build high-performance products that drive business growth. Ready to turn your vision into a production-grade reality?
+                </p>
 
-          {/* Success / Error */}
-          {isSubmitSuccessful && (
-            <motion.div variants={itemVariants} className="flex flex-col items-center text-center">
-              {isSuccess ? (
-                <>
-                  <div className="w-16 h-16 rounded-full bg-green-500/10 flex items-center justify-center mb-4">
-                    <svg className="w-8 h-8 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <p className="font-body text-muted-foreground mb-6">{message}</p>
-                </>
-              ) : (
-                <>
-                  <div className="w-16 h-16 rounded-full bg-red-500/10 flex items-center justify-center mb-4">
-                    <svg className="w-8 h-8 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                  </div>
-                  <p className="font-body text-muted-foreground mb-6">{message}</p>
-                  <button
-                    onClick={resetFormState}
-                    className="font-body text-primary hover:text-primary/80 transition-colors"
-                  >
-                    Try again
-                  </button>
-                </>
-              )}
-            </motion.div>
-          )}
-
-          {/* Form */}
-          {!isSubmitSuccessful && (
-            <motion.div variants={itemVariants}>
-              <form onSubmit={handleSubmit} className="flex flex-col gap-3 sm:gap-6">
-
-                {/* Honeypot (anti-spam) */}
-                <input type="text" name="_gotcha" className="hidden" />
-
-                <motion.div variants={itemVariants}>
-                  <label className="block font-body text-sm font-medium text-foreground mb-2">
-                    Name
-                  </label>
-                  <input
-                    type="text"
-                    name="name"
-                    placeholder="Your name"
-                    required
-                    className="w-full px-4 py-3 bg-background border border-border rounded-lg"
-                  />
-                </motion.div>
-
-                <motion.div variants={itemVariants}>
-                  <label className="block font-body text-sm font-medium text-foreground mb-2">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="you@company.com"
-                    required
-                    className="w-full px-4 py-3 bg-background border border-border rounded-lg"
-                  />
-                </motion.div>
-
-                <motion.div variants={itemVariants}>
-                  <label className="block font-body text-sm font-medium text-foreground mb-2">
-                    Project details
-                  </label>
-                  <textarea
-                    name="message"
-                    placeholder="What are you building? What problem are you trying to solve?"
-                    required
-                    className="w-full px-4 py-3 bg-background border border-border rounded-lg resize-none h-28 sm:h-36"
-                  />
-                </motion.div>
-
-                <DrawerFooter className="flex flex-col gap-3 px-0">
-                  <motion.div variants={itemVariants}>
-                    <RainbowButton
-                      type="submit"
-                      size="lg"
-                      className="w-full font-heading pt-0.5"
-                      variant="outline"
-                      disabled={isSubmitting}
+                <div className="space-y-16">
+                  <div>
+                    <button 
+                      onClick={() => window.open('https://calendly.com/ameyasharma', '_blank')}
+                      className="group flex flex-col items-start gap-1 px-8 py-6 bg-primary text-primary-foreground rounded-[2rem] hover:scale-[1.02] active:scale-[0.98] transition-all shadow-2xl shadow-primary/20 cursor-pointer"
                     >
-                      {isSubmitting ? "Sending..." : "Start the conversation"}
-                    </RainbowButton>
-                  </motion.div>
-                </DrawerFooter>
-              </form>
-            </motion.div>
-          )}
+                      <span className="font-heading text-xl uppercase tracking-widest">Book a Strategy Call</span>
+                      <span className="font-body text-[10px] uppercase tracking-[0.2em] opacity-80 font-bold">15 MIN • VIDEO CALL</span>
+                    </button>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-10">
+                    <div>
+                      <p className="font-heading text-[11px] uppercase tracking-[0.4em] text-primary mb-4">Email</p>
+                      <a href="mailto:sharmaameya999@gmail.com" className="font-body text-base text-foreground hover:text-primary transition-colors">
+                        sharmaameya999@gmail.com
+                      </a>
+                    </div>
+                    <div>
+                      <p className="font-heading text-[11px] uppercase tracking-[0.4em] text-primary mb-4">LinkedIn</p>
+                      <a href="https://linkedin.com/in/ameyasharma999" target="_blank" rel="noopener noreferrer" className="font-body text-base text-foreground hover:text-primary transition-colors">
+                        /in/ameyasharma999
+                      </a>
+                    </div>
+                    <div>
+                      <p className="font-heading text-[11px] uppercase tracking-[0.4em] text-primary mb-4">GitHub</p>
+                      <a href="https://github.com/ameyasharma-ai" target="_blank" rel="noopener noreferrer" className="font-body text-base text-foreground hover:text-primary transition-colors">
+                        @ameyasharma-ai
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Right Column - Form */}
+            <div className="lg:col-span-5 p-8 md:p-16 lg:p-32 flex flex-col justify-center bg-background relative">
+              {isSubmitSuccessful ? (
+                <motion.div variants={itemVariants} className="text-center max-w-sm mx-auto">
+                  {isSuccess ? (
+                    <div className="space-y-8">
+                      <div className="w-24 h-24 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-10">
+                        <svg className="w-12 h-12 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 13l4 4L19 7" />
+                        </svg>
+                      </div>
+                      <h3 className="font-heading text-4xl uppercase tracking-tighter text-foreground">Message Received</h3>
+                      <p className="font-body text-muted-foreground text-xl font-light leading-relaxed">{message}</p>
+                      <button 
+                        onClick={close} 
+                        className="mt-10 px-8 py-4 border border-border rounded-xl font-heading text-[10px] uppercase tracking-widest text-foreground hover:bg-accent transition-colors"
+                      >
+                        Close Window
+                      </button>
+                    </div>
+                  ) : (
+                    <div className="space-y-8">
+                      <div className="w-24 h-24 rounded-full bg-red-500/10 flex items-center justify-center mx-auto mb-10">
+                        <X className="w-12 h-12 text-red-500" />
+                      </div>
+                      <h3 className="font-heading text-4xl uppercase tracking-tighter text-foreground">Error</h3>
+                      <p className="font-body text-muted-foreground text-xl font-light leading-relaxed">{message}</p>
+                      <button 
+                        onClick={resetFormState} 
+                        className="mt-10 px-8 py-4 bg-primary text-primary-foreground rounded-xl font-heading text-[10px] uppercase tracking-widest transition-colors"
+                      >
+                        Try Again
+                      </button>
+                    </div>
+                  )}
+                </motion.div>
+              ) : (
+                <motion.div variants={itemVariants} className="w-full max-w-lg mx-auto lg:mx-0">
+                  <form onSubmit={handleSubmit} className="space-y-12">
+                    <input type="text" name="_gotcha" className="hidden" />
+                    
+                    <div className="space-y-4">
+                      <label className="font-heading text-[11px] uppercase tracking-[0.4em] text-primary">Name</label>
+                      <input
+                        type="text"
+                        name="name"
+                        placeholder="Your name"
+                        required
+                        className="w-full bg-transparent border-b border-border/50 py-6 focus:border-primary outline-none transition-colors font-body text-xl font-light placeholder:text-muted-foreground/30"
+                      />
+                    </div>
+
+                    <div className="space-y-4">
+                      <label className="font-heading text-[11px] uppercase tracking-[0.4em] text-primary">Email</label>
+                      <input
+                        type="email"
+                        name="email"
+                        placeholder="you@company.com"
+                        required
+                        className="w-full bg-transparent border-b border-border/50 py-6 focus:border-primary outline-none transition-colors font-body text-xl font-light placeholder:text-muted-foreground/30"
+                      />
+                    </div>
+
+                    <div className="space-y-4">
+                      <label className="font-heading text-[11px] uppercase tracking-[0.4em] text-primary">Project details</label>
+                      <textarea
+                        name="message"
+                        placeholder="What are you building? What problem are you solving? What does success look like?"
+                        required
+                        className="w-full bg-transparent border-b border-border/50 py-6 focus:border-primary outline-none transition-colors font-body text-xl font-light placeholder:text-muted-foreground/30 resize-none h-40"
+                      />
+                    </div>
+
+                    <div className="pt-10">
+                      <RainbowButton
+                        type="submit"
+                        size="lg"
+                        className="w-full font-heading h-20 text-[11px] uppercase tracking-[0.2em] pt-1 rounded-2xl"
+                        disabled={isSubmitting}
+                      >
+                        {isSubmitting ? "Sending..." : "Start Your Project"}
+                      </RainbowButton>
+                    </div>
+                  </form>
+                </motion.div>
+              )}
+            </div>
+          </div>
         </motion.div>
       </DrawerContent>
     </Drawer>

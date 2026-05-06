@@ -30,8 +30,8 @@ export const advertisingPlatformData: CaseStudyData = {
       {
         title: "Impact",
         items: [
-          "• Bridge for developers and designers",
-          "• Zero-latency team synchronization"
+          "• 40% reduction in team hand-off friction",
+          "• Sub-50ms real-time sync across regions"
         ]
       }
     ],

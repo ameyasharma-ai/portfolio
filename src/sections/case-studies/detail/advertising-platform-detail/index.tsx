@@ -80,141 +80,196 @@ export function AdvertisingPlatformDetail() {
   };
 
   return (
-    <div className="max-w-5xl mx-auto py-12 px-6">
-      {/* Back Button and Project Links */}
-      <div className="flex flex-col gap-4 mb-8 md:flex-row md:items-center md:justify-between">
-        <button
-          onClick={handleBackClick}
-          className="inline-flex items-center gap-2 text-primary hover:underline cursor-pointer self-start"
-        >
-          <ArrowLeft className="w-4 h-4" />
-          Back
-        </button>
-
-        <div className="flex flex-wrap items-center gap-2 md:gap-3">
+    <div className="min-h-screen bg-background pb-24">
+      {/* Cinematic Hero Section */}
+      <section className="relative pt-10 pb-8 px-6 md:px-12 lg:px-16 border-b border-border/50">
+        <div className="max-w-7xl mx-auto">
           <button
-            onClick={handleLiveClick}
-            className="inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 text-sm bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors cursor-pointer"
+            onClick={handleBackClick}
+            className="group inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-4 cursor-pointer"
           >
-            <ExternalLink className="w-4 h-4 shrink-0" />
-            Live Demo
+            <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+            <span className="font-heading text-[10px] uppercase tracking-widest">Back to Projects</span>
           </button>
+
+          {/* 1. Heading First */}
+          <h1 className="font-heading text-5xl md:text-8xl text-foreground mb-8 uppercase tracking-tighter leading-[0.85] max-w-4xl">
+            InLine
+          </h1>
+
+          {/* 2. Video Second */}
+          <section className="relative group mb-8 max-w-4xl mx-auto">
+            <div className="absolute -inset-1 bg-primary/20 rounded-[2.5rem] blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
+            <div className="relative rounded-[2rem] overflow-hidden border border-border shadow-2xl aspect-video bg-black">
+              <VideoContainer activeVideo="advertising" />
+            </div>
+          </section>
+
+          {/* 3. Details Third */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            <div className="lg:col-span-7">
+              <p className="font-body text-lg md:text-2xl text-muted-foreground leading-relaxed mb-10 font-light">
+                State-of-the-art, real-time collaborative coding and brainstorming environment that bridges the gap between developers and designers.
+              </p>
+              
+              <div className="flex flex-wrap gap-4">
+                <button
+                  onClick={handleLiveClick}
+                  className="px-8 py-4 bg-primary text-primary-foreground rounded-xl font-heading text-xs uppercase tracking-widest hover:bg-primary/90 hover:scale-105 active:scale-95 transition-all cursor-pointer shadow-lg shadow-primary/20"
+                >
+                  Launch Live Demo
+                </button>
+                <div className="flex gap-2">
+                  <button
+                    onClick={handleFrontendClick}
+                    className="px-6 py-4 bg-card border border-border rounded-xl font-heading text-[10px] uppercase tracking-widest hover:border-primary/50 transition-all cursor-pointer"
+                  >
+                    Frontend
+                  </button>
+                  <button
+                    onClick={handleBackendClick}
+                    className="px-6 py-4 bg-card border border-border rounded-xl font-heading text-[10px] uppercase tracking-widest hover:border-primary/50 transition-all cursor-pointer"
+                  >
+                    Backend
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div className="lg:col-span-5 grid grid-cols-2 gap-6 bg-card/30 border border-border/50 rounded-[2rem] p-8">
+              <div>
+                <p className="font-heading text-[10px] uppercase tracking-widest text-primary mb-2">Role</p>
+                <p className="font-body text-base text-foreground font-light">Lead Fullstack</p>
+              </div>
+              <div>
+                <p className="font-heading text-[10px] uppercase tracking-widest text-primary mb-2">Outcome</p>
+                <p className="font-body text-base text-foreground font-light">Zero-Latency Sync</p>
+              </div>
+              <div className="col-span-2 pt-4 border-t border-border/50">
+                <p className="font-heading text-[10px] uppercase tracking-widest text-primary mb-3">Core Tech</p>
+                <div className="flex flex-wrap gap-2">
+                  {['TypeScript', 'Socket.IO', 'Node.js', 'React Flow', 'CodeMirror'].map(tech => (
+                    <span key={tech} className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-[10px] text-muted-foreground">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Main Content Grid */}
+      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 py-24">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-20">
           
-          <button
-            onClick={handleFrontendClick}
-            className="inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 text-sm border border-border rounded-lg hover:border-ring transition-colors cursor-pointer"
-          >
-            <GithubIcon className="w-4 h-4 shrink-0" />
-            Frontend
-          </button>
-          
-          <button
-            onClick={handleBackendClick}
-            className="inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 text-sm border border-border rounded-lg hover:border-ring transition-colors cursor-pointer"
-          >
-            <GithubIcon className="w-4 h-4 shrink-0" />
-            Backend
-          </button>
-        </div>
-      </div>
-
-      {/* Title */}
-      <h1 className="font-heading text-xl md:text-3xl text-foreground mb-4">
-        InLine: Real-Time Collaborative Workspace
-      </h1>
-
-      {/* Description */}
-      <p className="font-body text-sm text-muted-foreground leading-relaxed mb-8">
-        State-of-the-art, real-time collaborative coding and brainstorming environment that bridges the gap between developers and designers, featuring a code editor, AI copilot, live terminal sandboxes, and an integrated infinite whiteboard.
-      </p>
-
-      {/* Video Container */}
-      <div className="mb-8">
-        <VideoContainer activeVideo="advertising" />
-      </div>
-
-      {/* Tech Stack */}
-      <p className="font-body text-sm text-muted-foreground mb-12">
-        Vite • TypeScript • React 18 • Node.js • Express • Socket.IO • CodeMirror 6 • TLDraw • Judge0 API • OpenRouter API
-      </p>
-
-      {/* Quick Nav - Visible on Mobile, Hidden on Desktop (since it has sidebar) */}
-      <div className="md:hidden mb-12">
-        <p className="text-[10px] uppercase tracking-widest text-muted-foreground mb-3 font-body ml-1">Jump to section</p>
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-          {advertisingPlatformContent.sections.map((section) => (
-            <a
-              key={`quick-nav-${section.id}`}
-              href={`#${section.id}`}
-              onClick={(e) => handleNavClick(e, section.id)}
-              className="px-3 py-2 bg-card/50 border border-border rounded-lg text-[11px] font-body text-muted-foreground hover:text-foreground hover:border-ring transition-all active:scale-95 flex items-center justify-center text-center leading-tight h-10"
-            >
-              {section.title}
-            </a>
-          ))}
-        </div>
-      </div>
-
-      {/* Two Column Grid Layout */}
-      <div className="grid grid-cols-6 gap-8">
-        {/* Left Column - Main Content (full width on mobile, 80% on desktop) */}
-        <div className="col-span-6 md:col-span-4 space-y-16">
-          {advertisingPlatformContent.sections.map((section) => (
-            <section key={section.id} id={section.id}>
-              <h2 className="font-heading text-2xl text-foreground mb-6">
-                {section.title}
-              </h2>
-
-              {section.customComponent ? (
-                renderCustomComponent(section)
-              ) : (
-                <>
-                  {section.content && (
-                    <div className="font-body text-sm text-muted-foreground leading-relaxed mb-6">
-                      {section.content}
-                    </div>
-                  )}
-
-                  {section.subsections && (
-                    <div className="space-y-6">
-                      {section.subsections.map((subsection, index) => (
-                        <div key={index}>
-                          <h3 className="font-body text-lg text-foreground mb-3">
-                            {subsection.title}
-                          </h3>
-                          <div className="font-body text-sm text-muted-foreground leading-relaxed">
-                            {subsection.content.split('\n').map((line, lineIndex) => (
-                              <p key={lineIndex} className="mb-1">
-                                {line.split('**').map((part, partIndex) =>
-                                  partIndex % 2 === 1 ? <strong key={partIndex}>{part}</strong> : part
-                                )}
-                              </p>
-                            ))}
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                </>
-              )}
-            </section>
-          ))}
-        </div>
-
-        {/* Right Column - Navigation (hidden on mobile, 20% on desktop) */}
-        <div className="hidden md:block col-span-2 col-start-6">
-          <nav className="sticky top-8 space-y-3">
+          {/* Left Column - Sales Narrative */}
+          <div className="lg:col-span-8 space-y-32">
+            
+            {/* Dynamic Content Sections */}
             {advertisingPlatformContent.sections.map((section) => (
-              <a
-                key={section.id}
-                href={`#${section.id}`}
-                onClick={(e) => handleNavClick(e, section.id)}
-                className="block font-body text-sm text-muted-foreground hover:text-foreground transition-colors"
-              >
-                {section.title}
-              </a>
+              <section key={section.id} id={section.id} className="scroll-mt-32">
+                <div className="flex items-center gap-4 mb-10">
+                  <div className="h-[1px] w-12 bg-primary/30" />
+                  <h2 className="font-heading text-3xl md:text-4xl text-foreground uppercase tracking-tight">
+                    {section.title}
+                  </h2>
+                </div>
+
+                {section.customComponent ? (
+                  renderCustomComponent(section)
+                ) : (
+                  <div className="space-y-12">
+                    {section.content && (
+                      <p className="font-body text-lg text-muted-foreground leading-relaxed font-light">
+                        {section.content}
+                      </p>
+                    )}
+
+                    {section.subsections && (
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        {section.subsections.map((subsection, index) => (
+                          <div 
+                            key={index}
+                            className="p-8 bg-card border border-border rounded-[2rem] hover:border-primary/20 transition-colors"
+                          >
+                            <h3 className="font-heading text-lg text-foreground mb-4 uppercase tracking-tight">
+                              {subsection.title}
+                            </h3>
+                            <div className="font-body text-sm text-muted-foreground leading-relaxed font-light">
+                              {subsection.content.split('\n').map((line, lineIndex) => (
+                                <p key={lineIndex} className="mb-2">
+                                  {line.replace('**', '').replace('**', '')}
+                                </p>
+                              ))}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                )}
+              </section>
             ))}
-          </nav>
+
+            {/* Bottom Conversion Section */}
+            <section className="pt-20 border-t border-border/50">
+              <div className="relative p-12 md:p-20 rounded-[3rem] overflow-hidden border border-primary/20 bg-card group">
+                <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-96 h-96 bg-primary/10 blur-[120px] rounded-full group-hover:bg-primary/20 transition-colors" />
+                
+                <div className="relative z-10 max-w-3xl text-left">
+                  <h2 className="font-heading text-4xl md:text-6xl text-foreground mb-8 uppercase tracking-tighter leading-tight">
+                    Ready to build <br /> <span className="text-primary">your next big idea?</span>
+                  </h2>
+                  <p className="font-body text-lg md:text-xl text-muted-foreground mb-12 font-light leading-relaxed">
+                    I help founders and startups turn complex visions into production-grade reality in weeks.
+                  </p>
+                  <button 
+                    onClick={handleGetInTouchClick}
+                    className="px-10 py-5 bg-primary text-primary-foreground rounded-2xl font-heading text-sm uppercase tracking-widest hover:bg-primary/90 hover:scale-105 transition-all shadow-xl shadow-primary/20 cursor-pointer"
+                  >
+                    Start Your Project
+                  </button>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          {/* Right Column - Sticky Sidebar */}
+          <div className="lg:col-span-4">
+            <aside className="sticky top-32 space-y-12">
+              <div>
+                <p className="font-heading text-[10px] uppercase tracking-widest text-primary mb-6 ml-1">Section Guide</p>
+                <nav className="space-y-4">
+                  {advertisingPlatformContent.sections.map((section) => (
+                    <a
+                      key={section.id}
+                      href={`#${section.id}`}
+                      onClick={(e) => handleNavClick(e, section.id)}
+                      className="group flex items-center gap-4 text-muted-foreground hover:text-foreground transition-all"
+                    >
+                      <div className="h-[1px] w-0 bg-primary group-hover:w-8 transition-all duration-300" />
+                      <span className="font-body text-sm font-light uppercase tracking-wider">{section.title}</span>
+                    </a>
+                  ))}
+                </nav>
+              </div>
+
+              <div className="p-8 bg-card border border-border rounded-[2.5rem]">
+                <h4 className="font-heading text-sm uppercase tracking-widest text-foreground mb-4">Consultation</h4>
+                <p className="font-body text-xs text-muted-foreground mb-6 leading-relaxed">
+                  Need a real-time solution for your team? Let's discuss your specific needs.
+                </p>
+                <button
+                  onClick={handleGetInTouchClick}
+                  className="w-full py-4 bg-primary/10 border border-primary/20 rounded-xl font-heading text-[10px] uppercase tracking-widest text-primary hover:bg-primary/20 transition-all cursor-pointer"
+                >
+                  Book a strategy call
+                </button>
+              </div>
+            </aside>
+          </div>
         </div>
       </div>
     </div>

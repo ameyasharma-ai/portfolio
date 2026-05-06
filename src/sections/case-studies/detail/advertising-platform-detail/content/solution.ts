@@ -24,6 +24,10 @@ export const solutionContent: ContentSection = {
 **Real-Time Backend:** Lightweight Express backend acting as a secure websocket message broker.
 
 **Secure Proxy Architecture:** Backend Proxy Architecture ensures all Judge0 and OpenRouter API calls are securely routed through the server, completely sanitizing the client bundle.`
+    },
+    {
+      title: 'Deployment Strategy',
+      content: `Leveraged a multi-cloud approach with Vercel for the edge-ready frontend and Render for the persistent WebSocket broker, ensuring 99.9% uptime for global users.`
     }
   ]
 };

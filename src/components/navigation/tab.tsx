@@ -1,32 +1,25 @@
 import { useRef } from "react";
 import { motion } from "framer-motion";
 import { useNavigationStore, type DesktopSectionId } from "@/stores/navigationStore";
-import { useDrawerStore } from "@/stores/drawerStore";
 import { globalLenis } from "@/components/providers/smooth-scroll-provider";
 import type { TabProps } from "./types";
 
 // Mapping from desktop href to section IDs
 const DESKTOP_HREF_TO_SECTION_MAP: Record<string, DesktopSectionId> = {
   '#home': 'home',
-  '#how-i-work': 'how-i-work',
+  '#services': 'services',
   '#case-studies': 'case-studies',
   '#skills': 'skills',
   '#about-me': 'about-me',
+  '#footer': 'footer',
 };
 
 export const Tab = ({ children, setPosition, href, isActive }: TabProps) => {
   const ref = useRef<HTMLLIElement>(null);
   const { setIsNavigating, setActiveSection } = useNavigationStore();
-  const { open: openDrawer } = useDrawerStore();
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault(); // Always prevent default for all navigation items
-    
-    // Handle Contact button specifically
-    if (href === '#contact') {
-      openDrawer();
-      return;
-    }
     
     // Handle section navigation for other links using desktop section IDs
     if (href.startsWith('#')) {
@@ -45,6 +38,7 @@ export const Tab = ({ children, setPosition, href, isActive }: TabProps) => {
         if (globalLenis) {
           globalLenis.scrollTo(`#${targetId}`, {
             duration: 1.5,
+            offset: -60,
             easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
             onComplete: () => {
               setIsNavigating(false);

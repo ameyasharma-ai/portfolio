@@ -16,6 +16,10 @@ export const challengeContent: ContentSection = {
     {
       title: 'User Needs',
       content: 'A fast, intuitive "one-click" visualization that provides both a bird\'s-eye view of architecture and deep, AI-driven context for individual files.'
+    },
+    {
+      title: 'Onboarding Bottlenecks',
+      content: 'New developers often spend days just understanding how modules interact. This tool was designed to reduce that "time-to-first-commit" by providing instant visual clarity.'
     }
   ]
 };
