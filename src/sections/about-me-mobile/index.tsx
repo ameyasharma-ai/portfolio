@@ -1,4 +1,4 @@
-import { AchievementCard } from '../about-me/achievement-card';
+
 import { ProfileSection } from '../about-me/profile-section';
 import { QuoteCard } from '../about-me/quote-card';
 

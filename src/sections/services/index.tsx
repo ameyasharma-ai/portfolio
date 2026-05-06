@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { Check } from "lucide-react";
 import { useDrawerStore } from "@/stores/drawerStore";
 
@@ -39,7 +38,7 @@ export function ServicesSection() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {services.map((service, index) => (
+          {services.map((service) => (
             <div
               key={service.title}
               className={`relative flex flex-col p-8 rounded-[2.5rem] border ${

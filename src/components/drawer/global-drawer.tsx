@@ -1,10 +1,6 @@
 import { useEffect } from 'react';
 import confetti from 'canvas-confetti';
-import {
-  Drawer,
-  DrawerClose,
-  DrawerContent,
-} from "@/components/ui/drawer";
+import { Drawer, DrawerContent } from "@/components/ui/drawer";
 import { motion, type Variants } from "framer-motion";
 import { X } from "lucide-react";
 import { useDrawerStore } from "@/stores/drawerStore";

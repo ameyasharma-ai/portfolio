@@ -1,8 +1,4 @@
 import { useState } from "react";
-import { Check } from "lucide-react";
-import { GithubIcon } from '@/components/icons/socials/github-icon';
-import { LinkedinIcon } from '@/components/icons/socials/linkedin-icon';
-import emailIcon from '../../../assets/email-icon.svg';
 
 export function ContactMethods() {
   const [copied, setCopied] = useState(false);

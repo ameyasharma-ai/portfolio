@@ -1,7 +1,4 @@
 import { DesignPlatformVideo } from "../../case-studies/content/design-platform-video";
-import { BottomBar } from "../../case-studies/shared/bottom-bar";
-import { RightBar } from "../../case-studies/shared/right-bar";
-import { designPlatformData } from "../../case-studies/content/design-platform-data";
 import { useNavigate } from "react-router";
 import { globalLenis } from "@/components/providers/smooth-scroll-provider";
 

@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { ContactMethods } from '../contact-methods';
 
 export function FooterHero() {
   return (

@@ -1,7 +1,4 @@
 import { CodeGraphVideo } from "../../case-studies/content/codegraph-video";
-import { BottomBar } from "../../case-studies/shared/bottom-bar";
-import { RightBar } from "../../case-studies/shared/right-bar";
-import { codegraphData } from "../../case-studies/content/codegraph-data";
 import { useNavigate } from "react-router";
 import { globalLenis } from "@/components/providers/smooth-scroll-provider";
 

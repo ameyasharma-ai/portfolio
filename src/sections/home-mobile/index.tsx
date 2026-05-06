@@ -1,12 +1,9 @@
-import { useRef } from "react";
 import { TextShimmer } from "@/components/ui/text-shimmer";
-import { ShineBorder } from "@/components/magicui/shine-border";
 import { AvailabilityStatus } from "@/sections/home/content/availability-status";
 import { ParticleSphere } from "@/sections/home/model/particle-sphere";
 import { useDrawerStore } from "@/stores/drawerStore";
 
 export function MobileHome() {
-  const containerRef = useRef<HTMLDivElement>(null);
   const { open: openDrawer } = useDrawerStore();
 
   const handleConnectClick = () => {
@@ -30,12 +27,18 @@ export function MobileHome() {
         </div>
 
         {/* Name with Huge Type */}
-        <h1 className="font-heading text-6xl sm:text-7xl leading-[0.85] uppercase tracking-tighter mb-4">
+        <h1 className="font-heading text-6xl sm:text-7xl leading-[0.85] uppercase tracking-tighter mb-4 flex flex-col items-center">
           <TextShimmer
             as="span"
             className="block dark:[--base-color:#f2f2f2] dark:[--base-gradient-color:#B2B2B2]"
           >
-            Ameya <br /> Sharma
+            Ameya
+          </TextShimmer>
+          <TextShimmer
+            as="span"
+            className="block dark:[--base-color:#f2f2f2] dark:[--base-gradient-color:#B2B2B2]"
+          >
+            Sharma
           </TextShimmer>
         </h1>
 

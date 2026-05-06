@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router";
 import { useLayoutEffect } from "react";
-import { ArrowLeft, ExternalLink } from "lucide-react";
-import { GithubIcon } from "@/components/icons/socials/github-icon";
+import { ArrowLeft } from "lucide-react";
 import { VideoContainer } from "../../shared/video-container";
 import { NextStepsButton } from "@/components/ui/next-steps-button";
 import { useDrawerStore } from "@/stores/drawerStore";
@@ -31,9 +30,6 @@ export function DesignPlatformDetail() {
     window.open("https://github.com/ameyasharma-ai/groot-frontend", '_blank', 'noopener,noreferrer');
   };
 
-  const handleBackendClick = () => {
-    window.open("https://github.com/ameyasharma-ai/groot-backend", '_blank', 'noopener,noreferrer');
-  };
 
   const handleLiveClick = () => {
     window.open("https://groot-frontend-orpin.vercel.app", '_blank', 'noopener,noreferrer');

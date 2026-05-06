@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+
 import { AchievementCard } from './achievement-card';
 import { QuoteCard } from './quote-card';
 import { ProfileSection } from './profile-section';

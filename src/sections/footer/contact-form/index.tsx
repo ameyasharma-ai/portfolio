@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { motion } from "framer-motion";
 import confetti from 'canvas-confetti';
 import RainbowButton from '@/components/magicui/rainbow-button';
 import { useSubmitForm } from '@/hooks/useSubmitForm';

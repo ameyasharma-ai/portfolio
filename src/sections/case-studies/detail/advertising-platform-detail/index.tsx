@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router";
 import { useLayoutEffect } from "react";
-import { ArrowLeft, ExternalLink } from "lucide-react";
-import { GithubIcon } from "@/components/icons/socials/github-icon";
+import { ArrowLeft } from "lucide-react";
 import { VideoContainer } from "../../shared/video-container";
 import { NextStepsButton } from "@/components/ui/next-steps-button";
 import { useDrawerStore } from "@/stores/drawerStore";
