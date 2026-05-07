@@ -10,7 +10,7 @@ import { useSectionTracker } from "@/hooks/useSectionTracker";
 import { useEffect, useState } from "react";
 import { globalLenis } from "@/components/providers/smooth-scroll-provider";
 import { ServicesSection } from "@/sections/services";
-import { CTASection } from "@/components/ui/cta-section";
+import { ResultsBanner, ProcessBridge, MarketDominator } from "@/components/ui/conversion-funnel";
 import { motion, AnimatePresence } from "framer-motion";
 
 export function HomePage() {
@@ -76,23 +76,11 @@ export function HomePage() {
         <NavBar />
         <main className="w-full max-w-[1550px] mx-auto">
           <Home />
-          <CTASection 
-            title="Drive results with high-performance systems."
-            subtitle="I build fast, scalable web products that help businesses grow and launch in weeks."
-            className="bg-background"
-          />
+          <ResultsBanner />
           <ServicesSection />
-          <CTASection 
-            title="Let's build your next big idea."
-            subtitle="From prototype to production-grade architecture. I'm ready to ship your vision."
-            className="bg-card/50"
-          />
+          <ProcessBridge />
           <CaseStudies />
-          <CTASection 
-            title="Ready to dominate your market?"
-            subtitle="I help founders and startups automate operations and scale with cutting-edge AI integrations."
-            className="bg-background"
-          />
+          <MarketDominator />
           <Skills />
           <AboutMe />
           <Footer />

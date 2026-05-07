@@ -2,14 +2,37 @@ import { ParticleSphere } from './model/particle-sphere'
 import { HomeTitle } from './content/home-title'
 import { HomeInfoGrid } from './content/home-info-grid'
 import { AvailabilityStatus } from './content/availability-status'
+import { useState, useEffect, useRef } from 'react'
 
 export function Home() {
+  const [isInView, setIsInView] = useState(true);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInView(entry.isIntersecting);
+      },
+      { threshold: 0 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section 
+      ref={sectionRef}
       id="home" 
       className="relative w-full min-h-[100svh] overflow-hidden flex flex-col bg-background"
     >
-      <div className="absolute inset-0 bg-background pointer-events-none">
+      <div 
+        className="absolute inset-0 bg-background pointer-events-none"
+        style={{ display: isInView ? 'block' : 'none' }}
+      >
         <ParticleSphere />
       </div>
 

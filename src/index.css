@@ -180,8 +180,6 @@ html {
   position: relative;
   isolation: isolate;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  backdrop-filter: blur(1px);
-  -webkit-backdrop-filter: blur(1px);
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
@@ -202,8 +200,8 @@ html {
   inset: 0;
   z-index: -1;
   border-radius: inherit;
-  backdrop-filter: blur(8px);
-  filter: url(#glass-distortion);
+  /* backdrop-filter: blur(8px); DISABLED FOR PERFORMANCE */
+  /* filter: url(#glass-distortion); - VERY EXPENSIVE during scroll */
   isolation: isolate;
 }
 
@@ -245,8 +243,6 @@ html {
   min-height: 200px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
 }
 
 .bento-square:hover {

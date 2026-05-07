@@ -60,7 +60,7 @@ export function ProjectGrid() {
                 hoveredId === project.id ? 'opacity-100' : 'opacity-0 pointer-events-none'
               }`}
             >
-              <VideoContainer activeVideo={project.videoType} />
+              {hoveredId === project.id && <VideoContainer activeVideo={project.videoType} />}
             </div>
 
             {/* Thumbnail Layer */}
