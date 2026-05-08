@@ -1,13 +1,14 @@
 import { navigationItems } from "@/constants/index";
 import { useNavigationStore, type MobileSectionId } from "@/stores/navigationStore";
 import { globalLenis } from "@/components/providers/smooth-scroll-provider";
-import RainbowButton from '@/components/magicui/rainbow-button';
+import { useDrawerStore } from "@/stores/drawerStore";
+import { Github, Linkedin, Mail, Twitter, ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
 
 interface MobileNavProps {
-  onNavigationClick: () => void; // Callback to close sidebar
+  onNavigationClick: () => void;
 }
 
-// Mapping from mobile href to section IDs
 const MOBILE_HREF_TO_SECTION_MAP: Record<string, MobileSectionId> = {
   '#home-mobile': 'home-mobile',
   '#services': 'services',
@@ -17,28 +18,26 @@ const MOBILE_HREF_TO_SECTION_MAP: Record<string, MobileSectionId> = {
   '#footer': 'footer',
 };
 
-import { useDrawerStore } from "@/stores/drawerStore";
+const menuTransition = {
+  duration: 0.8,
+  ease: [0.76, 0, 0.24, 1]
+};
 
 export function MobileNav({ onNavigationClick }: MobileNavProps) {
   const { setIsNavigating, setActiveSection } = useNavigationStore();
   const { open: openDrawer } = useDrawerStore();
 
   const handleNavClick = (item: typeof navigationItems[0]) => {
-    // Handle section navigation for other links using mobile links
     const mobileHref = item.mobileLink;
     if (mobileHref.startsWith('#')) {
-      const targetId = mobileHref.substring(1); // Remove the #
+      const targetId = mobileHref.substring(1);
       const targetElement = document.getElementById(targetId);
       const targetSectionId = MOBILE_HREF_TO_SECTION_MAP[mobileHref];
       
       if (targetElement && targetSectionId) {
-        // Start navigation state (pauses section tracking)
         setIsNavigating(true);
-        
-        // Immediately set the target section for better UX
         setActiveSection(targetSectionId);
         
-        // Start smooth scroll using Lenis
         if (globalLenis) {
           globalLenis.scrollTo(`#${targetId}`, {
             duration: 1.5,
@@ -49,16 +48,9 @@ export function MobileNav({ onNavigationClick }: MobileNavProps) {
             }
           });
         } else {
-          targetElement.scrollIntoView({
-            behavior: 'auto',
-            block: 'start'
-          });
-          setTimeout(() => {
-            setIsNavigating(false);
-          }, 1000);
+          targetElement.scrollIntoView({ behavior: 'auto', block: 'start' });
+          setTimeout(() => setIsNavigating(false), 1000);
         }
-        
-        // Close sidebar after navigation
         onNavigationClick();
       }
     }
@@ -70,47 +62,104 @@ export function MobileNav({ onNavigationClick }: MobileNavProps) {
   };
 
   const handleContactClick = () => {
-    onNavigationClick(); // Close sidebar
-    openDrawer(); // Open contact drawer
+    onNavigationClick();
+    openDrawer();
   };
 
   return (
-    <nav className="flex flex-col gap-2 flex-1 p-4">
-      {navigationItems.map((item) => {
-        if (item.name === "Contact") return null;
+    <div className="flex flex-col h-full justify-between pb-12">
+      {/* Navigation Links - "Registry" Style */}
+      <div className="flex flex-col px-8 gap-0 border-l border-white/5 ml-8">
+        {navigationItems.map((item, idx) => {
+          if (item.name === "Contact") return null;
 
-        return (
+          return (
+            <motion.button
+              key={item.name}
+              initial={{ x: -10, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ ...menuTransition, delay: idx * 0.1 }}
+              onClick={() => handleNavClick(item)}
+              className="group flex items-center gap-6 py-6 text-left relative"
+            >
+              {/* Registry Index */}
+              <div className="flex flex-col items-center gap-2 absolute -left-[41px]">
+                <div className="w-[1px] h-4 bg-white/10" />
+                <span className="font-heading text-[10px] text-primary/40 group-hover:text-primary transition-colors">
+                  0{idx + 1}
+                </span>
+                <div className="w-[1px] h-4 bg-white/10" />
+              </div>
+
+              <span className="font-heading text-4xl md:text-6xl text-foreground/60 group-hover:text-foreground uppercase tracking-tighter transition-all duration-300">
+                {item.name}
+              </span>
+            </motion.button>
+          );
+        })}
+
+        <motion.button
+          initial={{ x: -10, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ ...menuTransition, delay: 0.5 }}
+          onClick={openResume}
+          className="group flex items-center gap-6 py-6 text-left relative"
+        >
+          <div className="flex flex-col items-center gap-2 absolute -left-[41px]">
+            <div className="w-[1px] h-4 bg-white/10" />
+            <span className="font-heading text-[10px] text-primary/40 group-hover:text-primary">
+              EX
+            </span>
+            <div className="w-[1px] h-4 bg-white/10" />
+          </div>
+          <span className="font-heading text-2xl text-primary/60 group-hover:text-primary uppercase tracking-tighter transition-all duration-300">
+            Archive / Resume
+          </span>
+          <ArrowRight className="w-5 h-5 text-primary opacity-0 group-hover:opacity-100 transition-all duration-300 ml-2" />
+        </motion.button>
+      </div>
+
+      {/* Footer Info */}
+      <div className="px-8 space-y-12">
+        <motion.div 
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ ...menuTransition, delay: 0.6 }}
+          className="flex flex-col gap-6"
+        >
+          {/* Muted 60% Intensity Button */}
           <button
-            key={item.name}
-            onClick={() => handleNavClick(item)}
-            className="flex items-center gap-3 py-3 text-xl font-heading text-foreground rounded-lg transition-all hover:bg-accent/50 hover:text-accent-foreground focus:bg-accent/50 focus:text-accent-foreground focus:outline-none border-b rounded-s-none rounded-e-none text-left cursor-pointer"
-          >
-            <span>{item.name}</span>
-          </button>
-        );
-      })}
-
-      <button
-        onClick={openResume}
-        className="flex items-center gap-3 py-3 text-xl font-heading text-foreground rounded-lg transition-all hover:bg-accent/50 hover:text-accent-foreground focus:bg-accent/50 focus:text-accent-foreground focus:outline-none border-b rounded-s-none rounded-e-none text-left cursor-pointer text-primary"
-      >
-        <span>My Resume</span>
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-external-link"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
-      </button>
-
-      {navigationItems
-        .filter((item) => item.name === "Contact")
-        .map((item) => (
-          <RainbowButton
-            key={item.name}
             onClick={handleContactClick}
-            size="lg"
-            className="w-full font-heading pt-0.5 text-md mt-4"
-            variant="outline"
+            className="w-full font-heading h-20 text-[11px] uppercase tracking-[0.4em] rounded-2xl bg-zinc-900 text-foreground border border-white/10 hover:bg-zinc-800 active:scale-[0.98] transition-all shadow-2xl shadow-black/50"
           >
-            {item.name}
-          </RainbowButton>
-        ))}
-    </nav>
+            Start Project
+          </button>
+
+          <div className="flex items-center gap-8 justify-center">
+            {[
+              { icon: <Github className="w-5 h-5" />, href: "https://github.com/ameyasharma-ai" },
+              { icon: <Linkedin className="w-5 h-5" />, href: "https://linkedin.com/in/ameyasharma999" },
+              { icon: <Twitter className="w-5 h-5" />, href: "https://twitter.com/ameyasharma" },
+              { icon: <Mail className="w-5 h-5" />, href: "mailto:sharmaameya999@gmail.com" },
+            ].map((social, i) => (
+              <a 
+                key={i} 
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-primary transition-colors hover:scale-110 active:scale-90"
+              >
+                {social.icon}
+              </a>
+            ))}
+          </div>
+        </motion.div>
+
+        <div className="flex justify-between items-center text-[10px] uppercase tracking-[0.4em] text-muted-foreground/20 font-heading px-2">
+          <span>Mumbai // 18:07</span>
+          <span>Index © 2026</span>
+        </div>
+      </div>
+    </div>
   );
 }
