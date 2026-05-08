@@ -1,6 +1,6 @@
 export function QuoteCard() {
   return (
-    <div className="bento-no-min row-span-3 flex flex-col h-full justify-center">
+    <div className="flex flex-col h-full justify-center">
       <h3 className="font-heading text-md [@media(min-width:414px)]:text-lg text-foreground mb-4">
         BUSINESS-FIRST BUILDER
       </h3>

@@ -9,8 +9,20 @@ import { PrivacyPolicyPage } from "@/pages/PrivacyPolicyPage";
 import { SmoothScrollProvider } from "@/components/providers/smooth-scroll-provider";
 import { useBreakpoint } from "@/hooks/useBreakpoint";
 import { SpeedInsights } from '@vercel/speed-insights/react';
+import { useLoadingStore } from "@/stores/loadingStore";
+import { useEffect } from "react";
 
 function DesktopApp() {
+  const complete = useLoadingStore(state => state.complete);
+  
+  useEffect(() => {
+    // Force loading to complete once the app mounts
+    const timer = setTimeout(() => {
+      complete();
+    }, 100);
+    return () => clearTimeout(timer);
+  }, [complete]);
+
   return (
     <SmoothScrollProvider>
       <Routes>
@@ -23,6 +35,15 @@ function DesktopApp() {
 }
 
 function MobileApp() {
+  const complete = useLoadingStore(state => state.complete);
+  
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      complete();
+    }, 100);
+    return () => clearTimeout(timer);
+  }, [complete]);
+
   return (
     <SmoothScrollProvider>
       <Routes>

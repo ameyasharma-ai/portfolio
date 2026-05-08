@@ -20,13 +20,13 @@ export function AboutMeMobile() {
         </div>
 
         {/* Profile Card */}
-        <div className="p-8 bg-card border border-border rounded-[2.5rem] mb-6">
+        <div className="p-8 bg-zinc-950 border border-white/10 rounded-[2.5rem] mb-6">
           <ProfileSection />
         </div>
 
         {/* Awards Bento */}
         <div className="grid grid-cols-1 gap-4 mb-6">
-          <div className="p-8 bg-card border border-border rounded-[2.5rem]">
+          <div className="p-8 bg-zinc-950 border border-white/10 rounded-[2.5rem]">
             <p className="font-heading text-[10px] uppercase tracking-widest text-primary mb-2">Recognition</p>
             <div className="space-y-6 mt-6">
               <div>
@@ -48,7 +48,7 @@ export function AboutMeMobile() {
         </div>
 
         {/* Quote */}
-        <div className="p-8 bg-primary text-primary-foreground rounded-[2.5rem] relative overflow-hidden">
+        <div className="p-8 bg-zinc-950 border border-white/10 rounded-[2.5rem] relative overflow-hidden">
           <QuoteCard />
         </div>
       </div>

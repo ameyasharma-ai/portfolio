@@ -4,7 +4,7 @@ import { useLoadingStore } from "@/stores/loadingStore";
 import { Zap } from "lucide-react";
 
 export function Preloader() {
-  const { isLoading } = useLoadingStore();
+  const { isLoading, setTransitionFinished } = useLoadingStore();
   const [minTimeReached, setMinTimeReached] = useState(false);
   const [counter, setCounter] = useState(0);
 
@@ -26,6 +26,17 @@ export function Preloader() {
       clearInterval(interval);
     };
   }, []);
+
+  // Sync completion with store
+  useEffect(() => {
+    if (!isLoading && minTimeReached) {
+      // Small delay to allow exit animation to begin
+      const timer = setTimeout(() => {
+        setTransitionFinished(true);
+      }, 500);
+      return () => clearTimeout(timer);
+    }
+  }, [isLoading, minTimeReached, setTransitionFinished]);
 
   const shouldShow = isLoading || !minTimeReached;
 

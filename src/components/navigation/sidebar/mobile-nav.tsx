@@ -17,8 +17,11 @@ const MOBILE_HREF_TO_SECTION_MAP: Record<string, MobileSectionId> = {
   '#footer': 'footer',
 };
 
+import { useDrawerStore } from "@/stores/drawerStore";
+
 export function MobileNav({ onNavigationClick }: MobileNavProps) {
   const { setIsNavigating, setActiveSection } = useNavigationStore();
+  const { open: openDrawer } = useDrawerStore();
 
   const handleNavClick = (item: typeof navigationItems[0]) => {
     // Handle section navigation for other links using mobile links
@@ -66,6 +69,11 @@ export function MobileNav({ onNavigationClick }: MobileNavProps) {
     onNavigationClick();
   };
 
+  const handleContactClick = () => {
+    onNavigationClick(); // Close sidebar
+    openDrawer(); // Open contact drawer
+  };
+
   return (
     <nav className="flex flex-col gap-2 flex-1 p-4">
       {navigationItems.map((item) => {
@@ -95,7 +103,7 @@ export function MobileNav({ onNavigationClick }: MobileNavProps) {
         .map((item) => (
           <RainbowButton
             key={item.name}
-            onClick={() => handleNavClick(item)}
+            onClick={handleContactClick}
             size="lg"
             className="w-full font-heading pt-0.5 text-md mt-4"
             variant="outline"

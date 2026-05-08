@@ -27,14 +27,14 @@ export function SkillsMobile() {
 
         {/* Skills Grid */}
         <div className="mb-12">
-          <div className="grid grid-cols-3 gap-px bg-border/20 border border-border/20 rounded-[2rem] overflow-hidden">
+          <div className="grid grid-cols-6 gap-2">
             {skillsData.map((skill, index) => (
-              <div key={index} className="bg-background p-6 flex flex-col items-center justify-center gap-3">
-                <div className="scale-110">
-                  <SkillCard 
-                    skill={skill}
-                    index={index}
-                  />
+              <div 
+                key={index} 
+                className="aspect-square bg-zinc-950 border border-white/5 rounded-xl flex items-center justify-center p-2 group active:scale-90 transition-transform"
+              >
+                <div className="w-full h-full flex items-center justify-center transition-all duration-500 [&_svg]:w-6 [&_svg]:h-6 [&_svg]:md:w-8 [&_svg]:md:h-8">
+                  {skill.icon}
                 </div>
               </div>
             ))}

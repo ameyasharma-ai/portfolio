@@ -2,6 +2,7 @@ import { TextShimmer } from "@/components/ui/text-shimmer";
 import { AvailabilityStatus } from "@/sections/home/content/availability-status";
 import { ParticleSphere } from "@/sections/home/model/particle-sphere";
 import { useDrawerStore } from "@/stores/drawerStore";
+import { motion } from "framer-motion";
 
 export function MobileHome() {
   const { open: openDrawer } = useDrawerStore();
@@ -13,61 +14,59 @@ export function MobileHome() {
   return (
     <section
       id="home-mobile"
-      className="relative w-full min-h-[90vh] flex flex-col items-center justify-center pt-20 pb-12 px-6"
+      className="relative w-full min-h-[100svh] flex flex-col items-center justify-center pt-24 pb-12 px-6 overflow-hidden"
     >
-      {/* Particle Sphere Background */}
-      <div className="absolute inset-0 pointer-events-none opacity-40">
-        <ParticleSphere />
+      {/* Background Elements */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] aspect-square bg-radial from-primary/10 via-transparent to-transparent opacity-50" />
+        <div className="absolute inset-0 opacity-30">
+          <ParticleSphere />
+        </div>
       </div>
 
       <div className="relative z-10 w-full max-w-lg flex flex-col items-center text-center">
         {/* Availability Badge */}
-        <div className="mb-8 scale-90">
+        <motion.div 
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="mb-10"
+        >
           <AvailabilityStatus />
-        </div>
+        </motion.div>
 
-        {/* Name with Huge Type */}
-        <h1 className="font-heading text-6xl sm:text-7xl leading-[0.85] uppercase tracking-tighter mb-4 flex flex-col items-center">
-          <TextShimmer
-            as="span"
-            className="block dark:[--base-color:#f2f2f2] dark:[--base-gradient-color:#B2B2B2]"
-          >
-            Ameya
-          </TextShimmer>
-          <TextShimmer
-            as="span"
-            className="block dark:[--base-color:#f2f2f2] dark:[--base-gradient-color:#B2B2B2]"
-          >
-            Sharma
-          </TextShimmer>
+        {/* Name with Aggressive Type */}
+        <h1 className="font-heading text-[18vw] sm:text-8xl leading-[0.8] uppercase tracking-tighter mb-6 flex flex-col items-center">
+          <TextShimmer className="block">Ameya</TextShimmer>
+          <TextShimmer className="block text-primary">Sharma</TextShimmer>
         </h1>
 
-        {/* Subtitle */}
-        <p className="font-heading text-[10px] text-primary tracking-[0.4em] uppercase mb-12">
-          AI Systems Engineer
-        </p>
+        {/* Role Tag */}
+        <div className="px-4 py-2 bg-primary/10 border border-primary/20 rounded-full mb-10">
+          <p className="font-heading text-[10px] text-primary tracking-[0.4em] uppercase">
+            AI Systems Engineer
+          </p>
+        </div>
 
         {/* Description */}
-        <p className="font-body text-base text-muted-foreground leading-relaxed mb-16 max-w-[280px] font-light">
-          Building high-performance AI systems and scalable web products.
+        <p className="font-body text-lg text-muted-foreground leading-relaxed mb-16 max-w-[300px] font-light">
+          Architecting high-performance <span className="text-foreground">AI ecosystems</span> and scalable digital products.
         </p>
 
-        {/* Buttons Grid */}
-        <div className="grid grid-cols-1 gap-4 w-full px-4">
+        {/* Action Buttons */}
+        <div className="flex flex-col gap-4 w-full max-w-[320px]">
           <button
             onClick={handleConnectClick}
-            className="w-full py-4 bg-primary text-primary-foreground rounded-2xl font-heading text-[11px] uppercase tracking-widest hover:scale-105 active:scale-95 transition-all shadow-xl shadow-primary/20"
+            className="w-full py-5 bg-foreground text-background rounded-2xl font-heading text-xs uppercase tracking-[0.2em] shadow-2xl shadow-primary/10 active:scale-95 transition-transform"
           >
-            Let's connect
+            Start a Project
           </button>
           <a
             href="/resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full py-4 bg-card border border-border rounded-2xl font-heading text-[11px] uppercase tracking-widest flex items-center justify-center gap-2"
+            className="w-full py-5 bg-card/50 backdrop-blur-md border border-border/50 rounded-2xl font-heading text-xs uppercase tracking-[0.2em] flex items-center justify-center gap-2 active:scale-95 transition-transform"
           >
-            Resume
-            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+            Download CV
           </a>
         </div>
       </div>

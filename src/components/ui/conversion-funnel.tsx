@@ -21,7 +21,7 @@ export function ResultsBanner({ className }: FunnelSectionProps) {
           {/* Animated Background Glow */}
           <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 via-primary/5 to-primary/20 rounded-[2.5rem] opacity-50 group-hover:opacity-75 transition duration-1000 group-hover:duration-200 will-change-[filter,opacity]" />
           
-          <div className="relative bg-card border border-border/50 rounded-[2.5rem] p-8 md:p-16 flex flex-col lg:flex-row items-center gap-12 overflow-hidden shadow-2xl will-change-transform">
+          <div className="relative bg-zinc-950 border border-white/10 rounded-[2.5rem] p-8 md:p-16 flex flex-col lg:flex-row items-center gap-12 overflow-hidden shadow-2xl will-change-transform">
             {/* Grid Pattern Overlay */}
             <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
 
@@ -31,11 +31,11 @@ export function ResultsBanner({ className }: FunnelSectionProps) {
                 Performance First
               </div>
               
-              <h2 className="text-4xl md:text-6xl font-heading leading-tight tracking-tighter uppercase">
-                Drive results with <span className="text-primary">high-performance</span> systems.
+              <h2 className="text-3xl md:text-6xl font-heading leading-tight tracking-tighter uppercase">
+                Drive results with <br className="md:hidden" /> <span className="text-primary">high-performance</span> systems.
               </h2>
               
-              <p className="text-lg md:text-xl text-muted-foreground font-light max-w-2xl leading-relaxed">
+              <p className="text-base md:text-xl text-muted-foreground font-light max-w-2xl leading-relaxed">
                 I build fast, scalable web products that help businesses grow and launch in weeks, not months. Architecture designed for speed and conversion.
               </p>
 
@@ -101,11 +101,11 @@ export function ProcessBridge({ className }: FunnelSectionProps) {
   return (
     <section className={cn("py-24 px-6 md:px-12 lg:px-16 bg-card/30 border-y border-border/50", className)}>
       <div className="max-w-6xl mx-auto text-center space-y-16">
-        <div className="space-y-4">
-          <h2 className="text-3xl md:text-5xl font-heading uppercase tracking-tighter">
-            From Prototype to <span className="text-primary">Production</span>
+        <div className="space-y-4 px-4">
+          <h2 className="text-3xl md:text-5xl font-heading uppercase tracking-tighter leading-tight">
+            From Prototype to <br className="md:hidden" /> <span className="text-primary">Production</span>
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto font-light text-lg">
+          <p className="text-muted-foreground max-w-2xl mx-auto font-light text-base md:text-lg">
             I'm ready to ship your vision with architecture that scales alongside your growth.
           </p>
         </div>
@@ -154,18 +154,18 @@ export function MarketDominator({ className }: FunnelSectionProps) {
     <section className={cn("py-32 px-6 md:px-12 lg:px-16", className)}>
       <div className="max-w-5xl mx-auto">
         <div className="relative rounded-[3rem] p-1 md:p-2 bg-gradient-to-b from-primary/30 to-transparent">
-          <div className="bg-background rounded-[2.8rem] p-12 md:p-24 text-center space-y-10 overflow-hidden relative">
+          <div className="bg-zinc-950 rounded-[2.8rem] p-12 md:p-24 text-center space-y-10 overflow-hidden relative">
             {/* Background pattern */}
             <div className="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--color-primary)_1px,transparent_1px)] bg-[size:32px_32px]" />
             </div>
 
             <div className="relative z-10 space-y-6">
-              <h2 className="text-5xl md:text-7xl font-heading leading-[0.9] uppercase tracking-tighter">
-                Ready to <br /> <span className="text-primary italic">dominate</span> <br /> your market?
+              <h2 className="text-4xl md:text-7xl font-heading leading-[0.9] uppercase tracking-tighter">
+                Ready to <br className="md:hidden" /> <span className="text-primary italic">dominate</span> <br className="md:hidden" /> your market?
               </h2>
               
-              <p className="text-xl md:text-2xl text-muted-foreground font-light max-w-xl mx-auto leading-relaxed">
+              <p className="text-lg md:text-2xl text-muted-foreground font-light max-w-xl mx-auto leading-relaxed">
                 I help founders automate operations and scale with cutting-edge AI integrations.
               </p>
             </div>
@@ -173,7 +173,7 @@ export function MarketDominator({ className }: FunnelSectionProps) {
             <div className="relative z-10 flex flex-col items-center gap-6">
               <button
                 onClick={() => openDrawer()}
-                className="px-12 py-6 bg-primary text-primary-foreground rounded-2xl font-heading text-lg uppercase tracking-[0.2em] hover:scale-105 active:scale-95 transition-all duration-300 shadow-[0_0_40px_-5px_rgba(255,255,255,0.3)]"
+                className="px-12 py-6 bg-zinc-900 text-foreground border border-white/10 rounded-2xl font-heading text-lg uppercase tracking-[0.2em] hover:scale-105 active:scale-95 transition-all duration-300 shadow-2xl shadow-black/50"
               >
                 Start a Project
               </button>

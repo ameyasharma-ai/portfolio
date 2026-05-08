@@ -138,23 +138,23 @@ html {
 
 .dark {
   --background: oklch(0 0 0); /* Pure Black */
-  --foreground: oklch(0.985 0 0);
+  --foreground: oklch(0.7 0 0); /* Muted Foreground */
   --card: oklch(0 0 0);
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0 0 0);
   --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.985 0 0); /* Pure White Accent */
+  --primary: oklch(0.7 0 0); /* Muted white intensity */
   --primary-foreground: oklch(0 0 0);
   --secondary: oklch(0.15 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
+  --secondary-foreground: oklch(0.7 0 0);
   --muted: oklch(0.15 0 0);
-  --muted-foreground: oklch(0.65 0 0);
+  --muted-foreground: oklch(0.5 0 0);
   --accent: oklch(0.15 0 0);
-  --accent-foreground: oklch(0.985 0 0);
+  --accent-foreground: oklch(0.7 0 0);
   --destructive: oklch(0.704 0.191 22.216);
   --border: oklch(0.18 0 0);
   --input: oklch(0.18 0 0);
-  --ring: oklch(0.985 0 0);
+  --ring: oklch(0.7 0 0);
   --chart-1: oklch(0.488 0.243 264.376);
   --chart-2: oklch(0.696 0.17 162.48);
   --chart-3: oklch(0.769 0.188 70.08);

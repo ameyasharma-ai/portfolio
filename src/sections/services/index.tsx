@@ -79,7 +79,7 @@ export function ServicesSection() {
                 onClick={() => openDrawer()}
                 className={`w-full py-4 rounded-2xl font-heading text-xs uppercase tracking-widest transition-all duration-300 cursor-pointer ${
                   service.tier === 'Business'
-                  ? 'bg-white text-black hover:bg-white/90 shadow-lg shadow-white/10'
+                  ? 'bg-zinc-900 text-foreground border border-white/10 hover:bg-zinc-800 shadow-xl shadow-black/20'
                   : 'bg-primary/5 border border-primary/10 hover:bg-primary/10 text-foreground'
                 }`}
               >

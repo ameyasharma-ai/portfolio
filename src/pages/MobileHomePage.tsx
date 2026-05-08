@@ -6,13 +6,15 @@ import { AboutMeMobile } from "@/sections/about-me-mobile";
 import { MobileFooter } from "@/sections/footer-mobile";
 import { Sidebar } from "@/components/navigation/sidebar/sidebar";
 import { ProgressiveBlur } from "@/components/ui/progressive-blur";
-import { CTASection } from "@/components/ui/cta-section";
+import { ResultsBanner, ProcessBridge, MarketDominator } from "@/components/ui/conversion-funnel";
 import { useEffect, useState } from "react";
 import { globalLenis } from "@/components/providers/smooth-scroll-provider";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLoadingStore } from "@/stores/loadingStore";
 
 export function MobileHomePage() {
   const [isRestoring, setIsRestoring] = useState(!!sessionStorage.getItem('homeScrollY'));
+  const isTransitionFinished = useLoadingStore(state => state.isTransitionFinished);
 
   // Restore scroll position when returning from case study detail page
   useEffect(() => {
@@ -38,6 +40,13 @@ export function MobileHomePage() {
     } else {
       setIsRestoring(false);
     }
+
+    // Safety fallback: if transition state doesn't update, force show after 5s
+    const safetyTimer = setTimeout(() => {
+      useLoadingStore.getState().setTransitionFinished(true);
+    }, 5000);
+
+    return () => clearTimeout(safetyTimer);
   }, []);
 
   return (
@@ -63,40 +72,34 @@ export function MobileHomePage() {
         {/* Add the existing Sidebar component */}
         <Sidebar />
         
-        {/* Mobile Home Section */}
-        <MobileHome />
+        <motion.main
+          initial={{ opacity: 0 }}
+          animate={{ opacity: isTransitionFinished ? 1 : 0 }}
+          transition={{ duration: 1 }}
+        >
+          {/* Mobile Home Section */}
+          <MobileHome />
 
-        <CTASection 
-          title="I build products that drive results."
-          subtitle="Fast, scalable web apps and AI systems for ambitious founders."
-          className="py-12"
-        />
-        
-        <ServicesSection />
+          <ResultsBanner className="py-20" />
+          
+          <ServicesSection />
 
-        <CTASection 
-          title="Ready to ship?"
-          subtitle="Let's turn your vision into a production-grade product."
-          className="py-12"
-        />
-        
-        {/* Mobile Case Studies Section */}
-        <CaseStudiesMobile />
+          <ProcessBridge className="py-20" />
+          
+          {/* Mobile Case Studies Section */}
+          <CaseStudiesMobile />
 
-        <CTASection 
-          title="Scale your operation."
-          subtitle="Automate with AI and build systems that grow with you."
-          className="py-12"
-        />
+          <MarketDominator className="py-20" />
 
-        {/* Mobile Skills Section */}
-        <SkillsMobile />
+          {/* Mobile Skills Section */}
+          <SkillsMobile />
 
-        {/* Mobile About Me Section */}
-        <AboutMeMobile />
+          {/* Mobile About Me Section */}
+          <AboutMeMobile />
 
-        {/* Mobile Footer Section */}
-        <MobileFooter />
+          {/* Mobile Footer Section */}
+          <MobileFooter />
+        </motion.main>
       </div>
     </>
   );

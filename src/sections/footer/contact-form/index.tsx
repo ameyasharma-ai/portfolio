@@ -84,7 +84,7 @@ export function ContactForm() {
           name="name"
           placeholder="Your name"
           required
-          className="w-full bg-transparent border-b border-border/50 py-4 focus:border-primary outline-none transition-colors font-body text-xl font-light placeholder:text-muted-foreground/30"
+          className="w-full bg-zinc-950/50 border border-white/10 rounded-2xl p-6 focus:border-primary/50 outline-none transition-all font-body text-lg font-light placeholder:text-muted-foreground/30"
         />
       </div>
 
@@ -96,7 +96,7 @@ export function ContactForm() {
           name="email"
           placeholder="you@company.com"
           required
-          className="w-full bg-transparent border-b border-border/50 py-4 focus:border-primary outline-none transition-colors font-body text-xl font-light placeholder:text-muted-foreground/30"
+          className="w-full bg-zinc-950/50 border border-white/10 rounded-2xl p-6 focus:border-primary/50 outline-none transition-all font-body text-lg font-light placeholder:text-muted-foreground/30"
         />
       </div>
 
@@ -107,7 +107,7 @@ export function ContactForm() {
           name="message"
           placeholder="What are you building? What problem are you solving? What does success look like?"
           required
-          className="w-full bg-transparent border-b border-border/50 py-4 focus:border-primary outline-none transition-colors font-body text-xl font-light placeholder:text-muted-foreground/30 resize-none h-40"
+          className="w-full bg-zinc-950/50 border border-white/10 rounded-2xl p-6 focus:border-primary/50 outline-none transition-all font-body text-lg font-light placeholder:text-muted-foreground/30 resize-none h-40"
         />
       </div>
 
