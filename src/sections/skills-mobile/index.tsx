@@ -1,4 +1,3 @@
-import { SkillCard } from "../skills/skill-card";
 import { skillsData } from "../skills/constants";
 import { useDrawerStore } from "@/stores/drawerStore";
 

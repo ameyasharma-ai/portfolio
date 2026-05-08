@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import confetti from 'canvas-confetti';
 import { Drawer, DrawerContent } from "@/components/ui/drawer";
 import { motion, type Variants } from "framer-motion";
-import { X, Calendar, Mail, Linkedin, Github, ArrowRight } from "lucide-react";
+import { X, Calendar, Mail, Linkedin, Github, ArrowRight, Rocket } from "lucide-react";
 import { useDrawerStore } from "@/stores/drawerStore";
 import { useSubmitForm } from "@/hooks/useSubmitForm";
 import RainbowButton from '@/components/magicui/rainbow-button';
