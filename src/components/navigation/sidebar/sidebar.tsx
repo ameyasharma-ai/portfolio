@@ -10,7 +10,7 @@ import {
 import { useState, useEffect } from "react";
 import { MobileNav } from "./mobile-nav";
 import { globalLenis } from "@/components/providers/smooth-scroll-provider";
-import { motion } from "framer-motion";
+
 
 export function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
