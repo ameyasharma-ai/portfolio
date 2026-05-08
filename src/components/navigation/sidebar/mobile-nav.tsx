@@ -20,7 +20,7 @@ const MOBILE_HREF_TO_SECTION_MAP: Record<string, MobileSectionId> = {
 
 const menuTransition = {
   duration: 0.8,
-  ease: [0.76, 0, 0.24, 1]
+  ease: [0.76, 0, 0.24, 1] as [number, number, number, number]
 };
 
 export function MobileNav({ onNavigationClick }: MobileNavProps) {
