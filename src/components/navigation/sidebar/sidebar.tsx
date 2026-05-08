@@ -10,6 +10,7 @@ import {
 import { useState, useEffect } from "react";
 import { MobileNav } from "./mobile-nav";
 import { globalLenis } from "@/components/providers/smooth-scroll-provider";
+import { motion } from "framer-motion";
 
 export function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -57,17 +58,25 @@ export function Sidebar() {
           
           {/* Content - Sidebar */}
           <MorphingPopoverContent 
-            className="fixed inset-0 w-full h-[100dvh] rounded-none border-none bg-zinc-950/95 backdrop-blur-2xl z-[100] flex flex-col"
+            className="fixed inset-0 w-full h-[100dvh] rounded-none border-none bg-zinc-950/95 backdrop-blur-2xl z-[100] flex flex-col overflow-hidden"
           >
-            {/* Massive Background Text */}
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
-              <span className="text-[25vw] font-heading text-white/[0.02] uppercase leading-none select-none -rotate-90 whitespace-nowrap">
-                AMEYA SHARMA
-              </span>
+            {/* Creative Watermark - Vertical Scrolling Studio Marquee */}
+            <div className="absolute inset-0 flex flex-row items-center justify-center pointer-events-none opacity-[0.03] select-none">
+              <div className="flex flex-col gap-0 animate-vertical-scroll">
+                {[...Array(6)].map((_, i) => (
+                  <span 
+                    key={i} 
+                    className="text-[22vw] font-heading uppercase leading-none whitespace-nowrap -rotate-90 py-32"
+                    style={{ WebkitTextStroke: '1px white', color: 'transparent' }}
+                  >
+                    AMEYA SHARMA
+                  </span>
+                ))}
+              </div>
             </div>
 
             {/* Top Bar */}
-            <div className="relative z-[110] px-8 pt-10 flex items-center justify-between">
+            <div className="relative z-[110] px-8 pt-[4vh] flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
                 <span className="font-heading text-[10px] uppercase tracking-[0.4em] text-primary">Portfolio v3.0</span>
@@ -82,7 +91,7 @@ export function Sidebar() {
             </div>
             
             {/* Navigation Content */}
-            <div className="relative z-10 flex-1 flex flex-col pt-12">
+            <div className="relative z-10 flex-1 flex flex-col pt-[6vh]">
               <MobileNav onNavigationClick={handleNavigationClick} />
             </div>
 

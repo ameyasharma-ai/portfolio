@@ -6,14 +6,14 @@ export function Footer() {
   return (
     <section 
       id="footer" 
-      className="min-h-screen flex flex-col justify-center py-24 md:py-32 px-6 md:px-12 lg:px-24 scroll-mt-24 bg-background relative overflow-hidden"
+      className="py-6 md:py-8 px-6 md:px-12 lg:px-24 bg-background relative overflow-hidden"
     >
       {/* Decorative Glow */}
       <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-primary/5 blur-[150px] rounded-full pointer-events-none" />
 
       <div className="w-full max-w-7xl mx-auto relative z-10">
         {/* Main Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-start mb-8 md:mb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start mb-3 md:mb-4">
           
           {/* Left Column - Hero Content & Links */}
           <div className="lg:col-span-7">

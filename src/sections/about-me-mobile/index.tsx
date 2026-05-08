@@ -6,7 +6,7 @@ export function AboutMeMobile() {
   return (
     <section 
       id="about-me-mobile" 
-      className="w-full px-6 mt-32 mb-20"
+      className="w-full px-6 mt-32 mb-40"
     >
       <div className="w-full max-w-lg mx-auto">
         {/* Section Header */}
@@ -24,28 +24,7 @@ export function AboutMeMobile() {
           <ProfileSection />
         </div>
 
-        {/* Awards Bento */}
-        <div className="grid grid-cols-1 gap-4 mb-6">
-          <div className="p-8 bg-zinc-950 border border-white/10 rounded-[2.5rem]">
-            <p className="font-heading text-[10px] uppercase tracking-widest text-primary mb-2">Recognition</p>
-            <div className="space-y-6 mt-6">
-              <div>
-                <h4 className="font-heading text-lg text-foreground uppercase">Patent Winner</h4>
-                <p className="font-body text-xs text-muted-foreground">IP Hatch Global Winner 2023</p>
-              </div>
-              <div className="h-px bg-border/50" />
-              <div>
-                <h4 className="font-heading text-lg text-foreground uppercase">Top 2% AI Forge</h4>
-                <p className="font-body text-xs text-muted-foreground">Selected from 500+ applicants</p>
-              </div>
-              <div className="h-px bg-border/50" />
-              <div>
-                <h4 className="font-heading text-lg text-foreground uppercase">Top 7% Sky Labs</h4>
-                <p className="font-body text-xs text-muted-foreground">Finalist out of 250+ teams</p>
-              </div>
-            </div>
-          </div>
-        </div>
+
 
         {/* Quote */}
         <div className="p-8 bg-zinc-950 border border-white/10 rounded-[2.5rem] relative overflow-hidden">

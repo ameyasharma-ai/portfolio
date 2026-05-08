@@ -142,6 +142,24 @@ export function CodeGraphDetail() {
                   ))}
                 </div>
               </div>
+
+              {/* Mobile Section Guide - Below Core Tech */}
+              <div className="col-span-2 pt-6 border-t border-border/50 lg:hidden">
+                <p className="font-heading text-[10px] uppercase tracking-widest text-primary mb-6 ml-1">Section Guide</p>
+                <nav className="grid grid-cols-1 gap-4">
+                  {codegraphContent.sections.map((section) => (
+                    <a
+                      key={section.id}
+                      href={`#${section.id}`}
+                      onClick={(e) => handleNavClick(e, section.id)}
+                      className="group flex items-center gap-4 text-muted-foreground hover:text-foreground transition-all"
+                    >
+                      <div className="h-[1px] w-4 bg-primary/30 group-hover:w-8 transition-all duration-300" />
+                      <span className="font-body text-xs font-light uppercase tracking-wider">{section.title}</span>
+                    </a>
+                  ))}
+                </nav>
+              </div>
             </div>
           </div>
         </div>
@@ -224,7 +242,7 @@ export function CodeGraphDetail() {
           </div>
 
           {/* Right Column - Sticky Sidebar */}
-          <div className="lg:col-span-4">
+          <div className="lg:col-span-4 hidden lg:block">
             <aside className="sticky top-32 space-y-12">
               <div>
                 <p className="font-heading text-[10px] uppercase tracking-widest text-primary mb-6 ml-1">Section Guide</p>

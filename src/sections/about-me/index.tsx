@@ -6,7 +6,7 @@ import { AvailabilityCard } from './availability-card';
 
 export function AboutMe() {
   return (
-    <section id="about-me" className="py-20 px-6 md:px-12 lg:px-16">
+    <section id="about-me" className="pt-20 pb-40 px-6 md:px-12 lg:px-16">
       <div className="w-full max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
           

@@ -33,7 +33,7 @@ export function DesignMobile() {
             onClick={() => {
               const scrollY = globalLenis ? globalLenis.scroll : window.scrollY;
               sessionStorage.setItem('homeScrollY', scrollY.toString());
-              navigate('/case-studies/design');
+              navigate('/case-studies/design-platform');
             }}
             className="w-full py-4 bg-primary text-primary-foreground rounded-2xl font-heading text-[10px] uppercase tracking-widest shadow-lg shadow-primary/10"
           >
