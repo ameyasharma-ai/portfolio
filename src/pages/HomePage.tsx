@@ -74,7 +74,7 @@ export function HomePage() {
 
       <div className={`flex min-h-svh flex-col ${isRestoring ? 'opacity-0' : 'opacity-100 transition-opacity duration-300'}`}>
         <NavBar />
-        <main className="w-full max-w-[1550px] mx-auto">
+        <main>
           <Home />
           <ResultsBanner />
           <ServicesSection />

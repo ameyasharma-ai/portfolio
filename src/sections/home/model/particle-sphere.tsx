@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react'
 import Spline from '@splinetool/react-spline'
+import { useLoadingStore } from '@/stores/loadingStore'
 import type { Application } from '@splinetool/runtime'
 
 export function ParticleSphere() {
   const [splineApp, setSplineApp] = useState<Application | null>(null)
+  const complete = useLoadingStore(state => state.complete)
 
   // Function to get appropriate zoom level based on screen size
   const getZoomLevel = () => {
@@ -25,6 +27,8 @@ export function ParticleSphere() {
     const zoomLevel = getZoomLevel()
     spline.setZoom(zoomLevel)
 
+    // Notify that initial loading is complete
+    complete();
   }
 
   // Handle resize for zoom adjustments

@@ -35,12 +35,14 @@ function MobileApp() {
 }
 
 import { WhatsAppButton } from "@/components/ui/whatsapp-button";
+import { Preloader } from "@/components/ui/preloader";
 
 function App() {
   const { isMobile } = useBreakpoint();
 
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+      <Preloader />
       <SvgFilters />
       {isMobile ? <MobileApp /> : <DesktopApp />}
       <GlobalDrawer />
