@@ -9,7 +9,7 @@ export const CRITICAL_ASSETS = [
  */
 export async function preloadImages(urls: string[]): Promise<void[]> {
   const promises = urls.map((url) => {
-    return new Promise<void>((resolve, reject) => {
+    return new Promise<void>((resolve) => {
       const img = new Image();
       img.src = url;
       img.onload = () => resolve();
