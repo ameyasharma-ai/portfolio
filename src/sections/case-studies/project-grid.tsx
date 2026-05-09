@@ -73,7 +73,7 @@ export function ProjectGrid() {
                 src={project.thumbnail} 
                 alt={project.data.projectData.title}
                 loading="eager"
-                className="w-full h-full object-cover opacity-60"
+                className="w-full h-full object-cover opacity-80"
               />
               <div className="absolute inset-0 flex items-center justify-center bg-black/20">
                 <div className="w-12 h-12 rounded-full bg-primary/20 backdrop-blur-sm border border-primary/30 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
@@ -99,7 +99,7 @@ export function ProjectGrid() {
               ))}
             </div>
 
-            <p className="font-body text-sm text-[#b3b3b3] mb-6 line-clamp-2 leading-relaxed font-light italic">
+            <p className="font-body text-sm text-foreground/80 mb-6 line-clamp-2 leading-relaxed font-light italic">
               {project.data.projectData.description}
             </p>
 
