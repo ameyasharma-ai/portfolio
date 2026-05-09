@@ -2,24 +2,32 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLoadingStore } from "@/stores/loadingStore";
 import { Zap } from "lucide-react";
+import { CRITICAL_ASSETS, preloadImages } from "@/utils/asset-preloader";
 
 export function Preloader() {
   const { isLoading, setTransitionFinished } = useLoadingStore();
   const [minTimeReached, setMinTimeReached] = useState(false);
+  const [assetsLoaded, setAssetsLoaded] = useState(false);
   const [counter, setCounter] = useState(0);
 
-  // Ensure preloader stays for at least 2.5 seconds for premium feel
+  // Preload assets and manage loading state
   useEffect(() => {
+    // Minimum 2.5s for premium feel
     const timer = setTimeout(() => {
       setMinTimeReached(true);
     }, 2500);
+
+    // Preload critical images
+    preloadImages(CRITICAL_ASSETS).then(() => {
+      setAssetsLoaded(true);
+    });
 
     const interval = setInterval(() => {
       setCounter(prev => {
         if (prev < 99) return prev + 1;
         return prev;
       });
-    }, 20);
+    }, 25);
 
     return () => {
       clearTimeout(timer);
@@ -38,7 +46,7 @@ export function Preloader() {
     }
   }, [isLoading, minTimeReached, setTransitionFinished]);
 
-  const shouldShow = isLoading || !minTimeReached;
+  const shouldShow = isLoading || !minTimeReached || !assetsLoaded;
 
   return (
     <AnimatePresence>

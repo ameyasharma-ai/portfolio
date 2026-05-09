@@ -1,7 +1,7 @@
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { SvgFilters } from "@/components/ui/svg-filters";
 import { GlobalDrawer } from "@/components/drawer/global-drawer";
-import { Routes, Route } from "react-router";
+import { Routes, Route, useLocation } from "react-router";
 import { HomePage } from "@/pages/HomePage";
 import { MobileHomePage } from "@/pages/MobileHomePage";
 import { CaseStudyDetailPage } from "@/pages/CaseStudyDetailPage";
@@ -14,14 +14,19 @@ import { useEffect } from "react";
 
 function DesktopApp() {
   const complete = useLoadingStore(state => state.complete);
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
   
   useEffect(() => {
-    // Force loading to complete once the app mounts
+    // For the home page, we rely on Spline (ParticleSphere) and Preloader to call complete().
+    // We add a safety timeout of 5s as a fallback.
+    // For other pages, we call complete after a short delay since they don't have Spline.
+    const delay = isHomePage ? 5000 : 500;
     const timer = setTimeout(() => {
       complete();
-    }, 100);
+    }, delay);
     return () => clearTimeout(timer);
-  }, [complete]);
+  }, [complete, isHomePage]);
 
   return (
     <SmoothScrollProvider>

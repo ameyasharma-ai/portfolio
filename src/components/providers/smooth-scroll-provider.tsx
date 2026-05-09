@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import Lenis from 'lenis';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useBreakpoint } from '@/hooks/useBreakpoint';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -12,12 +13,15 @@ interface SmoothScrollProviderProps {
 }
 
 export function SmoothScrollProvider({ children }: SmoothScrollProviderProps) {
+  const { isMobile } = useBreakpoint();
+
   useEffect(() => {
-    // Initialize Lenis
+    // Initialize Lenis with differentiated settings for a premium desktop feel
     const lenis = new Lenis({
-      duration: 1.5,
+      duration: isMobile ? 1.5 : 3.0, // Even slower on desktop
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
+      wheelMultiplier: isMobile ? 1 : 0.6, // Even slower speed on PC
       touchMultiplier: 1.5,
     });
 
