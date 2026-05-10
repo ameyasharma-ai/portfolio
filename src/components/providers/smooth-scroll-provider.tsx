@@ -18,10 +18,10 @@ export function SmoothScrollProvider({ children }: SmoothScrollProviderProps) {
   useEffect(() => {
     // Initialize Lenis with differentiated settings for a premium desktop feel
     const lenis = new Lenis({
-      duration: isMobile ? 1.5 : 3.0, // Even slower on desktop
+      duration: isMobile ? 1.5 : 4.0, // Extremely slow on desktop
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
-      wheelMultiplier: isMobile ? 1 : 0.6, // Even slower speed on PC
+      wheelMultiplier: isMobile ? 1 : 0.4, // Extremely slow speed on PC
       touchMultiplier: 1.5,
     });
 

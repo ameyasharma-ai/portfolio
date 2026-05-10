@@ -62,12 +62,14 @@ function MobileApp() {
 
 import { WhatsAppButton } from "@/components/ui/whatsapp-button";
 import { Preloader } from "@/components/ui/preloader";
+import { GlobalBackground } from "@/components/providers/global-background";
 
 function App() {
   const { isMobile } = useBreakpoint();
 
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+      <GlobalBackground />
       <Preloader />
       <SvgFilters />
       {isMobile ? <MobileApp /> : <DesktopApp />}

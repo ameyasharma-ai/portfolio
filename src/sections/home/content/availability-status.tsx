@@ -16,64 +16,49 @@ export function AvailabilityStatus() {
       setCurrentTime(inTime);
     };
 
-    // Update immediately
     updateTime();
-
-    // Update every minute
     const interval = setInterval(updateTime, 60000);
-
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <div className="flex items-center justify-center gap-1.5 xl:gap-2 text-xs lg:text-[11px] xl:text-sm font-body text-[#b3b3b3] whitespace-nowrap">
-      {/* Animated green dot */}
-      <div className="relative">
-        <motion.div
-          className="w-2 h-2 bg-green-500 rounded-full"
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [1, 0.8, 1],
-          }}
-          transition={{
-            duration: 2,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-        {/* Pulse ring */}
-        <motion.div
-          className="absolute inset-0 w-2 h-2 bg-green-500 rounded-full"
-          animate={{
-            scale: [1, 2, 1],
-            opacity: [0.7, 0, 0.7],
-          }}
-          transition={{
-            duration: 2,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
+    <div className="flex flex-col gap-2 text-xs md:text-sm font-body text-muted-foreground whitespace-nowrap">
+      <div className="flex items-center gap-2">
+        <div className="relative">
+          <motion.div
+            className="w-2 h-2 bg-green-500 rounded-full"
+            animate={{
+              scale: [1, 1.2, 1],
+              opacity: [1, 0.8, 1],
+            }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+          <motion.div
+            className="absolute inset-0 w-2 h-2 bg-green-500 rounded-full"
+            animate={{
+              scale: [1, 2, 1],
+              opacity: [0.7, 0, 0.7],
+            }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+        </div>
+        <span className="text-foreground font-medium">Available now</span>
       </div>
 
-      {/* Mobile version (< 768px) */}
-      <div className="flex items-center gap-1.5 md:hidden text-xs font-light">
-        <span>India Based</span>
+      <div className="flex flex-wrap items-center gap-x-2 gap-y-1 opacity-60">
+        <span>India</span>
         <span>•</span>
-        <span>Available everywhere</span>
-        <span>•</span>
-        <span>{currentTime}</span>
-      </div>
-
-      {/* Desktop version (>= 768px) */}
-      <div className="hidden md:flex items-center gap-1.5 xl:gap-2">
-        <span>Available now</span>
-        <span>•</span>
-        <span>IN</span>
-        <span>•</span>
-        <span>{currentTime}</span>
-        <span>•</span>
-        <span>Global projects welcome</span>
+        <span>{currentTime} IST</span>
+        <span className="hidden xl:inline">•</span>
+        <span className="hidden xl:inline">Global projects</span>
       </div>
     </div>
   );

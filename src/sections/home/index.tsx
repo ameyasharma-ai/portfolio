@@ -27,10 +27,11 @@ export function Home() {
     <section 
       ref={sectionRef}
       id="home" 
-      className="relative w-full min-h-[100svh] overflow-hidden flex flex-col bg-background"
+      className="relative w-full min-h-[100svh] overflow-hidden flex flex-col bg-transparent"
     >
+
       <div 
-        className="absolute inset-0 bg-background pointer-events-none"
+        className="absolute inset-0 bg-transparent pointer-events-none"
         style={{ opacity: isInView ? 1 : 0 }}
       >
         <ParticleSphere />
@@ -45,7 +46,7 @@ export function Home() {
         </div>
 
         {/* Bottom Section (Fixed at bottom) */}
-        <div className="w-full flex-shrink-0 mt-auto">
+        <div className="w-full flex-shrink-0 mt-auto max-w-7xl mx-auto">
            <HomeInfoGrid>
              <AvailabilityStatus />
            </HomeInfoGrid>

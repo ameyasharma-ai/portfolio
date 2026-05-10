@@ -338,3 +338,98 @@ html {
 .animate-vertical-scroll {
   animation: vertical-scroll 40s linear infinite;
 }
+
+/* 100% Premium Technical Background */
+.premium-bg-container {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  background: var(--background);
+  pointer-events: none;
+}
+
+/* Technical Grid Pattern */
+.bg-grid {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(circle at 1px 1px, var(--primary) 1px, transparent 0);
+  background-size: 40px 40px;
+  opacity: 0.1;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, #000 40%, transparent 100%);
+}
+
+/* Fluid Mesh Gradients */
+.mesh-gradient {
+  position: absolute;
+  width: 140%;
+  height: 140%;
+  top: -20%;
+  left: -20%;
+  background-image: 
+    radial-gradient(at 0% 0%, oklch(0.6 0.2 260 / 0.15) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, oklch(0.6 0.15 300 / 0.15) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, oklch(0.7 0.2 20 / 0.1) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, oklch(0.5 0.15 250 / 0.15) 0px, transparent 50%),
+    radial-gradient(at 50% 50%, oklch(0.4 0.1 260 / 0.05) 0px, transparent 50%);
+  filter: blur(80px);
+  animation: mesh-float 40s infinite linear;
+}
+
+@keyframes mesh-float {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.2); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+/* Mouse Spotlight (Refined) */
+.mouse-spotlight {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    400px circle at var(--mouse-x) var(--mouse-y),
+    oklch(0.6 0.15 260 / 0.08),
+    transparent 80%
+  );
+}
+
+/* Noise Overlay (Ultra Subtle) */
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.01;
+  pointer-events: none;
+}
+
+/* Text Gradient */
+.text-gradient {
+  background: linear-gradient(135deg, var(--foreground) 30%, var(--primary) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
+.text-gradient-alt {
+  background: linear-gradient(135deg, var(--primary) 0%, oklch(0.7 0.2 300) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
+/* Floating Animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+

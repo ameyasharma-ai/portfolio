@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useLoadingStore } from "@/stores/loadingStore";
 import { Zap } from "lucide-react";
 import { CRITICAL_ASSETS, preloadImages } from "@/utils/asset-preloader";
+import { globalLenis } from "@/components/providers/smooth-scroll-provider";
 
 export function Preloader() {
   const { isLoading, setTransitionFinished } = useLoadingStore();
@@ -29,9 +30,50 @@ export function Preloader() {
       });
     }, 25);
 
+    // Pre-paint pass: force browser to rasterize ALL page tiles by scrolling
+    // through the entire document while the preloader overlay (z-9999) is opaque.
+    // The browser's compositor only rasterizes tiles near the current viewport. 
+    // By scrolling to each viewport-height chunk, we force every tile row to be
+    // painted. This eliminates first-scroll jank at section boundaries.
+    // The user sees nothing because the fixed preloader covers everything.
+    // We temporarily stop Lenis to prevent it from fighting the scroll positions.
+    const prePaintTimer = setTimeout(() => {
+      // Pause Lenis so it doesn't interfere with our programmatic scrolling
+      if (globalLenis) globalLenis.stop();
+      
+      const docHeight = document.documentElement.scrollHeight;
+      const viewHeight = window.innerHeight;
+      const steps = Math.ceil(docHeight / viewHeight);
+      const timeouts: ReturnType<typeof setTimeout>[] = [];
+      
+      for (let i = 1; i <= steps; i++) {
+        const t = setTimeout(() => {
+          window.scrollTo(0, i * viewHeight);
+        }, i * 32); // ~2 frames per step for rasterizer to process
+        timeouts.push(t);
+      }
+
+      // After all steps, scroll back to top and resume Lenis
+      const returnTimeout = setTimeout(() => {
+        window.scrollTo(0, 0);
+        if (globalLenis) globalLenis.start();
+      }, (steps + 1) * 32 + 50);
+      timeouts.push(returnTimeout);
+
+      // Store timeouts for cleanup
+      (window as any).__prePaintTimeouts = timeouts;
+    }, 500); // Wait for React DOM commit + Lenis init
+
     return () => {
       clearTimeout(timer);
+      clearTimeout(prePaintTimer);
       clearInterval(interval);
+      // Clean up any pending pre-paint scroll timeouts
+      const pendingTimeouts = (window as any).__prePaintTimeouts;
+      if (pendingTimeouts) {
+        pendingTimeouts.forEach((t: ReturnType<typeof setTimeout>) => clearTimeout(t));
+        delete (window as any).__prePaintTimeouts;
+      }
     };
   }, []);
 

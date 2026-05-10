@@ -3,19 +3,19 @@ import { SEO } from "@/components/seo/SEO";
 import { getPersonStructuredData, getWebSiteStructuredData } from "@/utils/structured-data";
 import { Home } from "@/sections/home";
 import { useSectionTracker } from "@/hooks/useSectionTracker";
-import { useEffect, useState, lazy, Suspense } from "react";
+import { useEffect, useState } from "react";
 import { globalLenis } from "@/components/providers/smooth-scroll-provider";
 import { motion, AnimatePresence } from "framer-motion";
 
-// Lazy load sections below the fold
-const ResultsBanner = lazy(() => import("@/components/ui/conversion-funnel").then(m => ({ default: m.ResultsBanner })));
-const ProcessBridge = lazy(() => import("@/components/ui/conversion-funnel").then(m => ({ default: m.ProcessBridge })));
-const MarketDominator = lazy(() => import("@/components/ui/conversion-funnel").then(m => ({ default: m.MarketDominator })));
-const ServicesSection = lazy(() => import("@/sections/services").then(m => ({ default: m.ServicesSection })));
-const CaseStudies = lazy(() => import("@/sections/case-studies").then(m => ({ default: m.CaseStudies })));
-const Skills = lazy(() => import("@/sections/skills").then(m => ({ default: m.Skills })));
-const AboutMe = lazy(() => import("@/sections/about-me").then(m => ({ default: m.AboutMe })));
-const Footer = lazy(() => import("@/sections/footer").then(m => ({ default: m.Footer })));
+// Static imports — all sections are eagerly loaded and rendered during the
+// preloader phase (2.5s+) so the browser can rasterize/paint them upfront.
+// This eliminates first-scroll jank caused by deferred paint of lazy chunks.
+import { ResultsBanner, ProcessBridge, MarketDominator } from "@/components/ui/conversion-funnel";
+import { ServicesSection } from "@/sections/services";
+import { CaseStudies } from "@/sections/case-studies";
+import { Skills } from "@/sections/skills";
+import { AboutMe } from "@/sections/about-me";
+import { Footer } from "@/sections/footer";
 
 export function HomePage() {
   const [isRestoring, setIsRestoring] = useState(!!sessionStorage.getItem('homeScrollY'));
@@ -80,16 +80,14 @@ export function HomePage() {
         <NavBar />
         <main>
           <Home />
-          <Suspense fallback={<div className="h-40" />}>
-            <ResultsBanner />
-            <ServicesSection />
-            <ProcessBridge />
-            <CaseStudies />
-            <MarketDominator />
-            <Skills />
-            <AboutMe />
-            <Footer />
-          </Suspense>
+          <ResultsBanner />
+          <ServicesSection />
+          <ProcessBridge />
+          <CaseStudies />
+          <MarketDominator />
+          <Skills />
+          <AboutMe />
+          <Footer />
         </main>
       </div>
     </>
