@@ -2,17 +2,23 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
+import { cn } from "@/lib/utils";
+
 interface ArrowButtonProps {
   children: React.ReactNode;
   onClick?: () => void;
+  className?: string;
 }
 
-export function ArrowButton({ children, onClick }: ArrowButtonProps) {
+export function ArrowButton({ children, onClick, className }: ArrowButtonProps) {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
     <motion.button
-      className="relative overflow-hidden font-heading z-10 cursor-pointer text-sm pl-6 rounded-full glass-texture flex items-center justify-between"
+      className={cn(
+        "relative overflow-hidden font-heading z-10 cursor-pointer text-sm pl-6 rounded-full glass-texture flex items-center justify-between",
+        className
+      )}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={onClick}
