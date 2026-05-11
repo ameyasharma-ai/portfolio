@@ -327,7 +327,9 @@ html {
     @apply bg-background text-foreground font-body;
   }
   h1, h2, h3, h4, h5, h6 {
-    @apply font-heading;
+    @apply font-heading break-normal hyphens-none;
+    overflow-wrap: normal;
+    word-break: normal;
   }
 }
 @keyframes vertical-scroll {
@@ -432,4 +434,3 @@ html {
 .animate-float {
   animation: float 6s ease-in-out infinite;
 }
-

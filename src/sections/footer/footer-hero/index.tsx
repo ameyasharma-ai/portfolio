@@ -13,7 +13,7 @@ export function FooterHero() {
       
       <div className="w-full">
         <motion.a 
-          href="https://calendly.com/ameyasharma" 
+          href="https://calendly.com/sharmaameya999/30min" 
           target="_blank" 
           rel="noopener noreferrer"
           whileHover={{ scale: 1.01 }}
