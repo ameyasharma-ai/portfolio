@@ -10,7 +10,9 @@ import { SmoothScrollProvider } from "@/components/providers/smooth-scroll-provi
 import { useBreakpoint } from "@/hooks/useBreakpoint";
 import { SpeedInsights } from '@vercel/speed-insights/react';
 import { useLoadingStore } from "@/stores/loadingStore";
-import { useEffect } from "react";
+import { useDrawerStore } from "@/stores/drawerStore";
+import { useEffect, useLayoutEffect } from "react";
+import { globalLenis } from "@/components/providers/smooth-scroll-provider";
 
 function DesktopApp() {
   const complete = useLoadingStore(state => state.complete);
@@ -66,6 +68,29 @@ import { GlobalBackground } from "@/components/providers/global-background";
 
 function App() {
   const { isMobile } = useBreakpoint();
+  const { isTransitionFinished } = useLoadingStore();
+  const { isOpen: isDrawerOpen } = useDrawerStore();
+
+  const shouldLock = !isTransitionFinished || isDrawerOpen;
+
+  useLayoutEffect(() => {
+    const root = window.document.documentElement;
+    
+    if (shouldLock) {
+      root.classList.add('is-locked');
+      root.setAttribute('data-locked', 'true');
+      if (globalLenis) globalLenis.stop();
+    } else {
+      root.classList.remove('is-locked');
+      root.removeAttribute('data-locked');
+      if (globalLenis) globalLenis.start();
+    }
+    
+    return () => {
+      root.classList.remove('is-locked');
+      root.removeAttribute('data-locked');
+    };
+  }, [shouldLock]);
 
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">

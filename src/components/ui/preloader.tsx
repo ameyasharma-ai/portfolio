@@ -77,18 +77,9 @@ export function Preloader() {
     };
   }, []);
 
-  // Sync completion with store
-  useEffect(() => {
-    if (!isLoading && minTimeReached) {
-      // Small delay to allow exit animation to begin
-      const timer = setTimeout(() => {
-        setTransitionFinished(true);
-      }, 500);
-      return () => clearTimeout(timer);
-    }
-  }, [isLoading, minTimeReached, setTransitionFinished]);
 
   const shouldShow = isLoading || !minTimeReached || !assetsLoaded;
+
 
   return (
     <AnimatePresence>
@@ -99,7 +90,10 @@ export function Preloader() {
             opacity: 0,
             transition: { duration: 1, ease: "easeInOut" }
           }}
-          className="fixed inset-0 z-[9999] bg-[#050505] flex flex-col items-center justify-center overflow-hidden px-6"
+          onAnimationComplete={() => {
+            setTransitionFinished(true);
+          }}
+          className="fixed inset-0 z-[9999] bg-[#050505] flex flex-col items-center justify-center overflow-hidden px-6 touch-none"
         >
           {/* Subtle Grid Background */}
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:30px_30px] pointer-events-none" />

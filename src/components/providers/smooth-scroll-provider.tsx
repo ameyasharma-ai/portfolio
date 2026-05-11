@@ -4,6 +4,8 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useBreakpoint } from '@/hooks/useBreakpoint';
 
+import { useLoadingStore } from '@/stores/loadingStore';
+
 gsap.registerPlugin(ScrollTrigger);
 
 export let globalLenis: Lenis | null = null;
@@ -14,6 +16,7 @@ interface SmoothScrollProviderProps {
 
 export function SmoothScrollProvider({ children }: SmoothScrollProviderProps) {
   const { isMobile } = useBreakpoint();
+  const isTransitionFinished = useLoadingStore(state => state.isTransitionFinished);
 
   useEffect(() => {
     // Initialize Lenis with differentiated settings for a premium desktop feel
@@ -27,6 +30,11 @@ export function SmoothScrollProvider({ children }: SmoothScrollProviderProps) {
 
     globalLenis = lenis;
 
+    // IF still loading, stop Lenis immediately
+    if (!isTransitionFinished) {
+      lenis.stop();
+    }
+
     // Integrate with existing GSAP ScrollTrigger
     lenis.on('scroll', ScrollTrigger.update);
     gsap.ticker.add((time) => lenis.raf(time * 1000));
@@ -37,7 +45,18 @@ export function SmoothScrollProvider({ children }: SmoothScrollProviderProps) {
       lenis.destroy();
       gsap.ticker.remove((time) => lenis.raf(time * 1000));
     };
-  }, []);
+  }, []); // Only on mount
+
+  // Monitor loading state changes
+  useEffect(() => {
+    if (globalLenis) {
+      if (!isTransitionFinished) {
+        globalLenis.stop();
+      } else {
+        globalLenis.start();
+      }
+    }
+  }, [isTransitionFinished]);
 
   return <>{children}</>;
 }
