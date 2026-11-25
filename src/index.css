@@ -277,7 +277,7 @@ html.is-locked body::-webkit-scrollbar {
   inset: 0;
   border-radius: inherit;
   backdrop-filter: blur(8px);
-  filter: url(#glass-distortion);
+  -webkit-backdrop-filter: blur(8px);
   z-index: -1;
   pointer-events: none;
 }
@@ -424,6 +424,8 @@ html.is-locked body::-webkit-scrollbar {
     radial-gradient(at 0% 100%, oklch(0.5 0.15 250 / 0.15) 0px, transparent 50%),
     radial-gradient(at 50% 50%, oklch(0.4 0.1 260 / 0.05) 0px, transparent 50%);
   filter: blur(80px);
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
   animation: mesh-float 40s infinite linear;
 }
 

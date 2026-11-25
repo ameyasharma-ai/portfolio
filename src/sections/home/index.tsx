@@ -32,7 +32,10 @@ export function Home() {
 
       <div 
         className="absolute inset-0 bg-transparent pointer-events-none"
-        style={{ opacity: isInView ? 1 : 0 }}
+        style={{ 
+          opacity: isInView ? 1 : 0,
+          visibility: isInView ? 'visible' : 'hidden'
+        }}
       >
         <ParticleSphere />
       </div>

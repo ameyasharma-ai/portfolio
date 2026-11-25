@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router";
-import { VideoContainer } from "./shared/video-container";
 import { designPlatformData } from "./content/design-platform-data";
 import { advertisingPlatformData } from "./content/advertising-platform-data";
 import { codegraphData } from "./content/codegraph-data";
@@ -12,18 +11,21 @@ const projects = [
     id: "design",
     data: designPlatformData,
     videoType: "design" as const,
+    videoUrl: "https://res.cloudinary.com/day7gel9b/video/upload/f_auto,q_auto/72C94B09-71C4-4795-BCF3-AD0D8EA6EF16_Copy_vavtfh",
     thumbnail: "https://res.cloudinary.com/day7gel9b/video/upload/72C94B09-71C4-4795-BCF3-AD0D8EA6EF16_Copy_vavtfh.jpg"
   },
   {
     id: "advertising",
     data: advertisingPlatformData,
     videoType: "advertising" as const,
+    videoUrl: "https://res.cloudinary.com/day7gel9b/video/upload/f_auto,q_auto/26DB46C3-6640-4540-B20D-6C3000E35676_Copy_gabigd",
     thumbnail: "https://res.cloudinary.com/day7gel9b/video/upload/26DB46C3-6640-4540-B20D-6C3000E35676_Copy_gabigd.jpg"
   },
   {
     id: "codegraph",
     data: codegraphData,
     videoType: "codegraph" as const,
+    videoUrl: "https://res.cloudinary.com/day7gel9b/video/upload/f_auto,q_auto/387AC562-8E99-45EC-B14F-55A25FD85C1B_Copy_cgwb2v",
     thumbnail: "https://res.cloudinary.com/day7gel9b/video/upload/387AC562-8E99-45EC-B14F-55A25FD85C1B_Copy_cgwb2v.jpg"
   }
 ];
@@ -48,19 +50,30 @@ export function ProjectGrid() {
       {projects.map((project) => (
         <div
           key={project.id}
-          onMouseEnter={() => setHoveredId(project.id)}
-          onMouseLeave={() => setHoveredId(null)}
           className="group flex flex-col bg-card border border-border rounded-[2rem] overflow-hidden transition-all duration-300 hover:border-ring"
         >
           {/* Video Preview Container */}
-          <div className="relative aspect-video overflow-hidden bg-black/90">
+          <div 
+            onMouseEnter={() => setHoveredId(project.id)}
+            onMouseLeave={() => setHoveredId(null)}
+            className="relative aspect-video overflow-hidden bg-black/90 cursor-pointer"
+          >
             {/* Video Layer */}
             <div 
-              className={`absolute inset-0 transition-opacity duration-700 ${
+              className={`absolute inset-0 transition-opacity duration-500 ${
                 hoveredId === project.id ? 'opacity-100' : 'opacity-0 pointer-events-none'
               }`}
             >
-              {hoveredId === project.id && <VideoContainer activeVideo={project.videoType} />}
+              {hoveredId === project.id && (
+                <video
+                  src={project.videoUrl}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="w-full h-full object-cover"
+                />
+              )}
             </div>
 
             {/* Thumbnail Layer */}

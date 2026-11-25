@@ -19,33 +19,35 @@ export function SmoothScrollProvider({ children }: SmoothScrollProviderProps) {
   const isTransitionFinished = useLoadingStore(state => state.isTransitionFinished);
 
   useEffect(() => {
-    // Initialize Lenis with differentiated settings for a premium desktop feel
+    // Natural, responsive smooth scrolling for desktop & mobile
     const lenis = new Lenis({
-      duration: isMobile ? 1.5 : 4.0, // Extremely slow on desktop
+      duration: isMobile ? 1.0 : 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
-      wheelMultiplier: isMobile ? 1 : 0.4, // Extremely slow speed on PC
+      wheelMultiplier: 1.0,
       touchMultiplier: 1.5,
     });
 
     globalLenis = lenis;
 
-    // IF still loading, stop Lenis immediately
-    if (!isTransitionFinished) {
-      lenis.stop();
-    }
-
     // Integrate with existing GSAP ScrollTrigger
     lenis.on('scroll', ScrollTrigger.update);
-    gsap.ticker.add((time) => lenis.raf(time * 1000));
+
+    const updateRaf = (time: number) => {
+      lenis.raf(time * 1000);
+    };
+
+    gsap.ticker.add(updateRaf);
+    // Crucial: lagSmoothing(0) prevents GSAP from clamping or jumping frame timestamps during FPS dips
+    gsap.ticker.lagSmoothing(0);
 
     // Cleanup
     return () => {
       globalLenis = null;
       lenis.destroy();
-      gsap.ticker.remove((time) => lenis.raf(time * 1000));
+      gsap.ticker.remove(updateRaf);
     };
-  }, []); // Only on mount
+  }, [isMobile]); // Reinitialize if breakpoint changes
 
   // Monitor loading state changes
   useEffect(() => {

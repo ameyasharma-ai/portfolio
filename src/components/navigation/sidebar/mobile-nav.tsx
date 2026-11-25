@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { navigationItems } from "@/constants/index";
 import { useNavigationStore, type MobileSectionId } from "@/stores/navigationStore";
 import { globalLenis } from "@/components/providers/smooth-scroll-provider";
@@ -26,6 +27,39 @@ const menuTransition = {
 export function MobileNav({ onNavigationClick }: MobileNavProps) {
   const { setIsNavigating, setActiveSection } = useNavigationStore();
   const { open: openDrawer } = useDrawerStore();
+
+  const [mumbaiTime, setMumbaiTime] = useState<string>(() => {
+    try {
+      return new Intl.DateTimeFormat('en-IN', {
+        timeZone: 'Asia/Kolkata',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: false
+      }).format(new Date());
+    } catch {
+      return "";
+    }
+  });
+
+  useEffect(() => {
+    const updateTime = () => {
+      try {
+        const formatted = new Intl.DateTimeFormat('en-IN', {
+          timeZone: 'Asia/Kolkata',
+          hour: '2-digit',
+          minute: '2-digit',
+          hour12: false
+        }).format(new Date());
+        setMumbaiTime(formatted);
+      } catch {
+        // keep previous on error
+      }
+    };
+
+    updateTime();
+    const interval = setInterval(updateTime, 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   const handleNavClick = (item: typeof navigationItems[0]) => {
     const mobileHref = item.mobileLink;
@@ -156,9 +190,9 @@ export function MobileNav({ onNavigationClick }: MobileNavProps) {
           </div>
         </motion.div>
 
-        <div className="flex justify-between items-center text-[10px] uppercase tracking-[0.4em] text-muted-foreground/10 font-heading px-2 pb-1">
-          <span>Mumbai // 19:55</span>
-          <span>Index © 2026</span>
+        <div className="flex justify-between items-center text-[10px] uppercase tracking-[0.4em] text-muted-foreground/50 font-heading px-2 pb-1">
+          <span>Mumbai // {mumbaiTime}</span>
+          <span>Index © {new Date().getFullYear()}</span>
         </div>
       </div>
     </div>

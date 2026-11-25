@@ -12,8 +12,8 @@ export function CaseStudies() {
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
           className="text-center mb-16"
         >
           <h2 className="font-body text-lg font-light text-primary mb-4 tracking-widest">
@@ -25,10 +25,10 @@ export function CaseStudies() {
         </motion.div>
         
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 1, delay: 0.2 }}
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.1 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
         >
           <ProjectGrid />
         </motion.div>
