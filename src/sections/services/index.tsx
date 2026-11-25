@@ -43,9 +43,9 @@ export function ServicesSection() {
               key={service.title}
               className={`relative flex flex-col p-8 rounded-[2.5rem] border ${
                 service.tier === 'Business' 
-                ? 'bg-primary/5 border-primary/20 shadow-[0_0_40px_rgba(var(--primary),0.1)]' 
+                ? 'bg-primary/5 border-primary/30' 
                 : 'bg-card border-border'
-              } hover:border-primary/40 transition-all duration-500 group`}
+              } hover:border-primary/50 transition-colors duration-200 group`}
             >
               {service.tier === 'Business' && (
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-primary text-primary-foreground text-[10px] font-heading uppercase tracking-widest rounded-full">
@@ -77,9 +77,9 @@ export function ServicesSection() {
 
               <button
                 onClick={() => openDrawer()}
-                className={`w-full py-4 rounded-2xl font-heading text-xs uppercase tracking-widest transition-all duration-300 cursor-pointer ${
+                className={`w-full py-4 rounded-2xl font-heading text-xs uppercase tracking-widest transition-colors duration-200 cursor-pointer ${
                   service.tier === 'Business'
-                  ? 'bg-zinc-900 text-foreground border border-white/10 hover:bg-zinc-800 shadow-xl shadow-black/20'
+                  ? 'bg-zinc-900 text-foreground border border-white/10 hover:bg-zinc-800'
                   : 'bg-primary/5 border border-primary/10 hover:bg-primary/10 text-foreground'
                 }`}
               >

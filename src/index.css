@@ -91,7 +91,7 @@
   to {
     transform: translateY(calc(-100% - var(--gap)));}}}
 
-/* Removed native smooth scroll to prevent conflict with Lenis */
+/* Fluid native scroll matching mobile smoothness */
 html, body {
   scrollbar-width: none !important; /* Firefox */
   -ms-overflow-style: none !important;  /* IE/Edge */
@@ -103,7 +103,7 @@ body::-webkit-scrollbar {
 }
 
 html {
-  scroll-behavior: auto !important;
+  scroll-behavior: smooth;
   scrollbar-gutter: stable;
 }
 
@@ -448,15 +448,6 @@ html.is-locked body::-webkit-scrollbar {
   );
 }
 
-/* Noise Overlay (Ultra Subtle) */
-.noise-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 50;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-  opacity: 0.01;
-  pointer-events: none;
-}
 
 /* Text Gradient */
 .text-gradient {

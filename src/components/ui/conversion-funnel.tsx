@@ -19,9 +19,9 @@ export function ResultsBanner({ className }: FunnelSectionProps) {
       <div className="max-w-[1400px] mx-auto">
         <div className="relative group">
           {/* Animated Background Glow */}
-          <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 via-primary/5 to-primary/20 rounded-[2.5rem] opacity-50 group-hover:opacity-75 transition duration-1000 group-hover:duration-200 will-change-[filter,opacity]" />
+          <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 via-primary/5 to-primary/20 rounded-[2.5rem] opacity-50 group-hover:opacity-75 transition duration-1000 group-hover:duration-200" />
           
-          <div className="relative bg-card border border-white/10 rounded-[2.5rem] p-8 md:p-16 flex flex-col lg:flex-row items-center gap-12 overflow-hidden shadow-2xl will-change-transform">
+          <div className="relative bg-card border border-white/10 rounded-[2.5rem] p-8 md:p-16 flex flex-col lg:flex-row items-center gap-12 overflow-hidden shadow-2xl">
             {/* Grid Pattern Overlay */}
             <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
 
@@ -41,7 +41,7 @@ export function ResultsBanner({ className }: FunnelSectionProps) {
 
               <button
                 onClick={() => openDrawer()}
-                className="group/btn relative px-8 py-4 bg-foreground text-background rounded-xl font-heading text-sm uppercase tracking-widest overflow-hidden transition-all duration-300 hover:scale-105 active:scale-95"
+                className="group/btn relative px-8 py-4 bg-foreground text-background rounded-xl font-heading text-sm uppercase tracking-widest overflow-hidden transition-colors duration-200 hover:scale-105 active:scale-95"
               >
                 <span className="relative z-10 flex items-center gap-2">
                   Launch Your Project <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
@@ -53,7 +53,7 @@ export function ResultsBanner({ className }: FunnelSectionProps) {
             <div className="grid grid-cols-2 gap-4 w-full lg:w-auto relative z-10">
               <motion.div 
                 whileHover={{ y: -5 }}
-                className="p-6 bg-background/50 border border-border/50 rounded-2xl flex flex-col items-center text-center gap-2 will-change-transform"
+                className="p-6 bg-background/50 border border-border/50 rounded-2xl flex flex-col items-center text-center gap-2"
               >
                 <Cpu className="w-6 h-6 text-primary mb-2" />
                 <span className="text-3xl font-heading">99.9%</span>
@@ -62,7 +62,7 @@ export function ResultsBanner({ className }: FunnelSectionProps) {
               
               <motion.div 
                 whileHover={{ y: -5 }}
-                className="p-6 bg-background/50 border border-border/50 rounded-2xl flex flex-col items-center text-center gap-2 will-change-transform"
+                className="p-6 bg-background/50 border border-border/50 rounded-2xl flex flex-col items-center text-center gap-2"
               >
                 <TrendingUp className="w-6 h-6 text-primary mb-2" />
                 <span className="text-3xl font-heading">2X</span>
@@ -71,7 +71,7 @@ export function ResultsBanner({ className }: FunnelSectionProps) {
               
               <motion.div 
                 whileHover={{ y: -5 }}
-                className="p-6 bg-background/50 border border-border/50 rounded-2xl flex flex-col items-center text-center gap-2 col-span-2 will-change-transform"
+                className="p-6 bg-background/50 border border-border/50 rounded-2xl flex flex-col items-center text-center gap-2 col-span-2"
               >
                 <ShieldCheck className="w-6 h-6 text-primary mb-2" />
                 <span className="text-xl font-heading uppercase">Enterprise Grade</span>
@@ -121,7 +121,7 @@ export function ProcessBridge({ className }: FunnelSectionProps) {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.1 }}
               viewport={{ once: true }}
-              className="relative z-10 p-8 rounded-3xl bg-background border border-border/50 hover:border-primary/50 transition-colors group will-change-[transform,opacity]"
+              className="relative z-10 p-8 rounded-3xl bg-background border border-border/50 hover:border-primary/50 transition-colors duration-200 group"
             >
               <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform text-primary">
                 {step.icon}

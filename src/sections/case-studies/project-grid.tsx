@@ -50,7 +50,7 @@ export function ProjectGrid() {
       {projects.map((project) => (
         <div
           key={project.id}
-          className="group flex flex-col bg-card border border-border rounded-[2rem] overflow-hidden transition-all duration-300 hover:border-ring"
+          className="group flex flex-col bg-card border border-border rounded-[2rem] overflow-hidden transition-colors duration-200 hover:border-primary/40"
         >
           {/* Video Preview Container */}
           <div 
@@ -60,7 +60,7 @@ export function ProjectGrid() {
           >
             {/* Video Layer */}
             <div 
-              className={`absolute inset-0 transition-opacity duration-500 ${
+              className={`absolute inset-0 transition-opacity duration-300 ${
                 hoveredId === project.id ? 'opacity-100' : 'opacity-0 pointer-events-none'
               }`}
             >
@@ -78,7 +78,7 @@ export function ProjectGrid() {
 
             {/* Thumbnail Layer */}
             <div 
-              className={`absolute inset-0 transition-opacity duration-500 ${
+              className={`absolute inset-0 transition-opacity duration-300 ${
                 hoveredId === project.id ? 'opacity-0' : 'opacity-100'
               }`}
             >
@@ -89,7 +89,7 @@ export function ProjectGrid() {
                 className="w-full h-full object-cover opacity-80"
               />
               <div className="absolute inset-0 flex items-center justify-center bg-black/20">
-                <div className="w-12 h-12 rounded-full bg-primary/20 backdrop-blur-sm border border-primary/30 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+                <div className="w-12 h-12 rounded-full bg-primary/20 backdrop-blur-sm border border-primary/30 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-play text-primary fill-primary/20 ml-0.5"><polygon points="6 3 20 12 6 21 6 3"/></svg>
                 </div>
               </div>
@@ -97,7 +97,7 @@ export function ProjectGrid() {
           </div>
 
           {/* Project Details */}
-          <div className="p-8 flex flex-col flex-1">
+          <div className="p-6 md:p-8 flex flex-col flex-1">
             <div className="flex justify-between items-start mb-2">
               <h3 className="font-heading text-2xl text-foreground group-hover:text-primary transition-colors">
                 {project.data.projectData.title}
@@ -106,41 +106,27 @@ export function ProjectGrid() {
 
             <div className="flex flex-wrap gap-2 mb-4">
               {project.data.techStack.slice(0, 3).map((tech, i) => (
-                <span key={i} className="text-[10px] font-body text-primary/60 uppercase tracking-widest">
-                  {tech.name}{i < 2 && i < project.data.techStack.length - 1 ? " •" : ""}
+                <span key={i} className="text-[10px] font-body text-primary/70 uppercase tracking-widest bg-primary/5 px-2.5 py-1 rounded-md border border-primary/10">
+                  {tech.name}
                 </span>
               ))}
             </div>
 
-            <p className="font-body text-sm text-foreground/80 mb-6 line-clamp-2 leading-relaxed font-light italic">
+            <p className="font-body text-sm text-muted-foreground mb-6 leading-relaxed font-light">
               {project.data.projectData.description}
             </p>
-
-            {/* Mini Case Study Details */}
-            <div className="grid grid-cols-1 gap-4 mb-8">
-              {project.data.projectData.sections.slice(0, 3).map((section, sIndex) => (
-                <div key={sIndex} className="space-y-1">
-                  <h4 className="font-heading text-[10px] uppercase tracking-widest text-primary/70">
-                    {section.title}
-                  </h4>
-                  <p className="font-body text-xs text-muted-foreground line-clamp-2">
-                    {section.items[0].replace('• ', '')}
-                  </p>
-                </div>
-              ))}
-            </div>
 
             <div className="mt-auto flex items-center justify-between pt-6 border-t border-border/50">
               <div className="flex gap-2">
                 <button 
                   onClick={(e) => handleLiveDemo(e, project.data.projectData.buttons.liveUrl)}
-                  className="px-4 py-2 bg-primary/10 hover:bg-primary/20 border border-primary/20 rounded-lg text-[10px] font-heading uppercase tracking-widest text-primary transition-all cursor-pointer"
+                  className="px-4 py-2 bg-primary/10 hover:bg-primary/20 border border-primary/20 rounded-lg text-[10px] font-heading uppercase tracking-widest text-primary transition-colors duration-200 cursor-pointer"
                 >
                   Live Demo
                 </button>
                 <button 
                   onClick={(e) => handleLiveDemo(e, project.data.projectData.buttons.githubUrl)}
-                  className="px-4 py-2 bg-white/5 hover:bg-white/10 border border-white/10 rounded-lg text-[10px] font-heading uppercase tracking-widest text-foreground transition-all cursor-pointer"
+                  className="px-4 py-2 bg-white/5 hover:bg-white/10 border border-white/10 rounded-lg text-[10px] font-heading uppercase tracking-widest text-foreground transition-colors duration-200 cursor-pointer"
                 >
                   GitHub
                 </button>
@@ -148,7 +134,7 @@ export function ProjectGrid() {
 
               <button
                 onClick={() => handleLearnMore(project.data.projectData.buttons.detailPath)}
-                className="flex items-center gap-2 font-heading text-[10px] uppercase tracking-widest text-foreground/60 hover:text-primary transition-all cursor-pointer group/btn"
+                className="flex items-center gap-2 font-heading text-[10px] uppercase tracking-widest text-foreground/70 hover:text-primary transition-colors duration-200 cursor-pointer group/btn"
               >
                 Full Study
                 <ArrowRight className="w-3 h-3 group-hover/btn:translate-x-1 transition-transform" />
