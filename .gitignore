@@ -31,3 +31,10 @@ dist-ssr
 *.sw?
 
 breakdown.txt
+
+# Security Safeguards
+.env.*
+*.key
+*.pem
+*service_account*.json
+*credentials*.json
