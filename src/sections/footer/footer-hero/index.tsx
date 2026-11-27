@@ -4,11 +4,11 @@ export function FooterHero() {
   return (
     <div className="flex flex-col">
       <h2 className="font-heading text-6xl md:text-8xl text-foreground mb-8 text-center lg:text-left uppercase tracking-tighter leading-[0.85]">
-        Let's build <br /> <span className="text-primary">your next big idea.</span>
+        Ready to join <br /> <span className="text-primary">your engineering team.</span>
       </h2>
       <p className="font-body text-xl md:text-2xl font-light text-muted-foreground leading-relaxed text-center lg:text-left max-w-2xl mb-12">
-        I design and build high-performance products that drive business growth. 
-        Ready to turn your vision into a production-grade reality?
+        3rd-year NIT Patna undergrad available for Winter 2026 &amp; Summer 2027 SWE / AI Internships. 
+        Let&apos;s discuss how I can contribute to your stack.
       </p>
       
       <div className="w-full">
@@ -32,12 +32,12 @@ export function FooterHero() {
             {/* Text Content */}
             <div className="text-left flex-1 flex flex-col justify-center overflow-hidden">
               <h4 className="font-heading text-2xl md:text-4xl text-foreground mb-3 uppercase tracking-tighter leading-tight">
-                Book a Strategy Call
+                Schedule an Interview
               </h4>
               <div className="flex items-center gap-3">
                 <span className="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse shadow-[0_0_10px_rgba(34,197,94,0.5)]" />
                 <p className="font-body text-[10px] md:text-xs text-primary uppercase tracking-[0.3em] font-bold">
-                  15 MIN • VIDEO CALL
+                  15 MIN • INTRO / TECH CHAT
                 </p>
               </div>
             </div>

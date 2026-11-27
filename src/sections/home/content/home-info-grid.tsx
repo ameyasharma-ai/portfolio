@@ -43,7 +43,7 @@ export function HomeInfoGrid({ children }: { children?: React.ReactNode }) {
           {/* Section 1: Connect & Email */}
           <div className="flex-1 flex items-center gap-4 px-6 py-2 md:py-0 w-full md:w-auto">
             <ArrowButton onClick={handleConnectClick} className="scale-90 md:scale-100">
-              let's connect
+              hire me
             </ArrowButton>
             
             <div className="h-8 w-[1px] bg-white/10 hidden md:block" />
@@ -76,8 +76,8 @@ export function HomeInfoGrid({ children }: { children?: React.ReactNode }) {
                 <Info className="w-4 h-4 text-primary" />
              </div>
              <p className="font-body font-light text-[11px] md:text-xs xl:text-sm text-muted-foreground leading-snug">
-                Building fast, scalable <br className="hidden md:block" />
-                AI-integrated products.
+                Winter &apos;26 – Summer &apos;27 <br className="hidden md:block" />
+                SWE &amp; AI Internships.
              </p>
           </div>
 

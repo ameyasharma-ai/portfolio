@@ -43,13 +43,13 @@ export function MobileHome() {
         {/* Role Tag */}
         <div className="px-4 py-2 bg-primary/10 border border-primary/20 rounded-full mb-10">
           <p className="font-heading text-[10px] text-primary tracking-[0.4em] uppercase">
-            AI Systems Engineer
+            Full-Stack &amp; AI Engineer
           </p>
         </div>
 
         {/* Description */}
         <p className="font-body text-lg text-muted-foreground leading-relaxed mb-16 max-w-[300px] font-light">
-          Architecting high-performance <span className="text-foreground">AI ecosystems</span> and scalable digital products.
+          NIT Patna &apos;28 (8.5 CGPA) • Shipping <span className="text-foreground">real-time voice AI</span> &amp; scalable TypeScript/Python backends.
         </p>
 
         {/* Action Buttons */}
@@ -58,7 +58,7 @@ export function MobileHome() {
             onClick={handleConnectClick}
             className="w-full py-5 bg-foreground text-background rounded-2xl font-heading text-xs uppercase tracking-[0.2em] shadow-2xl shadow-primary/10 active:scale-95 transition-transform"
           >
-            Start a Project
+            Hire / Contact Me
           </button>
           <a
             href="/resume.pdf"

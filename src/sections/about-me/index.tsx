@@ -23,13 +23,13 @@ export function AboutMe() {
           >
             <div className="flex-1 bg-primary/5 border border-primary/20 rounded-[3rem] p-8 flex flex-col justify-center">
               <h3 className="font-heading text-xs uppercase tracking-[0.3em] text-primary mb-6">
-                Why Hire Me?
+                Engineering Proof
               </h3>
               <ul className="space-y-6">
                 {[
-                  { t: "Business Outcomes", d: "I bridge the gap between complex AI and actual revenue growth." },
-                  { t: "Rapid Execution", d: "From idea to production-grade product in weeks, not months." },
-                  { t: "Premium Quality", d: "Clean, scalable architecture designed for long-term growth." }
+                  { t: "Real-Time AI & Voice", d: "Sub-1.5s WebSocket voice streaming (Groot OS) & 10+ LLM failover routing." },
+                  { t: "Measurable Performance", d: "Lighthouse 68 → 94 at Pixalytix & 32% lower SQL latency at GDSC NITP." },
+                  { t: "Production Ownership", d: "1,614+ GitHub commits across 22 repos with automated Vercel CI/CD." }
                 ].map((item, i) => (
                   <li key={i} className="space-y-1">
                     <p className="font-heading text-lg text-foreground uppercase tracking-tight">{item.t}</p>
@@ -40,8 +40,8 @@ export function AboutMe() {
             </div>
 
             <AchievementCard
-              title={<>PATENT WINNER</>}
-              description="IP Hatch Global Winner 2023 | AI Systems"
+              title={<>NIT PATNA &apos;28</>}
+              description="B.Tech Mechanical (8.5 CGPA) • Prev. Pixalytix SWE Intern"
               className="h-32"
             />
           </div>

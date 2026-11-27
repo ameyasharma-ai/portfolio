@@ -55,7 +55,7 @@ export function HomeTitle() {
               <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
             </span>
             <TextShimmer className="text-[10px] md:text-xs font-heading uppercase tracking-widest">
-              Available for Q2 Projects
+              Open for Winter 2026 & Summer 2027 SWE / AI Internships
             </TextShimmer>
           </motion.div>
 
@@ -63,17 +63,17 @@ export function HomeTitle() {
             variants={itemVariants}
             className="font-heading text-left text-[clamp(2rem,7vw,4.5rem)] leading-[0.9] tracking-tight text-foreground"
           >
-            I build high-performance <br />
-            <span className="text-gradient">AI & Web Products</span> <br />
-            that drive growth.
+            Engineering low-latency <br />
+            <span className="text-gradient">AI Systems & Web</span> <br />
+            ready for production.
           </motion.h1>
 
           <motion.p 
             variants={itemVariants}
             className="mt-6 text-left text-base md:text-lg text-muted-foreground max-w-2xl font-body font-light leading-relaxed"
           >
-            Premium full-stack development for startups and ambitious founders. 
-            I help businesses launch scalable AI systems and production-grade web applications in weeks, not months.
+            Ameya Sharma — 3rd-year B.Tech undergrad at NIT Patna (8.5 CGPA) &amp; prev. SWE Intern at Pixalytix.
+            Shipping sub-1.5s WebSocket voice AI, real-time collaborative tooling, and TypeScript/Python backends.
           </motion.p>
 
           <motion.div 
@@ -88,7 +88,7 @@ export function HomeTitle() {
                 hover:bg-primary/90 hover:scale-[1.02]
                 active:scale-95 transition-all duration-300 cursor-pointer overflow-hidden"
             >
-              <span className="relative z-10">Start a Project</span>
+              <span className="relative z-10">Hire / Contact Me</span>
               <div className="absolute inset-0 bg-white/10 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500" />
             </button>
 
@@ -99,7 +99,7 @@ export function HomeTitle() {
                 hover:bg-primary/5 hover:border-primary/40
                 active:scale-95 transition-all duration-300 cursor-pointer"
             >
-              View My Work
+              View Case Studies
             </button>
 
             <a
@@ -111,7 +111,7 @@ export function HomeTitle() {
                 hover:bg-primary/10 hover:border-primary/30
                 active:scale-95 transition-all duration-300 cursor-pointer inline-flex items-center gap-2"
             >
-              Resume
+              1-Page Resume
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-external-link"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
             </a>
 
@@ -121,9 +121,9 @@ export function HomeTitle() {
             variants={itemVariants}
             className="mt-6 flex items-center gap-6 text-[11px] md:text-xs uppercase tracking-[0.2em] text-muted-foreground font-heading"
           >
-            <span>• Fast Delivery</span>
-            <span>• Scalable Code</span>
-            <span>• Performance First</span>
+            <span>• NIT Patna (8.5 CGPA)</span>
+            <span>• 1,614+ Commits</span>
+            <span>• Sub-1.5s Voice AI</span>
           </motion.div>
 
       </div>

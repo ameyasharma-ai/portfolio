@@ -50,15 +50,15 @@ export function AvailabilityStatus() {
             }}
           />
         </div>
-        <span className="text-foreground font-medium">Available now</span>
+        <span className="text-foreground font-medium">Open to SWE &amp; AI Roles</span>
       </div>
 
       <div className="flex flex-wrap items-center gap-x-2 gap-y-1 opacity-60">
-        <span>India</span>
+        <span>NIT Patna</span>
         <span>•</span>
         <span>{currentTime} IST</span>
         <span className="hidden xl:inline">•</span>
-        <span className="hidden xl:inline">Global projects</span>
+        <span className="hidden xl:inline">Relocation / Remote</span>
       </div>
     </div>
   );
