@@ -100,7 +100,7 @@ export function GlobalDrawer() {
                   >
                     <div className="flex items-center gap-4">
                       <Calendar className="w-5 h-5" />
-                      <span>Schedule Strategy Call</span>
+                      <span>Schedule Interview Call</span>
                     </div>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </button>
@@ -138,7 +138,7 @@ export function GlobalDrawer() {
                           <div className="flex-1 min-h-0 my-4 flex flex-col">
                             <textarea
                               name="message"
-                              placeholder="Project details..."
+                              placeholder="Role, team, or interview details..."
                               required
                               className="w-full flex-1 bg-white/[0.02] border border-white/5 rounded-xl p-4 focus:border-primary/50 outline-none transition-all font-body text-sm font-light resize-none"
                             />
@@ -172,10 +172,10 @@ export function GlobalDrawer() {
                 
                 <div className="relative z-10">
                   <h2 className="font-heading text-5xl text-foreground mb-3 uppercase tracking-tighter leading-none">
-                    Ready to <span className="text-primary italic">launch</span> <br /> your vision?
+                    Hiring for <span className="text-primary italic">SWE</span> <br /> or AI Interns?
                   </h2>
                   <p className="font-body text-base text-muted-foreground mb-6 font-light leading-relaxed max-w-xl">
-                    Architecting high-performance digital products with technical precision.
+                    3rd-year NIT Patna undergrad (8.5 CGPA) • Open for Winter 2026 &amp; Summer 2027 engineering teams.
                   </p>
 
                   <button 

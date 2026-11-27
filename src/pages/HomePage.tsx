@@ -10,8 +10,6 @@ import { motion, AnimatePresence } from "framer-motion";
 // Static imports — all sections are eagerly loaded and rendered during the
 // preloader phase (2.5s+) so the browser can rasterize/paint them upfront.
 // This eliminates first-scroll jank caused by deferred paint of lazy chunks.
-import { ResultsBanner, ProcessBridge, MarketDominator } from "@/components/ui/conversion-funnel";
-import { ServicesSection } from "@/sections/services";
 import { CaseStudies } from "@/sections/case-studies";
 import { Skills } from "@/sections/skills";
 import { AboutMe } from "@/sections/about-me";
@@ -60,9 +58,9 @@ export function HomePage() {
   return (
     <>
       <SEO 
-        title="Ameya Sharma | Premium AI & Web Developer for Hire"
-        description="Build high-performance AI systems and scalable web applications that drive growth. Premium full-stack development for ambitious startups and founders."
-        url="https://www.kolzo.in"
+        title="Ameya Sharma | Full-Stack & AI Systems Engineer"
+        description="3rd-year B.Tech undergrad at NIT Patna (8.5 CGPA) building real-time voice AI, collaborative developer tools, and Python/TypeScript backends. Open to SWE & AI internships."
+        url="https://ameyasharma.me"
         jsonLd={structuredData}
       />
       
@@ -80,13 +78,9 @@ export function HomePage() {
         <NavBar />
         <main>
           <Home />
-          <ResultsBanner />
-          <ServicesSection />
-          <ProcessBridge />
-          <CaseStudies />
-          <MarketDominator />
-          <Skills />
           <AboutMe />
+          <Skills />
+          <CaseStudies />
           <Footer />
         </main>
       </div>

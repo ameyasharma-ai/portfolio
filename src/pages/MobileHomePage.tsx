@@ -1,12 +1,10 @@
 import { MobileHome } from "@/sections/home-mobile";
-import { ServicesSection } from "@/sections/services";
 import { CaseStudiesMobile } from "@/sections/case-studies-mobile";
 import { SkillsMobile } from "@/sections/skills-mobile";
 import { AboutMeMobile } from "@/sections/about-me-mobile";
 import { MobileFooter } from "@/sections/footer-mobile";
 import { Sidebar } from "@/components/navigation/sidebar/sidebar";
 import { ProgressiveBlur } from "@/components/ui/progressive-blur";
-import { ResultsBanner, ProcessBridge, MarketDominator } from "@/components/ui/conversion-funnel";
 import { useEffect, useState } from "react";
 import { globalLenis } from "@/components/providers/smooth-scroll-provider";
 import { motion, AnimatePresence } from "framer-motion";
@@ -80,22 +78,14 @@ export function MobileHomePage() {
           {/* Mobile Home Section */}
           <MobileHome />
 
-          <ResultsBanner className="py-20" />
-          
-          <ServicesSection />
-
-          <ProcessBridge className="py-20" />
-          
-          {/* Mobile Case Studies Section */}
-          <CaseStudiesMobile />
-
-          <MarketDominator className="py-20" />
+          {/* Mobile About Me Section */}
+          <AboutMeMobile />
 
           {/* Mobile Skills Section */}
           <SkillsMobile />
 
-          {/* Mobile About Me Section */}
-          <AboutMeMobile />
+          {/* Mobile Case Studies Section */}
+          <CaseStudiesMobile />
 
           {/* Mobile Footer Section */}
           <MobileFooter />
